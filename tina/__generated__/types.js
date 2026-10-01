@@ -44,7 +44,6 @@ export const PagePartsFragmentDoc = gql`
       name
       price
       duration
-      clientNotice
       description
       deliverables
       examples {

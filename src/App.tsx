@@ -67,7 +67,6 @@ const PAGE_CONTENT_QUERY = `
           name
           price
           duration
-          clientNotice
           description
           deliverables
           calSlug
@@ -175,7 +174,7 @@ function ServiceCard({
   const sId = service.id || `service-${index}`;
   const sName = service.name || "Therapy Session";
   const sPrice = service.price || "$80 / Session";
-  const sDuration = service.duration || "50 mins";
+  const sDuration = service.duration || "60 mins";
   const sDescription =
     service.description ||
     "Tailored, relational therapy session focusing on the present moment.";
@@ -189,11 +188,8 @@ function ServiceCard({
       <div className="flex flex-col h-full justify-between">
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <span
-              data-tina-field={tinaField(service, "clientNotice")}
-              className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-stone-100 text-stone-700 font-sans border border-stone-200"
-            >
-              {service.clientNotice || "Existing Patients Only"}
+            <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-stone-100 text-stone-700 font-sans border border-stone-200">
+              Existing Patients Only
             </span>
             <div
               data-tina-field={tinaField(service, "duration")}

@@ -36,7 +36,6 @@ fragment PageParts on Page {
       name
       price
       duration
-      clientNotice
       description
       deliverables
       examples {

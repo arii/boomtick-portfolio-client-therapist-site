@@ -128,7 +128,6 @@ type PageServicesServicesList {
   name: String!
   price: String!
   duration: String
-  clientNotice: String
   description: String
   deliverables: [String]
   examples: [PageServicesServicesListExamples]
@@ -303,7 +302,6 @@ input PageServicesServicesListFilter {
   name: StringFilter
   price: StringFilter
   duration: StringFilter
-  clientNotice: StringFilter
   description: StringFilter
   deliverables: StringFilter
   examples: PageServicesServicesListExamplesFilter
@@ -510,7 +508,6 @@ input PageServicesServicesListMutation {
   name: String
   price: String
   duration: String
-  clientNotice: String
   description: String
   deliverables: [String]
   examples: [PageServicesServicesListExamplesMutation]

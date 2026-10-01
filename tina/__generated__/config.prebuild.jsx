@@ -240,12 +240,6 @@ var config_default = defineConfig({
                   },
                   {
                     type: "string",
-                    name: "clientNotice",
-                    label: "Patient Eligibility Tag",
-                    description: "Client eligibility badge (e.g. 'Existing Patients Only')"
-                  },
-                  {
-                    type: "string",
                     name: "description",
                     label: "Short Description",
                     description: "Overview of therapeutic approach, goals, and session format",
