@@ -1,0 +1,98 @@
+{
+  "sectionTitle": "Services & Pricing",
+  "pricingNote": "",
+  "servicesList": [
+    {
+      "id": "curly-cut-finish",
+      "name": "Curly Cut & Styled Finish",
+      "price": "$100",
+      "duration": "60 mins",
+      "description": "Custom wet and or dry-cutting tailored to your unique curl pattern and density. Includes wash, deep conditioning, and step-by-step styling coaching.",
+      "deliverables": [
+        "In-depth texture and lifestyle consultation",
+        "Combination wet and or dry precision curl-by-curl shaping",
+        "Diffused styling and home maintenance coaching"
+      ],
+      "calSlug": "60min",
+      "examples": [
+        {
+          "image": "/assets/curly-cut-natural-texture.jpeg",
+          "styleLabel": "Natural Texture Shaping",
+          "alt": "Expert natural curly cut with defined curl ringlets"
+        },
+        {
+          "image": "/assets/curly-cut-layered-lob.jpeg",
+          "styleLabel": "Layered Texture Cut",
+          "alt": "Layered natural hair shaping style"
+        },
+        {
+          "image": "/assets/curly-cut-bouncy-coils.png",
+          "styleLabel": "Bouncy Spring Curls",
+          "alt": "Beautiful springy texture and volume"
+        }
+      ]
+    },
+    {
+      "id": "vintage-set-updo",
+      "name": "Vintage Styling & Classic Updos",
+      "price": "$125",
+      "duration": "60 mins",
+      "description": "Authentic victory rolls, retro waves, and pin-up styling crafted for longevity, events, swing dancing, and photo shoots.",
+      "deliverables": [
+        "Period-accurate styling consultation",
+        "Precision pin placement and structural setting",
+        "Longevity finish designed for all-day wear",
+        "Accessories and hairpiece placement if needed"
+      ],
+      "calSlug": "60min",
+      "examples": [
+        {
+          "image": "/assets/vintage-victory-rolls.jpeg",
+          "styleLabel": "1940s Victory Rolls",
+          "alt": "Perfect precision victory rolls vintage style"
+        },
+        {
+          "image": "/assets/vintage-hollywood-waves.jpeg",
+          "styleLabel": "Classic Hollywood Waves",
+          "alt": "Glossy sculpted retro Hollywood finger waves"
+        },
+        {
+          "image": "/assets/vintage-pinup-updo-styling.jpeg",
+          "styleLabel": "Retro Pin-up Updo",
+          "alt": "Stunning vintage updo styling"
+        }
+      ]
+    },
+    {
+      "id": "general-haircut",
+      "name": "General Haircut & Styled Finish",
+      "price": "$100",
+      "duration": "60 mins",
+      "description": "Consultation and personalized haircut. Tips for everyday styling and product recommendations.",
+      "deliverables": [
+        "Personalized hair & texture consultation",
+        "Professional washing & conditioning treatment",
+        "Precision haircut customized for your lifestyle",
+        "Expert blow-dry and finished look"
+      ],
+      "calSlug": "60min",
+      "examples": [
+        {
+          "image": "/assets/fine-hair-precision-cut.jpeg",
+          "styleLabel": "Blunt Cut • Fine Density",
+          "alt": "Precision blunt perimeter cut with texturizing for fine hair"
+        },
+        {
+          "image": "/assets/general-haircut-classic-bob.jpeg",
+          "styleLabel": "Classic Bob Trim",
+          "alt": "Clean customized layered bob haircut"
+        },
+        {
+          "image": "/assets/general-haircut-face-framing-layers.jpeg",
+          "styleLabel": "Soft Face-Framing Layers",
+          "alt": "Textured precision face framing cut"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Wrangler and Cloudflare Pages
+.wrangler/
+.cloudflare/
+
+# TinaCMS
+# Keep tina/__generated__ and tina/tina-lock.json tracked in git for TinaCloud schema sync
+.tina/
+public/admin/index.html
+public/admin/assets/
+
+bun.lock
+bun.lockb
+bun-lockb
+
+# Local IDEs / Editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+

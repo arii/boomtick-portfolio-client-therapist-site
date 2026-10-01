@@ -1,0 +1,233 @@
+{
+  "hero": {
+    "badge": "Pre-Licensed Professional • Supervised by Derek Pehle, PsyD #21361",
+    "headline": "Honoring what is, embracing what can be.",
+    "subheading": "Holistic, relational, and integrative therapy for individuals and couples in San Francisco and online across California.",
+    "availabilityNotice": "In-Person Sessions at Church St Integral Counseling Center (Mon–Thu) & Telehealth across California."
+  },
+  "services": {
+    "sectionTitle": "Services & Fees",
+    "pricingNote": "In-person appointments in San Francisco (1782 Church St) & Telehealth online across California.",
+    "servicesList": [
+      {
+        "id": "individual-therapy",
+        "name": "Individual Therapy",
+        "price": "$80 / Session",
+        "duration": "50 mins",
+        "description": "In-person in San Francisco or online via Telehealth. Tailored, holistic support focusing on the here and now, bringing gentle awareness to present-moment experience.",
+        "deliverables": [
+          "Present-moment awareness & somatic exploration",
+          "Support for life transitions, anxiety, ADHD & trauma",
+          "In-person at 1782 Church St or secure Telehealth across CA"
+        ],
+        "examples": [
+          {
+            "image": "/assets/session-room-1.jpeg",
+            "styleLabel": "San Francisco Office",
+            "alt": "Comfortable, serene therapy office in San Francisco"
+          },
+          {
+            "image": "/assets/tea-room.jpeg",
+            "styleLabel": "Welcoming Environment",
+            "alt": "Peaceful tea room and waiting area"
+          }
+        ],
+        "calSlug": "consultation-15min"
+      },
+      {
+        "id": "couples-therapy",
+        "name": "Couples & Relational Therapy",
+        "price": "$80 / Session",
+        "duration": "50 mins",
+        "description": "Relational and integrative support for couples and partners navigating life transitions, communication patterns, intimacy, and deeper connection.",
+        "deliverables": [
+          "Collaborative communication tools & pattern awareness",
+          "Polyamory, ENM, kink & LGBTQIA+ affirming",
+          "Navigating relationship growth and transitions"
+        ],
+        "examples": [
+          {
+            "image": "/assets/session-room-2.jpeg",
+            "styleLabel": "Couples Consultation Space",
+            "alt": "Supportive and calm couples therapy environment"
+          },
+          {
+            "image": "/assets/session-room-1.jpeg",
+            "styleLabel": "Church St Office",
+            "alt": "Therapeutic space at Church St Integral Counseling Center"
+          }
+        ],
+        "calSlug": "consultation-15min"
+      }
+    ]
+  },
+  "portfolio": {
+    "heroImage": "/assets/marcella-headshot.jpeg",
+    "ogImage": "/assets/og-cover.png",
+    "ogImageAlt": "Marcella Mission Therapy - Holistic Individual & Couples Therapy in San Francisco",
+    "portfolioList": [
+      {
+        "title": "Quiet Session Space",
+        "id": "session-room-1",
+        "image": "/assets/session-room-1.jpeg",
+        "alt": "Warm and inviting therapy session room with natural light",
+        "tag": "Practice Space",
+        "images": ["/assets/session-room-2.jpeg", "/assets/tea-room.jpeg"]
+      },
+      {
+        "title": "Welcoming Tea Room",
+        "id": "tea-room",
+        "image": "/assets/tea-room.jpeg",
+        "alt": "Calming tea room and waiting space at Church Street Integral Counseling Center",
+        "tag": "Office Setting",
+        "images": ["/assets/session-room-1.jpeg", "/assets/session-room-2.jpeg"]
+      },
+      {
+        "title": "Relational & Somatic Focus",
+        "id": "relational-approach",
+        "image": "/assets/session-room-2.jpeg",
+        "alt": "Thoughtfully arranged therapeutic consultation room",
+        "tag": "Therapeutic Approach",
+        "images": ["/assets/tea-room.jpeg", "/assets/session-room-1.jpeg"]
+      },
+      {
+        "title": "Marcella Mission, MFT Trainee",
+        "id": "marcella-headshot",
+        "image": "/assets/marcella-headshot.jpeg",
+        "alt": "Marcella Mission, Pre-Licensed Professional therapist",
+        "tag": "About Marcella",
+        "images": ["/assets/session-room-1.jpeg", "/assets/tea-room.jpeg"]
+      }
+    ]
+  },
+  "faq": {
+    "sectionTitle": "Frequently Asked Questions",
+    "sectionSubtitle": "Everything you need to know about getting started, credentials, and appointments.",
+    "faqList": [
+      {
+        "question": "How does the free 15-minute consultation call work?",
+        "answer": "Our initial 15-minute consultation is a relaxed conversation by phone or video. It gives us a chance to connect, briefly discuss what you are looking for in therapy, answer your questions, and ensure my holistic, relational approach feels like a comfortable fit for your goals."
+      },
+      {
+        "question": "What does 'Pre-Licensed Professional' mean?",
+        "answer": "As a Marriage and Family Therapist (MFT) Trainee and Professional Clinical Counselor (PCC) Trainee at Church Street Integral Counseling Center, I have over a decade of experience studying psychology and human behavior at NLP Marin. Under California law, I practice under the direct clinical supervision of Dr. Derek Pehle, PsyD (CA License #21361), ensuring the highest ethical and clinical standards."
+      },
+      {
+        "question": "What are your session rates and do you accept insurance?",
+        "answer": "Standard session fees are $80 per 50-minute appointment for both individual and couples therapy. I do not bill health insurance directly; however, upon request, I can provide a monthly Superbill statement that you can submit to your insurance provider for potential out-of-network reimbursement."
+      },
+      {
+        "question": "Where are sessions located and do you offer Telehealth?",
+        "answer": "In-person sessions take place Mondays through Thursdays at 1782 Church Street in San Francisco (Church Street Integral Counseling Center, located in the Noe Valley / Bernal area). Secure Telehealth video sessions are also available for individuals and couples residing anywhere in the state of California."
+      },
+      {
+        "question": "How do existing clients book recurring appointments?",
+        "answer": "To protect client confidentiality and guarantee your weekly time slot, full paid sessions are scheduled directly with Marcella following your initial 15-minute consultation. Established clients can easily reschedule or coordinate times via direct text, phone call, or secure email."
+      }
+    ]
+  },
+  "events": {
+    "title": "Let's Connect",
+    "description": "Call, text, or use the form below to schedule a free 15-minute consultation call to see if we're a good fit.",
+    "showForm": true,
+    "formFields": [
+      {
+        "label": "First Name",
+        "fieldType": "text",
+        "placeholder": "Your first name",
+        "required": true,
+        "_template": "inputField"
+      },
+      {
+        "label": "Last Name",
+        "fieldType": "text",
+        "placeholder": "Your last name",
+        "required": true,
+        "_template": "inputField"
+      },
+      {
+        "label": "Email Address",
+        "fieldType": "email",
+        "placeholder": "name@example.com",
+        "required": true,
+        "_template": "inputField"
+      },
+      {
+        "label": "Phone Number",
+        "fieldType": "tel",
+        "placeholder": "(415) 373-6223",
+        "required": true,
+        "_template": "inputField"
+      },
+      {
+        "label": "Preferred Session Format",
+        "options": [
+          "Telehealth (Online Video across California)",
+          "In-Person (1782 Church St, San Francisco)",
+          "Either / Open to Discussion"
+        ],
+        "required": true,
+        "_template": "selectField"
+      },
+      {
+        "label": "What is bringing you to therapy at this moment?",
+        "placeholder": "Briefly share what you'd like support with (e.g., life transitions, anxiety, relationship communication)...",
+        "required": false,
+        "_template": "textareaField"
+      },
+      {
+        "label": "Communication Consent",
+        "options": [
+          "I consent to be contacted via text or email regarding this inquiry",
+          "Please contact me by email only",
+          "Please contact me by phone call only"
+        ],
+        "required": true,
+        "_template": "selectField"
+      }
+    ],
+    "formOptions": {
+      "submitButtonText": "REQUEST 15-MIN CONSULTATION"
+    }
+  },
+  "site": {
+    "studioName": "Marcella Mission Therapy",
+    "stylistName": "Marcella Mission",
+    "title": "Marcella Mission Therapy | Holistic Therapy in San Francisco & Online CA",
+    "description": "Holistic, relational, and integrative therapy for individuals and couples in San Francisco and online across California. Pre-Licensed Professional supervised by Derek Pehle, PsyD #21361.",
+    "keywords": [
+      "therapy San Francisco",
+      "Marcella Mission therapy",
+      "holistic therapist SF",
+      "couples therapy San Francisco",
+      "telehealth therapist California",
+      "relational therapy",
+      "ADHD therapist SF",
+      "polyamory affirming therapy",
+      "Church Street Integral Counseling Center",
+      "Derek Pehle PsyD supervisor"
+    ],
+    "email": "marcella.mission.therapy@gmail.com",
+    "phone": "415-373-6223",
+    "instagramHandle": "",
+    "locationDisplay": "1782 Church St, San Francisco, CA 94131",
+    "calUsername": "marcellamission",
+    "calDefaultSlug": "consultation-15min",
+    "address": {
+      "locality": "San Francisco",
+      "region": "CA",
+      "country": "US"
+    },
+    "geo": {
+      "latitude": 37.7424,
+      "longitude": -122.4278
+    },
+    "areaServed": ["San Francisco", "California (Telehealth)"],
+    "openingDays": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+    "openingHours": {
+      "opens": "09:00",
+      "closes": "19:00"
+    },
+    "priceRange": "$"
+  }
+}
