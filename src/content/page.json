@@ -262,15 +262,15 @@
       "California (Telehealth)"
     ],
     "openingDays": [
+      "Sunday",
       "Monday",
       "Tuesday",
-      "Wednesday",
-      "Thursday"
+      "Wednesday"
     ],
     "openingHours": {
       "opens": "09:00",
       "closes": "19:00"
     },
-    "priceRange": "$"
+    "priceRange": "$80"
   }
 }
