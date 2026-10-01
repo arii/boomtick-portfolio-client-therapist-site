@@ -1,9 +1,9 @@
 {
   "hero": {
-    "badge": "Pre-Licensed Professional • Supervised by Derek Pehle, PsyD #21361",
+    "badge": "AMFT and APCC • Supervised by Derek Pehle, PsyD #21361",
     "headline": "Marcella Mission Therapy",
-    "subheading": "Holistic, relational, and integrative therapy for individuals and couples. Bringing gentle awareness to the present moment to engage the structures that keep unwanted experiences in place.",
-    "availabilityNotice": "Taking on new clients: In-Person in San Francisco (Mon–Thu at 1782 Church St) & Telehealth across California."
+    "subheading": "Associate Marriage and Family Therapist and Associate Professional Clinical Counselor at Church St Integral Counseling Center in Noe Valley, San Francisco, supervised by Derek Pehle, PsyD Lic 21361 \nHolistic, relational, and integrative therapy for individuals, couples and teens. Bringing gentle awareness to the present moment to engage the structures that keep unwanted experiences in place.",
+    "availabilityNotice": "Taking on new clients: In-Person in San Francisco (Sunday and Tuesday at 1782 Church St) & Telehealth across California Sunday, Monday and Tuesdays"
   },
   "about": {
     "badge": "About Marcella Mission",
@@ -53,11 +53,9 @@
     "pricingNote": "In-person appointments in San Francisco (Noe Valley) & Telehealth online across California. 60-minute therapy appointments are for existing patients only.",
     "servicesList": [
       {
-        "id": "individual-therapy",
         "name": "Individual Therapy (Existing Patients)",
         "price": "$80 / Session",
         "duration": "60 mins",
-        "clientNotice": "Existing Patients Only",
         "description": "In-person in San Francisco or online via Telehealth. 60-minute tailored, holistic support focusing on the here and now, bringing gentle awareness to present-moment experience. Reserved for active, ongoing clients.",
         "deliverables": [
           "60-Minute in-person (Noe Valley) or statewide Telehealth",
@@ -76,14 +74,13 @@
             "alt": "Peaceful tea room and waiting area"
           }
         ],
+        "id": "individual-therapy",
         "calSlug": "consultation-15min"
       },
       {
-        "id": "couples-therapy",
         "name": "Couples & Relational Therapy (Existing Patients)",
         "price": "$80 / Session",
         "duration": "60 mins",
-        "clientNotice": "Existing Patients Only",
         "description": "Relational and integrative 60-minute support for couples and partners navigating life transitions, communication patterns, intimacy, and deeper connection. Reserved for active, ongoing clients.",
         "deliverables": [
           "60-Minute couples session in SF or online",
@@ -102,6 +99,7 @@
             "alt": "Therapeutic space at Church St Integral Counseling Center"
           }
         ],
+        "id": "couples-therapy",
         "calSlug": "consultation-15min"
       }
     ]
@@ -117,7 +115,10 @@
         "image": "/assets/exterior-victorian.jpeg",
         "alt": "1782 Church Street Victorian building exterior at Church Street Integral Counseling Center in Noe Valley",
         "tag": "Noe Valley Office",
-        "images": ["/assets/exterior-victorian.jpeg", "/assets/tea-room.jpeg"]
+        "images": [
+          "/assets/exterior-victorian.jpeg",
+          "/assets/tea-room.jpeg"
+        ]
       },
       {
         "title": "Serene Therapy Practice Space",
@@ -125,7 +126,10 @@
         "image": "/assets/session-room-1.jpeg",
         "alt": "Comfortable, serene therapy session room with natural light",
         "tag": "Practice Rooms",
-        "images": ["/assets/session-room-1.jpeg", "/assets/session-room-2.jpeg"]
+        "images": [
+          "/assets/session-room-1.jpeg",
+          "/assets/session-room-2.jpeg"
+        ]
       }
     ]
   },
@@ -253,8 +257,16 @@
       "latitude": 37.7424,
       "longitude": -122.4278
     },
-    "areaServed": ["San Francisco", "California (Telehealth)"],
-    "openingDays": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+    "areaServed": [
+      "San Francisco",
+      "California (Telehealth)"
+    ],
+    "openingDays": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday"
+    ],
     "openingHours": {
       "opens": "09:00",
       "closes": "19:00"
