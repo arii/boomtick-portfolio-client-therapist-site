@@ -92,6 +92,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             title={`Schedule a consultation with ${stylistName}`}
             className="w-full h-full min-h-[400px] border-0"
             loading="lazy"
+            allow="clipboard-read; clipboard-write"
           />
         </div>
 
