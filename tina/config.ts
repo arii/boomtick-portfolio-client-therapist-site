@@ -102,6 +102,127 @@ export default defineConfig({
             ],
           },
 
+          // 1.5 ABOUT & CLINICAL PHILOSOPHY SECTION
+          {
+            type: "object",
+            name: "about",
+            label: "About Marcella & Clinical Philosophy",
+            fields: [
+              {
+                type: "string",
+                name: "badge",
+                label: "Section Badge Tag",
+                description:
+                  "Small badge displayed above the bio (e.g. 'About Marcella Mission')",
+              },
+              {
+                type: "string",
+                name: "psychologyTodayText",
+                label: "Psychology Today Verification Label",
+                description: "Label for the Psychology Today link",
+              },
+              {
+                type: "string",
+                name: "psychologyTodayUrl",
+                label: "Psychology Today Profile URL",
+                description: "Direct link to verified profile",
+              },
+              {
+                type: "string",
+                name: "quoteHeadline",
+                label: "Opening Philosophy Quote",
+                description:
+                  "Featured quote setting the therapeutic tone and orientation",
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "bioParagraphs",
+                label: "Narrative Biography Paragraphs",
+                list: true,
+                description:
+                  "Paragraphs detailing psychology study at NLP Marin, training at Church St ICC, supervised by Derek Pehle PsyD #21361, and session formats",
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "closingAffirmationQuote",
+                label: "Closing Affirmation Callout Quote",
+                description:
+                  "Affirmation acknowledging the energy it takes to reach out for support",
+                ui: { component: "textarea" },
+              },
+              {
+                type: "object",
+                name: "pillars",
+                label: "Therapy Pillars (3 Cards)",
+                list: true,
+                ui: {
+                  itemProps: (item: any) => ({
+                    label: item?.title || "Philosophy Pillar",
+                  }),
+                },
+                fields: [
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Pillar Title (e.g. Relational & Present)",
+                    required: true,
+                  },
+                  {
+                    type: "string",
+                    name: "description",
+                    label: "Pillar Description",
+                    required: true,
+                    ui: { component: "textarea" },
+                  },
+                  {
+                    type: "string",
+                    name: "icon",
+                    label: "Icon Name",
+                    options: [
+                      "Heart",
+                      "Compass",
+                      "Sparkles",
+                      "Flower2",
+                      "ShieldCheck",
+                    ],
+                  },
+                ],
+              },
+              {
+                type: "string",
+                name: "specialtiesTitle",
+                label: "Specialties Section Title",
+                description:
+                  "Section title for clinical specialties and focus areas",
+              },
+              {
+                type: "string",
+                name: "specialties",
+                label: "Areas of Clinical Focus & Specialty",
+                list: true,
+                description:
+                  "List of specialties (Life Transitions, Depression & Anxiety, ADHD & Neurodivergence, Polyamory & ENM, Kink & Sex-Positive, Trauma, Addiction, Couples)",
+              },
+              {
+                type: "string",
+                name: "locationHeader",
+                label: "Space Gallery Subheader",
+              },
+              {
+                type: "string",
+                name: "locationTitle",
+                label: "Space Gallery Practice Title",
+              },
+              {
+                type: "string",
+                name: "locationSubtitle",
+                label: "Space Gallery Physical Address Subtitle",
+              },
+            ],
+          },
+
           // 2. SERVICES & PRICING
           {
             type: "object",

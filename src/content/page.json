@@ -5,6 +5,49 @@
     "subheading": "Holistic, relational, and integrative therapy for individuals and couples. Bringing gentle awareness to the present moment to engage the structures that keep unwanted experiences in place.",
     "availabilityNotice": "Taking on new clients: In-Person in San Francisco (Mon–Thu at 1782 Church St) & Telehealth across California."
   },
+  "about": {
+    "badge": "About Marcella Mission",
+    "psychologyTodayText": "Verified on Psychology Today",
+    "psychologyTodayUrl": "https://www.psychologytoday.com/us/therapists/marcella-shehadeh-mission-san-francisco-ca/1615567",
+    "quoteHeadline": "“I work to honor what is and embrace what can be by bringing awareness to the present moment.”",
+    "bioParagraphs": [
+      "I have been studying psychology and working with clients at NLP Marin for over a decade. I'm a Professional Clinical Counselor and Marriage and Family Therapist Trainee at Church St Integral Counseling Center in Noe Valley, San Francisco, supervised by Derek Pehle, PsyD (CA License #21361).",
+      "By focusing on the here and now, we start to gently engage the internal structures that keep unwanted experiences in place. I work with individuals and couples seeking support around life transitions, depression, anxiety, ADHD, polyamory, kink, addiction, and trauma.",
+      "I am currently taking on new clients who live in California for online sessions or in-person sessions Mondays through Thursdays in San Francisco. Our work together will be holistic, relational, integrative, and tailored for what works best for you."
+    ],
+    "closingAffirmationQuote": "“Finally, I would like to acknowledge the energy it takes to reach for change and support. Sorting through helpers and healers is a big first reach; whether this is your first time in therapy or a continuation of your journey, you are on your way.”",
+    "pillars": [
+      {
+        "title": "Relational & Present",
+        "description": "We explore feelings and relational patterns as they arise in real time, creating genuine space for insight, self-compassion, and meaningful transformation.",
+        "icon": "Heart"
+      },
+      {
+        "title": "Holistic & Somatic",
+        "description": "Bridging cognitive understanding with bodily sensations and somatic wisdom to help release stress, navigate trauma, and ground your nervous system.",
+        "icon": "Compass"
+      },
+      {
+        "title": "Inclusive & Affirming",
+        "description": "Actively affirming LGBTQIA+, polyamorous, ethically non-monogamous, kink, and neurodivergent individuals and relationships in a safe, non-judgmental container.",
+        "icon": "Sparkles"
+      }
+    ],
+    "specialtiesTitle": "Areas of Clinical Focus & Specialty",
+    "specialties": [
+      "Life Transitions",
+      "Depression & Anxiety",
+      "ADHD & Neurodivergence",
+      "Polyamory & Ethical Non-Monogamy (ENM)",
+      "Kink & Sex-Positive Therapy",
+      "Trauma & Somatic Exploration",
+      "Addiction & Recovery",
+      "Relational Dynamics & Couples"
+    ],
+    "locationHeader": "Our San Francisco Setting",
+    "locationTitle": "Church Street Integral Counseling Center",
+    "locationSubtitle": "1782 Church Street, San Francisco, CA 94131 (Noe Valley)"
+  },
   "services": {
     "sectionTitle": "Services & Fees",
     "pricingNote": "In-person appointments in San Francisco (Noe Valley) & Telehealth online across California.",

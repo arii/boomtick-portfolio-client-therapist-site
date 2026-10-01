@@ -107,8 +107,32 @@ export interface FAQContent {
   [key: string]: unknown;
 }
 
+interface PracticePillar {
+  title: string;
+  description: string;
+  icon?: string;
+  [key: string]: unknown;
+}
+
+export interface AboutContent {
+  badge?: string;
+  psychologyTodayText?: string;
+  psychologyTodayUrl?: string;
+  quoteHeadline?: string;
+  bioParagraphs?: string[];
+  closingAffirmationQuote?: string;
+  pillars?: PracticePillar[];
+  specialtiesTitle?: string;
+  specialties?: string[];
+  locationHeader?: string;
+  locationTitle?: string;
+  locationSubtitle?: string;
+  [key: string]: unknown;
+}
+
 export interface PageContent {
   hero: HeroContent;
+  about?: AboutContent;
   services: {
     sectionTitle?: string;
     pricingNote?: string;

@@ -13,12 +13,13 @@ const heroPath = path.join(rootDir, "src/content/hero.json");
 const servicesPath = path.join(rootDir, "src/content/services.json");
 const portfolioPath = path.join(rootDir, "src/content/portfolio.json");
 
-let site, hero, services, portfolio, faq;
+let site, hero, about, services, portfolio, faq;
 
 if (fs.existsSync(pagePath)) {
   const page = JSON.parse(fs.readFileSync(pagePath, "utf8"));
   site = page.site;
   hero = page.hero;
+  about = page.about || {};
   portfolio = page.portfolio || {};
   faq = page.faq || {};
   const servicesRaw = page.services;
@@ -158,17 +159,21 @@ const therapistPerson = {
     "Studying psychology and working with clients at NLP Marin for over a decade. Professional Clinical Counselor and Marriage and Family Therapist Trainee at Church Street Integral Counseling Center.",
   telephone: telephoneSchema,
   email: site.email,
-  knowsAbout: [
-    "Life Transitions",
-    "Depression & Anxiety",
-    "ADHD & Neurodivergence",
-    "Polyamory & Ethical Non-Monogamy (ENM)",
-    "Kink & Sex-Positive Therapy",
-    "Trauma & Somatic Exploration",
-    "Addiction & Recovery",
-    "Relational Dynamics & Couples Therapy",
-    "NLP (Neuro-Linguistic Programming)",
-  ],
+  knowsAbout: Array.from(
+    new Set([
+      ...(about?.specialties || []),
+      "Life Transitions",
+      "Depression & Anxiety",
+      "ADHD & Neurodivergence",
+      "Polyamory & Ethical Non-Monogamy (ENM)",
+      "Kink & Sex-Positive Therapy",
+      "Trauma & Somatic Exploration",
+      "Addiction & Recovery",
+      "Relational Dynamics & Couples Therapy",
+      "NLP (Neuro-Linguistic Programming)",
+      "Psychotherapy",
+    ])
+  ),
   worksFor: {
     "@type": "MedicalOrganization",
     name: "Church Street Integral Counseling Center",

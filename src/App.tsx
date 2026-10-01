@@ -15,6 +15,7 @@ import { Clock, ArrowRight, Check, Phone, MessageSquare } from "lucide-react";
 import pageData from "./content/page.json";
 import type {
   HeroContent,
+  AboutContent,
   ServiceItem,
   PortfolioContent,
   FAQContent,
@@ -39,6 +40,24 @@ const PAGE_CONTENT_QUERY = `
         headline
         subheading
         availabilityNotice
+      }
+      about {
+        badge
+        psychologyTodayText
+        psychologyTodayUrl
+        quoteHeadline
+        bioParagraphs
+        closingAffirmationQuote
+        pillars {
+          title
+          description
+          icon
+        }
+        specialtiesTitle
+        specialties
+        locationHeader
+        locationTitle
+        locationSubtitle
       }
       services {
         sectionTitle
@@ -263,6 +282,7 @@ export default function App() {
   // Extract resolved live content with fallback safety
   const livePage = liveData?.page;
   const liveHero = (livePage?.hero || cmsState.hero) as HeroContent;
+  const liveAbout = (livePage?.about || cmsState.about) as AboutContent;
   const liveSite = (livePage?.site || cmsState.site) as SiteContent;
   const liveServices = (livePage?.services || cmsState.services) as {
     sectionTitle?: string;
@@ -298,6 +318,7 @@ export default function App() {
           const pageData = result.data.page;
           setCmsState({
             hero: (pageData.hero || cmsState.hero) as HeroContent,
+            about: (pageData.about || cmsState.about) as AboutContent,
             site: (pageData.site || cmsState.site) as SiteContent,
             services: (pageData.services || cmsState.services) as {
               sectionTitle?: string;
@@ -306,6 +327,7 @@ export default function App() {
             },
             portfolio: (pageData.portfolio ||
               cmsState.portfolio) as PortfolioContent,
+            faq: (pageData.faq || cmsState.faq) as FAQContent,
             events: (pageData.events || cmsState.events) as EventsContent,
           });
         }
@@ -400,7 +422,10 @@ export default function App() {
         />
 
         {/* 2. About Marcella, Philosophy & Practice Space Showcase */}
-        <StyleShowcase images={livePortfolio?.portfolioList || []} />
+        <StyleShowcase
+          about={liveAbout}
+          images={livePortfolio?.portfolioList || []}
+        />
 
         {/* 3. Services & Fees Menu */}
         <section
