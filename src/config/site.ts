@@ -44,7 +44,7 @@ function resolveSiteUrl(): string {
       return cf.startsWith("http") ? cf : `https://${cf}`;
     }
   }
-  return "https://marcellamissiontherapy.pages.dev";
+  return "https://marcella-therapy.pages.dev";
 }
 
 const DEFAULT_DEPLOYMENT_ID =

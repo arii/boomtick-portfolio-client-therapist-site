@@ -1,7 +1,12 @@
-name = "marcellamissiontherapy"
+name = "marcella-therapy"
 compatibility_date = "2024-09-25"
-pages_build_output_dir = "dist"
+
+[assets]
+directory = "./dist"
 
 [vars]
 DEPLOYMENT_ID = "AKfycbzcKzeTp7qNkMgNk_MJkj9zjPpkkU3CI8QmJsTbIM6eY-SNEcr0V4lUVEE5xwRzdBD7Ag"
-VITE_SITE_URL = "https://marcellamissiontherapy.pages.dev"
+VITE_DEPLOYMENT_ID = "AKfycbzcKzeTp7qNkMgNk_MJkj9zjPpkkU3CI8QmJsTbIM6eY-SNEcr0V4lUVEE5xwRzdBD7Ag"
+VITE_TINA_CLIENT_ID = "cc29fe7b-9d48-4d53-83f1-115a9f5f48b8"
+VITE_TINA_BRANCH = "main"
+VITE_SITE_URL = "https://marcella-therapy.pages.dev"

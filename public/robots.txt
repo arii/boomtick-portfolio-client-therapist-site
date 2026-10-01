@@ -14,4 +14,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://marcellamissiontherapy.pages.dev/sitemap.xml
+Sitemap: https://marcella-therapy.pages.dev/sitemap.xml

@@ -49,7 +49,7 @@ const siteUrl = (
   (process.env.VITE_SITE_URL && !process.env.VITE_SITE_URL.includes("localhost")
     ? process.env.VITE_SITE_URL
     : null) ||
-  "https://marcellamissiontherapy.pages.dev"
+  "https://marcella-therapy.pages.dev"
 ).replace(/\/+$/, "");
 const canonicalUrl = `${siteUrl}/`;
 const today = new Date().toISOString().split("T")[0];
