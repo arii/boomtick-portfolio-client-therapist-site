@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Menu, X, Sparkles, Phone } from "lucide-react";
+import { Menu, X, Flower2, Phone } from "lucide-react";
 import { TOKENS } from "../styles/tokens";
 import { SITE_CONFIG } from "../config/site";
 
@@ -34,9 +34,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex-1 flex justify-start">
           <a href="#" className="flex items-center gap-2 group">
             <span
-              className={`p-1.5 rounded-lg bg-stone-900 text-white ${TOKENS.accent.bgHover} transition`}
+              className={`p-1.5 rounded-lg bg-emerald-800 text-white ${TOKENS.accent.bgHover} transition shadow-2xs`}
             >
-              <Sparkles className="w-3.5 h-3.5" />
+              <Flower2 className="w-4 h-4 text-emerald-100" />
             </span>
             <span className="font-serif text-lg font-bold tracking-tight text-stone-900">
               {studioName}

@@ -2,32 +2,8 @@
 import { defineConfig } from "tinacms";
 var branch = (typeof process !== "undefined" ? process.env?.VITE_TINA_BRANCH : void 0) || import.meta.env?.VITE_TINA_BRANCH || (typeof process !== "undefined" ? process.env?.CF_PAGES_BRANCH : void 0) || (typeof process !== "undefined" ? process.env?.HEAD : void 0) || "main";
 var clientId = (typeof process !== "undefined" ? process.env?.VITE_TINA_CLIENT_ID : void 0) || import.meta.env?.VITE_TINA_CLIENT_ID || "87e12abe-90fc-43a9-9f88-48270c37724d";
-var token = (typeof process !== "undefined" ? process.env?.TINA_TOKEN : void 0) || import.meta.env?.TINA_TOKEN || // Check for VITE_TINA_TOKEN as well
-null;
+var token = (typeof process !== "undefined" ? process.env?.TINA_TOKEN : void 0) || import.meta.env?.TINA_TOKEN || null;
 var searchToken = (typeof process !== "undefined" ? process.env?.TINA_SEARCH_TOKEN : void 0) || import.meta.env?.TINA_SEARCH_TOKEN || import.meta.env?.VITE_TINA_SEARCH_TOKEN || null;
-if (!clientId) {
-  console.warn(
-    "\u26A0\uFE0F [TinaCMS Warning] VITE_TINA_CLIENT_ID is not set or is null! Admin login will redirect with clientId=null. Please configure VITE_TINA_CLIENT_ID in your environment variables."
-  );
-} else {
-  console.log("\u2705 [TinaCMS Info] VITE_TINA_CLIENT_ID loaded successfully.");
-}
-if (!token) {
-  console.warn(
-    "\u26A0\uFE0F [TinaCMS Warning] TINA_TOKEN is not set or is null! Content queries may fail in production. Please configure TINA_TOKEN in your environment variables."
-  );
-} else {
-  console.log("\u2705 [TinaCMS Info] TINA_TOKEN loaded successfully.");
-}
-if (!searchToken) {
-  console.warn(
-    "\u26A0\uFE0F [TinaCMS Warning] TINA_SEARCH_TOKEN is not set or is null! Search indexing will be disabled. Set TINA_SEARCH_TOKEN to enable TinaCloud search."
-  );
-} else {
-  console.log(
-    "\u2705 [TinaCMS Info] TINA_SEARCH_TOKEN loaded successfully. Search indexing enabled."
-  );
-}
 var config_default = defineConfig({
   branch,
   clientId,
@@ -66,7 +42,7 @@ var config_default = defineConfig({
                 type: "string",
                 name: "badge",
                 label: "Credentials Badge",
-                description: "Credentials or experience highlight displayed above the headline"
+                description: "Credentials and clinical supervision notice displayed above the headline"
               },
               {
                 type: "string",
@@ -79,14 +55,14 @@ var config_default = defineConfig({
                 type: "string",
                 name: "subheading",
                 label: "Subheading Copy",
-                description: "Secondary explanatory copy detailing your specialty, hair philosophy, and location",
+                description: "Secondary explanatory copy detailing your specialty, therapeutic philosophy, and locations",
                 ui: { component: "textarea" }
               },
               {
                 type: "string",
                 name: "availabilityNotice",
                 label: "Availability Notice Banner",
-                description: "Live scheduling and availability notice shown in the banner",
+                description: "Practice location, scheduling details, and availability notice",
                 required: true,
                 ui: { component: "textarea" }
               }
@@ -96,7 +72,7 @@ var config_default = defineConfig({
           {
             type: "object",
             name: "services",
-            label: "Services & Pricing",
+            label: "Services & Fees",
             fields: [
               {
                 type: "string",
@@ -107,67 +83,60 @@ var config_default = defineConfig({
               {
                 type: "string",
                 name: "pricingNote",
-                label: "Pricing Note / Comment",
-                description: "Policy comment regarding service pricing (e.g., Pricing is SF only \u2013 additional cost for out of town)"
+                label: "Pricing Note / Location Notice",
+                description: "Location and format notice regarding service fees"
               },
               {
                 type: "object",
                 name: "servicesList",
-                label: "Service Offerings",
+                label: "Therapy Services",
                 list: true,
                 ui: {
                   itemProps: (item) => ({
-                    label: `${item?.name || "New Service"} (${item?.price || 0})`
+                    label: `${item?.name || "New Service"} (${item?.price || "$80"})`
                   })
                 },
                 fields: [
-                  // High-Frequency Content Fields (Front & Center)
                   {
                     type: "string",
                     name: "name",
                     label: "Service Name",
-                    description: "Client-facing service title displayed on the public site and booking menu",
+                    description: "Client-facing therapy offering name (e.g. Individual Therapy)",
                     required: true
                   },
                   {
                     type: "string",
                     name: "price",
-                    label: "Price Display (e.g. $175)",
-                    description: "Published starting rate or standard investment fee for this service",
+                    label: "Fee Display (e.g. $80 / Session)",
+                    description: "Published session fee",
                     required: true
                   },
                   {
                     type: "string",
                     name: "duration",
                     label: "Estimated Duration",
-                    description: "Standard appointment duration preset to maintain uniform formatting across services",
+                    description: "Standard appointment duration (e.g. 50 mins)",
                     options: [
-                      "30 mins",
                       "45 mins",
+                      "50 mins",
                       "60 mins",
                       "75 mins",
-                      "90 mins",
-                      "2 hours",
-                      "2.5 hours",
-                      "3 hours",
-                      "3.5 hours",
-                      "4 hours",
-                      "Custom / Half-Day"
+                      "90 mins"
                     ]
                   },
                   {
                     type: "string",
                     name: "description",
                     label: "Short Description",
-                    description: "Overview of curl pattern suitability, styling methodology, and consultation details",
+                    description: "Overview of therapeutic approach, goals, and session format",
                     ui: { component: "textarea" }
                   },
                   {
                     type: "string",
                     name: "deliverables",
-                    label: "Included Features",
+                    label: "Key Features & Focus",
                     list: true,
-                    description: "Bullet points detailing consultations, treatments, or take-home coaching"
+                    description: "Bullet points detailing clinical focus and format"
                   },
                   {
                     type: "object",
@@ -176,7 +145,7 @@ var config_default = defineConfig({
                     list: true,
                     ui: {
                       itemProps: (item) => ({
-                        label: item?.styleLabel || "New Example Image"
+                        label: item?.styleLabel || "Example Image"
                       })
                     },
                     fields: [
@@ -188,7 +157,7 @@ var config_default = defineConfig({
                       {
                         type: "string",
                         name: "styleLabel",
-                        label: "Style / Haircut Label"
+                        label: "Image Label"
                       },
                       {
                         type: "string",
@@ -197,12 +166,11 @@ var config_default = defineConfig({
                       }
                     ]
                   },
-                  // Low-Frequency Config Fields (Locked Slug & Cal.com Override)
                   {
                     type: "string",
                     name: "id",
                     label: "Service Slug ID (Locked)",
-                    description: "Permanent system identifier used for URL anchors & Cal.com integration. Hidden from routine edits to protect inbound booking links.",
+                    description: "Permanent system identifier used for URL anchors & Cal.com integration.",
                     required: true,
                     ui: {
                       component: "hidden"
@@ -211,8 +179,8 @@ var config_default = defineConfig({
                   {
                     type: "string",
                     name: "calSlug",
-                    label: "Cal.com Scheduling Slug Override (Advanced)",
-                    description: "Optional override slug for this specific service. Leave blank to use default Cal.com slug from Site Settings."
+                    label: "Cal.com Scheduling Slug Override",
+                    description: "Optional override slug for this specific service."
                   }
                 ]
               }
@@ -222,12 +190,12 @@ var config_default = defineConfig({
           {
             type: "object",
             name: "portfolio",
-            label: "Portfolio & Media Showcase",
+            label: "Practice Space & Photos",
             fields: [
               {
                 type: "image",
                 name: "heroImage",
-                label: "Hero Showcase Image (Preloaded)",
+                label: "Hero Headshot Image (Preloaded)",
                 description: "Main hero image displayed on initial page load (optimized for LCP)"
               },
               {
@@ -245,59 +213,59 @@ var config_default = defineConfig({
               {
                 type: "object",
                 name: "portfolioList",
-                label: "Showcase Images Gallery",
+                label: "Showcase Gallery",
                 list: true,
                 ui: {
                   itemProps: (item) => ({
-                    label: item?.title || item?.alt || item?.id || "Portfolio Item"
+                    label: item?.title || item?.alt || item?.id || "Gallery Item"
                   })
                 },
                 fields: [
                   {
                     type: "string",
                     name: "title",
-                    label: "Style Title / Caption",
-                    description: "Human-readable title for this style (e.g. 'Vintage Victory Rolls')"
+                    label: "Title / Caption",
+                    description: "Human-readable title (e.g. 'Peaceful Session Room')"
                   },
                   {
                     type: "string",
                     name: "id",
                     label: "Image ID (slug)",
-                    description: "System anchor identifier used for direct portfolio linking",
+                    description: "System anchor identifier",
                     required: true
                   },
                   {
                     type: "image",
                     name: "image",
                     label: "Photo",
-                    description: "High-resolution showcase photograph of hair style",
+                    description: "High-resolution photograph",
                     required: true
                   },
                   {
                     type: "string",
                     name: "alt",
                     label: "Alt Text Description",
-                    description: "Descriptive accessibility and image SEO text explaining the style and texture",
+                    description: "Descriptive accessibility and image SEO text",
                     required: true
                   },
                   {
                     type: "string",
                     name: "tag",
-                    label: "Style Category",
-                    description: "Specialty category classification for filtering and portfolio grouping",
+                    label: "Category",
+                    description: "Category classification",
                     options: [
-                      "Curly Cut",
-                      "Vintage Styling",
-                      "Updos",
-                      "Events & Production"
+                      "Practice Space",
+                      "Office Setting",
+                      "Therapeutic Approach",
+                      "About Marcella"
                     ]
                   },
                   {
                     type: "image",
                     name: "images",
-                    label: "Additional Slideshow Photos",
+                    label: "Additional Photos",
                     list: true,
-                    description: "Add multiple photos to enable smooth auto-cycling slideshows on this portfolio item"
+                    description: "Add multiple photos to enable smooth auto-cycling slideshows"
                   }
                 ]
               }
@@ -349,23 +317,23 @@ var config_default = defineConfig({
               }
             ]
           },
-          // 4. INQUIRY & MAILING LIST FORM
+          // 4. INQUIRY FORM
           {
             type: "object",
             name: "events",
-            label: "Inquiry & Mailing List Form",
+            label: "Consultation Inquiry Form",
             fields: [
               {
                 type: "string",
                 name: "title",
                 label: "Form Section Title",
-                description: "Main section heading for inquiry & mailing list form"
+                description: "Main section heading for consultation inquiry form"
               },
               {
                 type: "string",
                 name: "description",
                 label: "Form Section Description",
-                description: "Header copy explaining inquiry or mailing list details",
+                description: "Header copy explaining consultation details",
                 ui: { component: "textarea" }
               },
               {
@@ -377,7 +345,7 @@ var config_default = defineConfig({
               {
                 type: "object",
                 name: "formFields",
-                label: "Inquiry Form Fields",
+                label: "Form Fields",
                 list: true,
                 ui: {
                   itemProps: (item) => ({
@@ -398,27 +366,23 @@ var config_default = defineConfig({
                         type: "string",
                         name: "label",
                         label: "Field Label",
-                        description: "Question or label prompt shown above the input",
                         required: true
                       },
                       {
                         type: "string",
                         name: "fieldType",
                         label: "Input Type",
-                        description: "Browser input validation type (text, email, tel, date, number)",
                         options: ["text", "email", "tel", "date", "number"]
                       },
                       {
                         type: "string",
                         name: "placeholder",
-                        label: "Placeholder Hint",
-                        description: "Faint example hint text inside the empty input box"
+                        label: "Placeholder Hint"
                       },
                       {
                         type: "boolean",
                         name: "required",
-                        label: "Required Field?",
-                        description: "Check if the client must provide this answer to submit"
+                        label: "Required Field?"
                       }
                     ]
                   },
@@ -435,21 +399,18 @@ var config_default = defineConfig({
                         type: "string",
                         name: "label",
                         label: "Field Label",
-                        description: "Dropdown menu title or question prompt",
                         required: true
                       },
                       {
                         type: "string",
                         name: "options",
                         label: "Dropdown Options",
-                        list: true,
-                        description: "List of selectable menu choices for the client"
+                        list: true
                       },
                       {
                         type: "boolean",
                         name: "required",
-                        label: "Required Field?",
-                        description: "Check if the client must pick an option to submit"
+                        label: "Required Field?"
                       }
                     ]
                   },
@@ -466,20 +427,17 @@ var config_default = defineConfig({
                         type: "string",
                         name: "label",
                         label: "Field Label",
-                        description: "Prompt for the multi-line paragraph text area",
                         required: true
                       },
                       {
                         type: "string",
                         name: "placeholder",
-                        label: "Placeholder Hint",
-                        description: "Guiding placeholder example to help client describe their request"
+                        label: "Placeholder Hint"
                       },
                       {
                         type: "boolean",
                         name: "required",
-                        label: "Required Field?",
-                        description: "Check if this note is required to submit"
+                        label: "Required Field?"
                       }
                     ]
                   }
@@ -488,36 +446,35 @@ var config_default = defineConfig({
               {
                 type: "object",
                 name: "formOptions",
-                label: "Inquiry Form Options",
+                label: "Form Options",
                 fields: [
                   {
                     type: "string",
                     name: "submitButtonText",
-                    label: "Submit Button Text",
-                    description: "Call-to-action button label for form submission"
+                    label: "Submit Button Text"
                   }
                 ]
               }
             ]
           },
-          // 5. SITE SETTINGS & SEO
+          // 5. PRACTICE SETTINGS & SEO
           {
             type: "object",
             name: "site",
-            label: "Site Settings & SEO",
+            label: "Practice Settings & SEO",
             fields: [
               {
                 type: "string",
                 name: "studioName",
-                label: "Studio Name",
-                description: "Official business or salon brand name",
+                label: "Practice Name",
+                description: "Official therapy practice brand name",
                 required: true
               },
               {
                 type: "string",
                 name: "stylistName",
-                label: "Stylist Name",
-                description: "First name of the primary stylist",
+                label: "Therapist Name",
+                description: "Full name of the clinician",
                 required: true
               },
               {
@@ -543,61 +500,52 @@ var config_default = defineConfig({
               {
                 type: "string",
                 name: "email",
-                label: "Direct Email Address",
-                description: "Used for public display and contact routing"
+                label: "Contact Email Address"
               },
               {
                 type: "string",
                 name: "phone",
-                label: "Direct Phone Number",
-                description: "Formats automatically on site links"
+                label: "Direct Phone Number"
               },
               {
                 type: "string",
                 name: "instagramHandle",
-                label: "Instagram Handle (@...)",
-                description: "Enter handle only (e.g. hair.by.april_209)"
+                label: "Instagram Handle (Optional)"
               },
               {
                 type: "string",
                 name: "locationDisplay",
-                label: "Location Display Text",
-                description: "Neighborhood and city text displayed in header and footer"
+                label: "Location Display Text"
               },
               {
                 type: "string",
                 name: "calUsername",
-                label: "Cal.com Username",
-                description: "Your Cal.com scheduling username (e.g. ariel-anders)"
+                label: "Cal.com Username"
               },
               {
                 type: "string",
                 name: "calDefaultSlug",
-                label: "Cal.com Default Event Slug",
-                description: "Default event booking slug used by the Hero and general booking buttons (e.g. april-demo)"
+                label: "Cal.com Default Event Slug"
               },
               {
                 type: "object",
                 name: "address",
-                label: "Physical / Service Address",
+                label: "Office Address",
                 fields: [
                   {
                     type: "string",
                     name: "locality",
-                    label: "City / Locality",
-                    description: "City name for Schema.org LocalBusiness"
+                    label: "City / Locality"
                   },
                   {
                     type: "string",
                     name: "region",
-                    label: "State / Region",
-                    description: "Two-letter state abbreviation (e.g. CA)"
+                    label: "State / Region"
                   },
                   {
                     type: "string",
                     name: "country",
-                    label: "Country Code",
-                    description: "Two-letter country code (e.g. US)"
+                    label: "Country Code"
                   }
                 ]
               },
@@ -609,14 +557,12 @@ var config_default = defineConfig({
                   {
                     type: "number",
                     name: "latitude",
-                    label: "Latitude",
-                    description: "Geographic latitude coordinate"
+                    label: "Latitude"
                   },
                   {
                     type: "number",
                     name: "longitude",
-                    label: "Longitude",
-                    description: "Geographic longitude coordinate"
+                    label: "Longitude"
                   }
                 ]
               },
@@ -624,14 +570,12 @@ var config_default = defineConfig({
                 type: "string",
                 name: "areaServed",
                 label: "Areas Served",
-                description: "Cities and districts served for Schema.org area coverage",
                 list: true
               },
               {
                 type: "string",
                 name: "openingDays",
                 label: "Opening Days",
-                description: "Days of the week with standard appointment availability",
                 list: true
               },
               {
@@ -642,22 +586,19 @@ var config_default = defineConfig({
                   {
                     type: "string",
                     name: "opens",
-                    label: "Opening Time (HH:MM)",
-                    description: "Opening time in 24-hour format (e.g. 09:00)"
+                    label: "Opening Time (HH:MM)"
                   },
                   {
                     type: "string",
                     name: "closes",
-                    label: "Closing Time (HH:MM)",
-                    description: "Closing time in 24-hour format (e.g. 18:00)"
+                    label: "Closing Time (HH:MM)"
                   }
                 ]
               },
               {
                 type: "string",
                 name: "priceRange",
-                label: "Price Range",
-                description: "Price tier symbol for Schema.org (e.g. $ or $$)"
+                label: "Price Range"
               }
             ]
           }

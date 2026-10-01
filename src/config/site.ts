@@ -87,7 +87,7 @@ export const SITE_CONFIG = {
   therapistName: SITE_CONTENT.stylistName,
   credentials: HERO_CONTENT.badge,
   supervisorDisclaimer: "Supervised by Derek Pehle, PsyD Lic 21361",
-  practiceLocation: "1782 Church Street, San Francisco, CA 94131",
+  practiceLocation: "1782 Church Street, San Francisco, CA 94131 (Noe Valley)",
   title: SITE_CONTENT.title,
   description: SITE_CONTENT.description,
   keywords: SITE_CONTENT.keywords,
@@ -99,13 +99,11 @@ export const SITE_CONFIG = {
   phoneTel: `tel:${cleanPhoneDigits}`,
   telephoneSchema: `+1-${cleanPhoneDigits.slice(0, 3)}-${cleanPhoneDigits.slice(3, 6)}-${cleanPhoneDigits.slice(6)}`,
 
-  // Social & Profiles
-  instagram: SITE_CONTENT.instagramHandle
-    ? `@${SITE_CONTENT.instagramHandle.replace(/^@/, "")}`
-    : "",
-  instagramUrl: SITE_CONTENT.instagramHandle
-    ? `https://www.instagram.com/${SITE_CONTENT.instagramHandle.replace(/^@/, "")}/`
-    : "",
+  // Social & Verified Profiles
+  psychologyTodayUrl:
+    "https://www.psychologytoday.com/us/therapists/marcella-shehadeh-mission-san-francisco-ca/1615567",
+  instagram: "",
+  instagramUrl: "",
 
   // Integrations & Logistics
   calUsername: SITE_CONTENT.calUsername || "marcellamission",
@@ -115,7 +113,7 @@ export const SITE_CONFIG = {
   locationDisplay: SITE_CONTENT.locationDisplay,
   logisticsNotice:
     HERO_CONTENT.availabilityNotice ||
-    "In-Person Sessions at Church St Integral Counseling Center (Mon–Thu) & Telehealth across California.",
+    "Taking on new clients: In-Person in San Francisco (Mon–Thu at 1782 Church St) & Telehealth across California.",
 
   // Emergency Disclaimer
   emergencyDisclaimer:
@@ -149,7 +147,7 @@ export const SITE_CONFIG = {
 export type SiteConfig = typeof SITE_CONFIG;
 
 /**
- * Dynamically builds a Schema.org MedicalBusiness / MentalHealth / LocalBusiness JSON-LD structure.
+ * Dynamically builds comprehensive Schema.org MedicalBusiness / MentalHealth / LocalBusiness JSON-LD structure.
  */
 export function generateSiteSchema(
   config: Partial<SiteContent> & Partial<SiteConfig> = SITE_CONFIG,
@@ -188,6 +186,47 @@ export function generateSiteSchema(
       ? `+1-${cleanPhoneDigits.slice(0, 3)}-${cleanPhoneDigits.slice(3, 6)}-${cleanPhoneDigits.slice(6)}`
       : SITE_CONFIG.telephoneSchema;
 
+  const therapistPerson = {
+    "@type": "Person",
+    "@id": `${baseUrl}/#marcella-mission`,
+    name: "Marcella Mission",
+    jobTitle: "Pre-Licensed Professional, MFT & PCC Trainee",
+    description:
+      "Studying psychology and working with clients at NLP Marin for over a decade. Professional Clinical Counselor and Marriage and Family Therapist Trainee at Church Street Integral Counseling Center.",
+    telephone: telephoneSchema,
+    email: merged.email || SITE_CONFIG.email,
+    knowsAbout: [
+      "Life Transitions",
+      "Depression & Anxiety",
+      "ADHD & Neurodivergence",
+      "Polyamory & Ethical Non-Monogamy (ENM)",
+      "Kink & Sex-Positive Therapy",
+      "Trauma & Somatic Exploration",
+      "Addiction & Recovery",
+      "Relational Dynamics & Couples Therapy",
+      "NLP (Neuro-Linguistic Programming)",
+    ],
+    worksFor: {
+      "@type": "MedicalOrganization",
+      name: "Church Street Integral Counseling Center",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "1782 Church Street",
+        addressLocality: "San Francisco",
+        addressRegion: "CA",
+        postalCode: "94131",
+        addressCountry: "US",
+      },
+    },
+    sponsor: {
+      "@type": "Person",
+      name: "Derek Pehle, PsyD",
+      jobTitle: "Licensed Clinical Psychologist",
+      hasCredential: "CA License #21361",
+    },
+    sameAs: [SITE_CONFIG.psychologyTodayUrl],
+  };
+
   const itemListElement = (services || SERVICES_CONTENT)
     .filter((service) => service && (service.name || service.id))
     .map((service) => {
@@ -205,41 +244,59 @@ export function generateSiteSchema(
           "@type": "Service",
           name: name,
           description: description,
-          provider: {
-            "@type": "Person",
-            name: "Marcella Mission",
-            jobTitle: "Pre-Licensed Professional, MFT/PCC Trainee",
-          },
+          provider: therapistPerson,
+          serviceType: "Psychotherapy",
         },
         price: rawPrice || "80",
         priceCurrency: "USD",
       };
     });
 
+  // Free 15-Minute Consultation Offer
+  itemListElement.unshift({
+    "@type": "Offer",
+    itemOffered: {
+      "@type": "Service",
+      name: "Free 15-Minute Consultation",
+      description:
+        "Complimentary phone or video consultation to connect, discuss therapy intentions, and verify clinical fit.",
+      provider: therapistPerson,
+      serviceType: "Therapy Consultation",
+    },
+    price: "0",
+    priceCurrency: "USD",
+  });
+
   const schemaImages = (portfolioList || PORTFOLIO_CONTENT).map(
     (p) => `${baseUrl}${p.image}`
   );
 
   const medicalBusinessSchema = {
-    "@type": "MedicalBusiness",
+    "@type": ["MedicalBusiness", "LocalBusiness"],
     "@id": `${baseUrl}/#practice`,
     name: merged.studioName || SITE_CONFIG.studioName,
+    alternateName: "Marcella Mission Therapy",
     image:
       schemaImages.length > 0
         ? schemaImages
         : [
             `${baseUrl}/assets/marcella-headshot.jpeg`,
+            `${baseUrl}/assets/exterior-victorian.jpeg`,
             `${baseUrl}/assets/session-room-1.jpeg`,
             `${baseUrl}/assets/session-room-2.jpeg`,
             `${baseUrl}/assets/tea-room.jpeg`,
           ],
+    logo: `${baseUrl}/favicon.svg`,
     description: merged.description || SITE_CONFIG.description,
     telephone: telephoneSchema,
     email: merged.email || SITE_CONFIG.email,
     url: merged.canonicalUrl || SITE_CONFIG.canonicalUrl,
     priceRange: merged.priceRange || SITE_CONFIG.priceRange,
+    currenciesAccepted: "USD",
+    paymentAccepted: "Cash, Credit Card, Check, Superbill",
     medicalSpecialty: [
       "https://schema.org/Psychiatric",
+      "https://schema.org/CommunityHealth",
       "Counseling",
       "Psychotherapy",
     ],
@@ -267,18 +324,26 @@ export function generateSiteSchema(
         closes: merged.openingHours.closes,
       },
     ],
-    areaServed: Array.isArray(merged.areaServed)
-      ? merged.areaServed.map((area) => ({
-          "@type": "AdministrativeArea",
-          name: area,
-        }))
-      : {
-          "@type": "AdministrativeArea",
-          name: merged.locationDisplay || "San Francisco, CA",
-        },
+    areaServed: [
+      {
+        "@type": "City",
+        name: "San Francisco",
+      },
+      {
+        "@type": "Neighborhood",
+        name: "Noe Valley",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "California",
+      },
+    ],
+    founder: therapistPerson,
+    employee: [therapistPerson],
+    sameAs: [SITE_CONFIG.psychologyTodayUrl],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Therapy Services",
+      name: "Psychotherapy Services & Consultation",
       itemListElement,
     },
   };

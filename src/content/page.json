@@ -1,7 +1,7 @@
 {
   "hero": {
     "badge": "Pre-Licensed Professional • Supervised by Derek Pehle, PsyD #21361",
-    "headline": "Honoring what is, embracing what can be.",
+    "headline": "Marcella Mission Therapy",
     "subheading": "Holistic, relational, and integrative therapy for individuals and couples. Bringing gentle awareness to the present moment to engage the structures that keep unwanted experiences in place.",
     "availabilityNotice": "Taking on new clients: In-Person in San Francisco (Mon–Thu at 1782 Church St) & Telehealth across California."
   },
@@ -67,36 +67,20 @@
     "ogImageAlt": "Marcella Mission Therapy - Holistic Individual & Couples Therapy in San Francisco",
     "portfolioList": [
       {
-        "title": "Quiet Session Space",
-        "id": "session-room-1",
+        "title": "1782 Church Street Victorian",
+        "id": "exterior-victorian",
+        "image": "/assets/exterior-victorian.jpeg",
+        "alt": "1782 Church Street Victorian building exterior at Church Street Integral Counseling Center in Noe Valley",
+        "tag": "Noe Valley Office",
+        "images": ["/assets/exterior-victorian.jpeg", "/assets/tea-room.jpeg"]
+      },
+      {
+        "title": "Serene Therapy Practice Space",
+        "id": "session-rooms",
         "image": "/assets/session-room-1.jpeg",
-        "alt": "Warm and inviting therapy session room with natural light",
-        "tag": "Practice Space",
-        "images": ["/assets/session-room-2.jpeg", "/assets/tea-room.jpeg"]
-      },
-      {
-        "title": "Welcoming Tea Room",
-        "id": "tea-room",
-        "image": "/assets/tea-room.jpeg",
-        "alt": "Calming tea room and waiting space at Church Street Integral Counseling Center",
-        "tag": "Office Setting",
+        "alt": "Comfortable, serene therapy session room with natural light",
+        "tag": "Practice Rooms",
         "images": ["/assets/session-room-1.jpeg", "/assets/session-room-2.jpeg"]
-      },
-      {
-        "title": "Relational & Somatic Focus",
-        "id": "relational-approach",
-        "image": "/assets/session-room-2.jpeg",
-        "alt": "Thoughtfully arranged therapeutic consultation room",
-        "tag": "Therapeutic Approach",
-        "images": ["/assets/tea-room.jpeg", "/assets/session-room-1.jpeg"]
-      },
-      {
-        "title": "Marcella Mission, MFT Trainee",
-        "id": "marcella-headshot",
-        "image": "/assets/marcella-headshot.jpeg",
-        "alt": "Marcella Mission, Pre-Licensed Professional therapist",
-        "tag": "About Marcella",
-        "images": ["/assets/session-room-1.jpeg", "/assets/tea-room.jpeg"]
       }
     ]
   },

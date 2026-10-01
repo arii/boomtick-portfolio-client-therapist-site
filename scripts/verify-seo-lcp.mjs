@@ -103,6 +103,8 @@ if (schemaMatch) {
     const schemaObj = Array.isArray(parsed["@graph"])
       ? parsed["@graph"].find(
           (node) =>
+            (Array.isArray(node["@type"]) &&
+              node["@type"].includes("MedicalBusiness")) ||
             node["@type"] === "MedicalBusiness" ||
             node["@type"] === "LocalBusiness"
         ) || parsed
@@ -111,10 +113,15 @@ if (schemaMatch) {
       "Schema.org JSON-LD is valid JSON",
       typeof schemaObj === "object" && schemaObj !== null
     );
+    const isMedicalOrLocal =
+      (Array.isArray(schemaObj["@type"]) &&
+        (schemaObj["@type"].includes("MedicalBusiness") ||
+          schemaObj["@type"].includes("LocalBusiness"))) ||
+      schemaObj["@type"] === "MedicalBusiness" ||
+      schemaObj["@type"] === "LocalBusiness";
     check(
       "Schema.org type is MedicalBusiness or LocalBusiness",
-      schemaObj["@type"] === "MedicalBusiness" ||
-        schemaObj["@type"] === "LocalBusiness"
+      isMedicalOrLocal
     );
     check(
       "Schema.org URL matches canonical URL",

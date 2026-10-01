@@ -15,7 +15,7 @@ const clientId =
     ? process.env?.VITE_TINA_CLIENT_ID
     : undefined) ||
   import.meta.env?.VITE_TINA_CLIENT_ID ||
-  "87e12abe-90fc-43a9-9f88-48270c37724d";
+  "cc29fe7b-9d48-4d53-83f1-115a9f5f48b8";
 
 const token =
   (typeof process !== "undefined" ? process.env?.TINA_TOKEN : undefined) ||

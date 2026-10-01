@@ -13,13 +13,14 @@ const heroPath = path.join(rootDir, "src/content/hero.json");
 const servicesPath = path.join(rootDir, "src/content/services.json");
 const portfolioPath = path.join(rootDir, "src/content/portfolio.json");
 
-let site, hero, services, portfolio;
+let site, hero, services, portfolio, faq;
 
 if (fs.existsSync(pagePath)) {
   const page = JSON.parse(fs.readFileSync(pagePath, "utf8"));
   site = page.site;
   hero = page.hero;
   portfolio = page.portfolio || {};
+  faq = page.faq || {};
   const servicesRaw = page.services;
   services = Array.isArray(servicesRaw)
     ? servicesRaw
@@ -54,7 +55,7 @@ const canonicalUrl = `${siteUrl}/`;
 const today = new Date().toISOString().split("T")[0];
 
 console.log(
-  "⚙️  Generating SEO, Schema.org, sitemap.xml, robots.txt, and llms.txt from CMS config..."
+  "⚙️  Generating enhanced SEO, Schema.org graph, sitemap.xml, robots.txt, and llms.txt..."
 );
 console.log(`   Canonical Base URL: ${canonicalUrl}`);
 
@@ -64,7 +65,7 @@ const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
   <url>
     <loc>${canonicalUrl}</loc>
     <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 </urlset>
@@ -118,43 +119,103 @@ const llmsContent = `# ${site.studioName}
 - **Therapist:** ${site.stylistName} (Pre-Licensed Professional)
 - **Clinical Supervision:** Derek Pehle, PsyD (CA License #21361)
 - **Affiliation:** Church Street Integral Counseling Center
-- **Practice Location:** ${site.locationDisplay}
+- **Office Location:** 1782 Church Street, San Francisco, CA 94131 (Noe Valley)
+- **Statewide Telehealth:** Online video sessions available across California
 - **Website:** ${canonicalUrl}
+- **Verified Profile:** https://www.psychologytoday.com/us/therapists/marcella-shehadeh-mission-san-francisco-ca/1615567
 
-## Contact & Appointments
+## Contact & Scheduling
 - **Email:** ${site.email}
 - **Phone / SMS:** ${site.phone}
-- **Free Consultation:** Complimentary 15-minute consultation by phone or video.
+- **Free Fit Consultation:** Complimentary 15-minute phone or video consultation to verify clinical fit.
+
+## Clinical Specialties
+Life transitions, depression, anxiety, ADHD & neurodivergence, polyamory & ethical non-monogamy (ENM), kink & sex-positive therapy, addiction & recovery, trauma & somatic exploration, couples & relational dynamics.
 
 ## Services & Fees
 ${servicesList}
+- **Free 15-Minute Consultation** — $0 (Phone / Telehealth fit call)
 
-## Crisis Information
-If you are experiencing a life-threatening emergency, please call 911 or visit your nearest emergency room. You can also call or text the Suicide & Crisis Lifeline at 988 (24/7).
+## Crisis Safety Notice
+If you are experiencing a life-threatening medical or mental health emergency, please call 911 or visit your nearest emergency room. You can also connect with the Suicide & Crisis Lifeline 24/7 by calling or texting 988.
 `;
 
 fs.writeFileSync(path.join(rootDir, "public/llms.txt"), llmsContent, "utf8");
 fs.writeFileSync(path.join(rootDir, "llms.txt"), llmsContent, "utf8");
 
-// 4. Generate dynamic Schema.org MedicalBusiness JSON-LD
+// 4. Generate dynamic Schema.org MedicalBusiness JSON-LD graph
+const cleanPhoneDigits = (site.phone || "").replace(/[^0-9]/g, "");
+const telephoneSchema = `+1-${cleanPhoneDigits.slice(0, 3)}-${cleanPhoneDigits.slice(3, 6)}-${cleanPhoneDigits.slice(6)}`;
+const psychologyTodayUrl =
+  "https://www.psychologytoday.com/us/therapists/marcella-shehadeh-mission-san-francisco-ca/1615567";
+
+const therapistPerson = {
+  "@type": "Person",
+  "@id": `${canonicalUrl}#marcella-mission`,
+  name: "Marcella Mission",
+  jobTitle: "Pre-Licensed Professional, MFT & PCC Trainee",
+  description:
+    "Studying psychology and working with clients at NLP Marin for over a decade. Professional Clinical Counselor and Marriage and Family Therapist Trainee at Church Street Integral Counseling Center.",
+  telephone: telephoneSchema,
+  email: site.email,
+  knowsAbout: [
+    "Life Transitions",
+    "Depression & Anxiety",
+    "ADHD & Neurodivergence",
+    "Polyamory & Ethical Non-Monogamy (ENM)",
+    "Kink & Sex-Positive Therapy",
+    "Trauma & Somatic Exploration",
+    "Addiction & Recovery",
+    "Relational Dynamics & Couples Therapy",
+    "NLP (Neuro-Linguistic Programming)",
+  ],
+  worksFor: {
+    "@type": "MedicalOrganization",
+    name: "Church Street Integral Counseling Center",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "1782 Church Street",
+      addressLocality: "San Francisco",
+      addressRegion: "CA",
+      postalCode: "94131",
+      addressCountry: "US",
+    },
+  },
+  sponsor: {
+    "@type": "Person",
+    name: "Derek Pehle, PsyD",
+    jobTitle: "Licensed Clinical Psychologist",
+    hasCredential: "CA License #21361",
+  },
+  sameAs: [psychologyTodayUrl],
+};
+
 const serviceOffers = services.map((s) => ({
   "@type": "Offer",
   itemOffered: {
     "@type": "Service",
     name: s.name,
     description: s.description,
-    provider: {
-      "@type": "Person",
-      name: "Marcella Mission",
-      jobTitle: "Pre-Licensed Professional, MFT/PCC Trainee",
-    },
+    provider: therapistPerson,
+    serviceType: "Psychotherapy",
   },
   price: (s.price || "").replace(/[^0-9]/g, "") || "80",
   priceCurrency: "USD",
 }));
 
-const cleanPhoneDigits = (site.phone || "").replace(/[^0-9]/g, "");
-const telephoneSchema = `+1-${cleanPhoneDigits.slice(0, 3)}-${cleanPhoneDigits.slice(3, 6)}-${cleanPhoneDigits.slice(6)}`;
+serviceOffers.unshift({
+  "@type": "Offer",
+  itemOffered: {
+    "@type": "Service",
+    name: "Free 15-Minute Consultation",
+    description:
+      "Complimentary phone or video consultation to connect, discuss therapy intentions, and verify clinical fit.",
+    provider: therapistPerson,
+    serviceType: "Therapy Consultation",
+  },
+  price: "0",
+  priceCurrency: "USD",
+});
 
 const portfolioList = Array.isArray(portfolio)
   ? portfolio
@@ -173,57 +234,93 @@ const ogImageAlt =
 
 const schemaOrgData = {
   "@context": "https://schema.org",
-  "@type": "MedicalBusiness",
-  name: site.studioName,
-  image:
-    portfolioImageUrls.length > 0
-      ? portfolioImageUrls
-      : [
-          `${siteUrl}/assets/marcella-headshot.jpeg`,
-          `${siteUrl}/assets/session-room-1.jpeg`,
-          `${siteUrl}/assets/session-room-2.jpeg`,
-          `${siteUrl}/assets/tea-room.jpeg`,
-        ],
-  description: site.description,
-  telephone: telephoneSchema,
-  email: site.email,
-  url: canonicalUrl,
-  priceRange: site.priceRange,
-  medicalSpecialty: [
-    "https://schema.org/Psychiatric",
-    "Counseling",
-    "Psychotherapy",
-  ],
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "1782 Church Street",
-    addressLocality: site.address.locality,
-    addressRegion: site.address.region,
-    postalCode: "94131",
-    addressCountry: site.address.country,
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: site.geo.latitude,
-    longitude: site.geo.longitude,
-  },
-  openingHoursSpecification: [
+  "@graph": [
     {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: site.openingDays,
-      opens: site.openingHours.opens,
-      closes: site.openingHours.closes,
+      "@type": ["MedicalBusiness", "LocalBusiness"],
+      "@id": `${canonicalUrl}#practice`,
+      name: site.studioName,
+      alternateName: "Marcella Mission Therapy",
+      image:
+        portfolioImageUrls.length > 0
+          ? portfolioImageUrls
+          : [
+              `${siteUrl}/assets/marcella-headshot.jpeg`,
+              `${siteUrl}/assets/exterior-victorian.jpeg`,
+              `${siteUrl}/assets/session-room-1.jpeg`,
+              `${siteUrl}/assets/session-room-2.jpeg`,
+              `${siteUrl}/assets/tea-room.jpeg`,
+            ],
+      logo: `${siteUrl}/favicon.svg`,
+      description: site.description,
+      telephone: telephoneSchema,
+      email: site.email,
+      url: canonicalUrl,
+      priceRange: site.priceRange,
+      currenciesAccepted: "USD",
+      paymentAccepted: "Cash, Credit Card, Check, Superbill",
+      medicalSpecialty: [
+        "https://schema.org/Psychiatric",
+        "https://schema.org/CommunityHealth",
+        "Counseling",
+        "Psychotherapy",
+      ],
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "1782 Church Street",
+        addressLocality: site.address.locality,
+        addressRegion: site.address.region,
+        postalCode: "94131",
+        addressCountry: site.address.country,
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: site.geo.latitude,
+        longitude: site.geo.longitude,
+      },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: site.openingDays,
+          opens: site.openingHours.opens,
+          closes: site.openingHours.closes,
+        },
+      ],
+      areaServed: [
+        {
+          "@type": "City",
+          name: "San Francisco",
+        },
+        {
+          "@type": "Neighborhood",
+          name: "Noe Valley",
+        },
+        {
+          "@type": "AdministrativeArea",
+          name: "California",
+        },
+      ],
+      founder: therapistPerson,
+      employee: [therapistPerson],
+      sameAs: [psychologyTodayUrl],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Psychotherapy Services & Consultation",
+        itemListElement: serviceOffers,
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${canonicalUrl}#faq`,
+      mainEntity: (faq.faqList || []).map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
     },
   ],
-  areaServed: {
-    "@type": "AdministrativeArea",
-    name: "San Francisco, CA",
-  },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Therapy Services",
-    itemListElement: serviceOffers,
-  },
 };
 
 // 5. Update index.html dynamically
@@ -318,5 +415,5 @@ if (fs.existsSync(distDir)) {
 }
 
 console.log(
-  "✅ Dynamic SEO files and schema.org successfully generated from CMS config!"
+  "✅ Enhanced SEO files and Schema.org graph successfully generated!"
 );

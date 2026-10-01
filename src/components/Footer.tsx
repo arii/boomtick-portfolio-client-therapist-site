@@ -1,12 +1,11 @@
 import React from "react";
 import {
-  Sparkles,
+  Flower2,
   Phone,
   AlertTriangle,
   ShieldCheck,
   MapPin,
 } from "lucide-react";
-import { TOKENS } from "../styles/tokens";
 import { SITE_CONFIG } from "../config/site";
 
 interface FooterProps {
@@ -31,8 +30,8 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Left Zone: Brand + Practice Location */}
           <div className="space-y-4 max-w-md">
             <div className="flex items-center gap-2.5 text-white">
-              <span className="p-1.5 rounded-lg bg-stone-800 text-stone-200">
-                <Sparkles className={`w-4 h-4 ${TOKENS.accent.icon}`} />
+              <span className="p-1.5 rounded-lg bg-emerald-800 text-white shadow-2xs">
+                <Flower2 className={`w-4 h-4 text-emerald-100`} />
               </span>
               <span className="font-serif text-lg font-bold tracking-tight">
                 {studioName}
@@ -48,7 +47,9 @@ export const Footer: React.FC<FooterProps> = ({
             <div className="flex flex-col gap-2 text-[13px] text-stone-400 font-sans">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-stone-500 shrink-0" />
-                <span>1782 Church Street, San Francisco, CA 94131</span>
+                <span>
+                  1782 Church Street, San Francisco, CA 94131 (Noe Valley)
+                </span>
               </div>
               <a
                 id="footer-phone-link"

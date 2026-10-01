@@ -1,6 +1,6 @@
 /**
- * Google Apps Script for Dynamic Form Lead Capture
- * Hair by April — Vintage & Curly Hair Specialist
+ * Google Apps Script for Dynamic Consultation Inquiry Lead Capture
+ * Marcella Mission Therapy — Holistic, Relational & Integrative Psychotherapy
  *
  * Instructions:
  * 1. Open your Google Sheet.
@@ -12,7 +12,7 @@
  * 5. To DEPLOY as Web App:
  *    - Click "Deploy" > "New deployment".
  *    - Select type: "Web app".
- *    - Description: "Dynamic Inquiry Webhook"
+ *    - Description: "Marcella Mission Therapy Inquiry Webhook"
  *    - Execute as: "Me"
  *    - Who has access: "Anyone"
  *    - Click "Deploy".
@@ -97,13 +97,15 @@ function doPost(e) {
     // Append new inquiry lead row
     sheet.appendRow(row);
     Logger.log(
-      "✅ Row inserted successfully for: " + (fieldMap["Your Name"] || "Lead")
+      "✅ Row inserted successfully for: " +
+        (fieldMap["First Name"] || fieldMap["Your Name"] || "Lead")
     );
 
-    // Send email notification to stylist
+    // Send email notification to therapist
     if (data.recipient) {
       try {
-        var emailBody = "✂️ New Hair by April Inquiry:\n\n";
+        var emailBody =
+          "🌿 New Consultation Inquiry (Marcella Mission Therapy):\n\n";
         emailBody +=
           "Submitted At: " +
           (data.submittedAt || new Date().toISOString()) +
@@ -115,8 +117,10 @@ function doPost(e) {
         MailApp.sendEmail({
           to: data.recipient,
           subject:
-            "✂️ New Styling Inquiry: " +
-            (fieldMap["Your Name"] || fieldMap["Name"] || "New Client"),
+            "🌿 New Therapy Consultation Request: " +
+            (fieldMap["First Name"]
+              ? fieldMap["First Name"] + " " + (fieldMap["Last Name"] || "")
+              : "New Client"),
           body: emailBody,
         });
         Logger.log("📧 Notification email sent to: " + data.recipient);
@@ -128,7 +132,7 @@ function doPost(e) {
     return ContentService.createTextOutput(
       JSON.stringify({
         status: "success",
-        message: "Lead recorded successfully",
+        message: "Consultation inquiry recorded successfully",
         timestamp: new Date().toISOString(),
       })
     ).setMimeType(ContentService.MimeType.JSON);
@@ -152,7 +156,7 @@ function doGet(e) {
   return ContentService.createTextOutput(
     JSON.stringify({
       status: "active",
-      endpoint: "Hair by April - Dynamic Google Sheets Webhook",
+      endpoint: "Marcella Mission Therapy - Dynamic Google Sheets Webhook",
       timestamp: new Date().toISOString(),
     })
   ).setMimeType(ContentService.MimeType.JSON);
@@ -160,31 +164,32 @@ function doGet(e) {
 
 /**
  * 🧪 Local Test Function (Run within Apps Script Editor)
- *
- * How to run:
- * 1. In the Apps Script toolbar at the top, select "testDoPost" in the dropdown.
- * 2. Click the "▷ Run" button.
- * 3. Open the "Execution log" at the bottom or check your Google Sheet to see the test row!
  */
 function testDoPost() {
   Logger.log("🚀 Starting local testDoPost execution...");
 
   var testPayload = {
-    recipient: Session.getActiveUser().getEmail() || "hello@hairbyapril.com",
+    recipient:
+      Session.getActiveUser().getEmail() ||
+      "marcella.mission.therapy@gmail.com",
     submittedAt: new Date().toISOString(),
     fields: [
-      { label: "Your Name", value: "Test Client (Ariel)" },
+      { label: "First Name", value: "Test Client" },
+      { label: "Last Name", value: "Ariel" },
       { label: "Email Address", value: "test.client@example.com" },
-      { label: "Phone Number", value: "(415) 555-0192" },
-      { label: "Event / Inquiry Type", value: "Wedding / Bridal Party" },
-      { label: "Estimated Party Size", value: "5-8 People" },
+      { label: "Phone Number", value: "(415) 373-6223" },
       {
-        label: "Target Date & Location (City or Venue)",
-        value: "October 14, 2026 • San Francisco",
+        label: "Preferred Session Format",
+        value: "Telehealth (Online Video across California)",
       },
       {
-        label: "Styling Notes / Desired Aesthetics",
-        value: "Vintage 1940s victory rolls and natural curl styling test",
+        label: "What is bringing you to therapy at this moment?",
+        value: "Exploring life transitions and mindfulness support.",
+      },
+      {
+        label: "Communication Consent",
+        value:
+          "I consent to be contacted via text or email regarding this inquiry",
       },
     ],
   };
@@ -201,7 +206,7 @@ function testDoPost() {
 
   var parsed = JSON.parse(responseText);
   if (parsed.status === "success") {
-    Logger.log("🎉 TEST PASSED: Dynamic lead row added to Google Sheet!");
+    Logger.log("🎉 TEST PASSED: Consultation lead row added to Google Sheet!");
   } else {
     Logger.log("❌ TEST FAILED: " + parsed.message);
   }
