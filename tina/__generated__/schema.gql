@@ -97,6 +97,27 @@ type PageHero {
   availabilityNotice: String!
 }
 
+type PageAboutPillars {
+  title: String!
+  description: String!
+  icon: String
+}
+
+type PageAbout {
+  badge: String
+  psychologyTodayText: String
+  psychologyTodayUrl: String
+  quoteHeadline: String
+  bioParagraphs: [String]
+  closingAffirmationQuote: String
+  pillars: [PageAboutPillars]
+  specialtiesTitle: String
+  specialties: [String]
+  locationHeader: String
+  locationTitle: String
+  locationSubtitle: String
+}
+
 type PageServicesServicesListExamples {
   image: String
   styleLabel: String
@@ -107,6 +128,7 @@ type PageServicesServicesList {
   name: String!
   price: String!
   duration: String
+  clientNotice: String
   description: String
   deliverables: [String]
   examples: [PageServicesServicesListExamples]
@@ -218,6 +240,7 @@ type PageSite {
 
 type Page implements Node & Document {
   hero: PageHero
+  about: PageAbout
   services: PageServices
   portfolio: PagePortfolio
   faq: PageFaq
@@ -242,6 +265,27 @@ input PageHeroFilter {
   availabilityNotice: StringFilter
 }
 
+input PageAboutPillarsFilter {
+  title: StringFilter
+  description: StringFilter
+  icon: StringFilter
+}
+
+input PageAboutFilter {
+  badge: StringFilter
+  psychologyTodayText: StringFilter
+  psychologyTodayUrl: StringFilter
+  quoteHeadline: StringFilter
+  bioParagraphs: StringFilter
+  closingAffirmationQuote: StringFilter
+  pillars: PageAboutPillarsFilter
+  specialtiesTitle: StringFilter
+  specialties: StringFilter
+  locationHeader: StringFilter
+  locationTitle: StringFilter
+  locationSubtitle: StringFilter
+}
+
 input ImageFilter {
   startsWith: String
   eq: String
@@ -259,6 +303,7 @@ input PageServicesServicesListFilter {
   name: StringFilter
   price: StringFilter
   duration: StringFilter
+  clientNotice: StringFilter
   description: StringFilter
   deliverables: StringFilter
   examples: PageServicesServicesListExamplesFilter
@@ -389,6 +434,7 @@ input PageSiteFilter {
 
 input PageFilter {
   hero: PageHeroFilter
+  about: PageAboutFilter
   services: PageServicesFilter
   portfolio: PagePortfolioFilter
   faq: PageFaqFilter
@@ -433,6 +479,27 @@ input PageHeroMutation {
   availabilityNotice: String
 }
 
+input PageAboutPillarsMutation {
+  title: String
+  description: String
+  icon: String
+}
+
+input PageAboutMutation {
+  badge: String
+  psychologyTodayText: String
+  psychologyTodayUrl: String
+  quoteHeadline: String
+  bioParagraphs: [String]
+  closingAffirmationQuote: String
+  pillars: [PageAboutPillarsMutation]
+  specialtiesTitle: String
+  specialties: [String]
+  locationHeader: String
+  locationTitle: String
+  locationSubtitle: String
+}
+
 input PageServicesServicesListExamplesMutation {
   image: String
   styleLabel: String
@@ -443,6 +510,7 @@ input PageServicesServicesListMutation {
   name: String
   price: String
   duration: String
+  clientNotice: String
   description: String
   deliverables: [String]
   examples: [PageServicesServicesListExamplesMutation]
@@ -558,6 +626,7 @@ input PageSiteMutation {
 
 input PageMutation {
   hero: PageHeroMutation
+  about: PageAboutMutation
   services: PageServicesMutation
   portfolio: PagePortfolioMutation
   faq: PageFaqMutation

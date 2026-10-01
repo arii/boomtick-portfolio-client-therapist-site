@@ -50,18 +50,19 @@
   },
   "services": {
     "sectionTitle": "Services & Fees",
-    "pricingNote": "In-person appointments in San Francisco (Noe Valley) & Telehealth online across California.",
+    "pricingNote": "In-person appointments in San Francisco (Noe Valley) & Telehealth online across California. 60-minute therapy appointments are for existing patients only.",
     "servicesList": [
       {
         "id": "individual-therapy",
-        "name": "Individual Therapy",
+        "name": "Individual Therapy (Existing Patients)",
         "price": "$80 / Session",
-        "duration": "50 mins",
-        "description": "In-person in San Francisco or online via Telehealth. Tailored, holistic support focusing on the here and now, bringing gentle awareness to present-moment experience.",
+        "duration": "60 mins",
+        "clientNotice": "Existing Patients Only",
+        "description": "In-person in San Francisco or online via Telehealth. 60-minute tailored, holistic support focusing on the here and now, bringing gentle awareness to present-moment experience. Reserved for active, ongoing clients.",
         "deliverables": [
+          "60-Minute in-person (Noe Valley) or statewide Telehealth",
           "Present-moment awareness & somatic exploration",
-          "Support for life transitions, anxiety, ADHD & trauma",
-          "In-person at 1782 Church St or secure Telehealth across CA"
+          "Ongoing support for life transitions, anxiety, ADHD & trauma"
         ],
         "examples": [
           {
@@ -79,14 +80,15 @@
       },
       {
         "id": "couples-therapy",
-        "name": "Couples & Relational Therapy",
+        "name": "Couples & Relational Therapy (Existing Patients)",
         "price": "$80 / Session",
-        "duration": "50 mins",
-        "description": "Relational and integrative support for couples and partners navigating life transitions, communication patterns, intimacy, and deeper connection.",
+        "duration": "60 mins",
+        "clientNotice": "Existing Patients Only",
+        "description": "Relational and integrative 60-minute support for couples and partners navigating life transitions, communication patterns, intimacy, and deeper connection. Reserved for active, ongoing clients.",
         "deliverables": [
+          "60-Minute couples session in SF or online",
           "Collaborative communication tools & pattern awareness",
-          "Polyamory, ENM, kink & LGBTQIA+ affirming",
-          "Navigating relationship growth and transitions"
+          "Polyamory, ENM, kink & LGBTQIA+ affirming container"
         ],
         "examples": [
           {

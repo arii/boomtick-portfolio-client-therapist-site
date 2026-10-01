@@ -1,7 +1,7 @@
 // tina/config.ts
 import { defineConfig } from "tinacms";
 var branch = (typeof process !== "undefined" ? process.env?.VITE_TINA_BRANCH : void 0) || import.meta.env?.VITE_TINA_BRANCH || (typeof process !== "undefined" ? process.env?.CF_PAGES_BRANCH : void 0) || (typeof process !== "undefined" ? process.env?.HEAD : void 0) || "main";
-var clientId = (typeof process !== "undefined" ? process.env?.VITE_TINA_CLIENT_ID : void 0) || import.meta.env?.VITE_TINA_CLIENT_ID || "87e12abe-90fc-43a9-9f88-48270c37724d";
+var clientId = (typeof process !== "undefined" ? process.env?.VITE_TINA_CLIENT_ID : void 0) || import.meta.env?.VITE_TINA_CLIENT_ID || "cc29fe7b-9d48-4d53-83f1-115a9f5f48b8";
 var token = (typeof process !== "undefined" ? process.env?.TINA_TOKEN : void 0) || import.meta.env?.TINA_TOKEN || null;
 var searchToken = (typeof process !== "undefined" ? process.env?.TINA_SEARCH_TOKEN : void 0) || import.meta.env?.TINA_SEARCH_TOKEN || import.meta.env?.VITE_TINA_SEARCH_TOKEN || null;
 var config_default = defineConfig({
@@ -68,6 +68,120 @@ var config_default = defineConfig({
               }
             ]
           },
+          // 1.5 ABOUT & CLINICAL PHILOSOPHY SECTION
+          {
+            type: "object",
+            name: "about",
+            label: "About Marcella & Clinical Philosophy",
+            fields: [
+              {
+                type: "string",
+                name: "badge",
+                label: "Section Badge Tag",
+                description: "Small badge displayed above the bio (e.g. 'About Marcella Mission')"
+              },
+              {
+                type: "string",
+                name: "psychologyTodayText",
+                label: "Psychology Today Verification Label",
+                description: "Label for the Psychology Today link"
+              },
+              {
+                type: "string",
+                name: "psychologyTodayUrl",
+                label: "Psychology Today Profile URL",
+                description: "Direct link to verified profile"
+              },
+              {
+                type: "string",
+                name: "quoteHeadline",
+                label: "Opening Philosophy Quote",
+                description: "Featured quote setting the therapeutic tone and orientation",
+                ui: { component: "textarea" }
+              },
+              {
+                type: "string",
+                name: "bioParagraphs",
+                label: "Narrative Biography Paragraphs",
+                list: true,
+                description: "Paragraphs detailing psychology study at NLP Marin, training at Church St ICC, supervised by Derek Pehle PsyD #21361, and session formats",
+                ui: { component: "textarea" }
+              },
+              {
+                type: "string",
+                name: "closingAffirmationQuote",
+                label: "Closing Affirmation Callout Quote",
+                description: "Affirmation acknowledging the energy it takes to reach out for support",
+                ui: { component: "textarea" }
+              },
+              {
+                type: "object",
+                name: "pillars",
+                label: "Therapy Pillars (3 Cards)",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({
+                    label: item?.title || "Philosophy Pillar"
+                  })
+                },
+                fields: [
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Pillar Title (e.g. Relational & Present)",
+                    required: true
+                  },
+                  {
+                    type: "string",
+                    name: "description",
+                    label: "Pillar Description",
+                    required: true,
+                    ui: { component: "textarea" }
+                  },
+                  {
+                    type: "string",
+                    name: "icon",
+                    label: "Icon Name",
+                    options: [
+                      "Heart",
+                      "Compass",
+                      "Sparkles",
+                      "Flower2",
+                      "ShieldCheck"
+                    ]
+                  }
+                ]
+              },
+              {
+                type: "string",
+                name: "specialtiesTitle",
+                label: "Specialties Section Title",
+                description: "Section title for clinical specialties and focus areas"
+              },
+              {
+                type: "string",
+                name: "specialties",
+                label: "Areas of Clinical Focus & Specialty",
+                list: true,
+                description: "List of specialties (Life Transitions, Depression & Anxiety, ADHD & Neurodivergence, Polyamory & ENM, Kink & Sex-Positive, Trauma, Addiction, Couples)"
+              },
+              {
+                type: "string",
+                name: "locationHeader",
+                label: "Space Gallery Subheader"
+              },
+              {
+                type: "string",
+                name: "locationTitle",
+                label: "Space Gallery Practice Title"
+              },
+              {
+                type: "string",
+                name: "locationSubtitle",
+                label: "Space Gallery Physical Address Subtitle"
+              }
+            ]
+          },
           // 2. SERVICES & PRICING
           {
             type: "object",
@@ -115,7 +229,7 @@ var config_default = defineConfig({
                     type: "string",
                     name: "duration",
                     label: "Estimated Duration",
-                    description: "Standard appointment duration (e.g. 50 mins)",
+                    description: "Standard appointment duration (e.g. 60 mins)",
                     options: [
                       "45 mins",
                       "50 mins",
@@ -123,6 +237,12 @@ var config_default = defineConfig({
                       "75 mins",
                       "90 mins"
                     ]
+                  },
+                  {
+                    type: "string",
+                    name: "clientNotice",
+                    label: "Patient Eligibility Tag",
+                    description: "Client eligibility badge (e.g. 'Existing Patients Only')"
                   },
                   {
                     type: "string",

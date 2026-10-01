@@ -67,6 +67,7 @@ const PAGE_CONTENT_QUERY = `
           name
           price
           duration
+          clientNotice
           description
           deliverables
           calSlug
@@ -187,10 +188,16 @@ function ServiceCard({
     >
       <div className="flex flex-col h-full justify-between">
         <div className="space-y-4">
-          <div className="flex items-center justify-end">
+          <div className="flex items-center justify-between">
+            <span
+              data-tina-field={tinaField(service, "clientNotice")}
+              className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-stone-100 text-stone-700 font-sans border border-stone-200"
+            >
+              {service.clientNotice || "Existing Patients Only"}
+            </span>
             <div
               data-tina-field={tinaField(service, "duration")}
-              className="flex items-center gap-1 text-[11px] text-stone-500 shrink-0 font-sans"
+              className="flex items-center gap-1 text-[11px] text-stone-500 shrink-0 font-sans font-medium"
             >
               <Clock className="w-3 h-3 text-stone-400" />
               <span>{sDuration}</span>
@@ -249,7 +256,7 @@ function ServiceCard({
             }
             className={TOKENS.button.primaryFull}
           >
-            <span>Schedule 15-Min Call</span>
+            <span>Schedule Session ({sDuration})</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

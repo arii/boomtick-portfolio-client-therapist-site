@@ -273,7 +273,7 @@ export default defineConfig({
                     type: "string",
                     name: "duration",
                     label: "Estimated Duration",
-                    description: "Standard appointment duration (e.g. 50 mins)",
+                    description: "Standard appointment duration (e.g. 60 mins)",
                     options: [
                       "45 mins",
                       "50 mins",
@@ -281,6 +281,13 @@ export default defineConfig({
                       "75 mins",
                       "90 mins",
                     ],
+                  },
+                  {
+                    type: "string",
+                    name: "clientNotice",
+                    label: "Patient Eligibility Tag",
+                    description:
+                      "Client eligibility badge (e.g. 'Existing Patients Only')",
                   },
                   {
                     type: "string",

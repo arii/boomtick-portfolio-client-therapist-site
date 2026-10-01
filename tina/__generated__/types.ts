@@ -175,6 +175,29 @@ export type PageHero = {
   availabilityNotice: Scalars['String']['output'];
 };
 
+export type PageAboutPillars = {
+  __typename?: 'PageAboutPillars';
+  title: Scalars['String']['output'];
+  description: Scalars['String']['output'];
+  icon?: Maybe<Scalars['String']['output']>;
+};
+
+export type PageAbout = {
+  __typename?: 'PageAbout';
+  badge?: Maybe<Scalars['String']['output']>;
+  psychologyTodayText?: Maybe<Scalars['String']['output']>;
+  psychologyTodayUrl?: Maybe<Scalars['String']['output']>;
+  quoteHeadline?: Maybe<Scalars['String']['output']>;
+  bioParagraphs?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  closingAffirmationQuote?: Maybe<Scalars['String']['output']>;
+  pillars?: Maybe<Array<Maybe<PageAboutPillars>>>;
+  specialtiesTitle?: Maybe<Scalars['String']['output']>;
+  specialties?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  locationHeader?: Maybe<Scalars['String']['output']>;
+  locationTitle?: Maybe<Scalars['String']['output']>;
+  locationSubtitle?: Maybe<Scalars['String']['output']>;
+};
+
 export type PageServicesServicesListExamples = {
   __typename?: 'PageServicesServicesListExamples';
   image?: Maybe<Scalars['String']['output']>;
@@ -187,6 +210,7 @@ export type PageServicesServicesList = {
   name: Scalars['String']['output'];
   price: Scalars['String']['output'];
   duration?: Maybe<Scalars['String']['output']>;
+  clientNotice?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   deliverables?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   examples?: Maybe<Array<Maybe<PageServicesServicesListExamples>>>;
@@ -313,6 +337,7 @@ export type PageSite = {
 export type Page = Node & Document & {
   __typename?: 'Page';
   hero?: Maybe<PageHero>;
+  about?: Maybe<PageAbout>;
   services?: Maybe<PageServices>;
   portfolio?: Maybe<PagePortfolio>;
   faq?: Maybe<PageFaq>;
@@ -337,6 +362,27 @@ export type PageHeroFilter = {
   availabilityNotice?: InputMaybe<StringFilter>;
 };
 
+export type PageAboutPillarsFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  icon?: InputMaybe<StringFilter>;
+};
+
+export type PageAboutFilter = {
+  badge?: InputMaybe<StringFilter>;
+  psychologyTodayText?: InputMaybe<StringFilter>;
+  psychologyTodayUrl?: InputMaybe<StringFilter>;
+  quoteHeadline?: InputMaybe<StringFilter>;
+  bioParagraphs?: InputMaybe<StringFilter>;
+  closingAffirmationQuote?: InputMaybe<StringFilter>;
+  pillars?: InputMaybe<PageAboutPillarsFilter>;
+  specialtiesTitle?: InputMaybe<StringFilter>;
+  specialties?: InputMaybe<StringFilter>;
+  locationHeader?: InputMaybe<StringFilter>;
+  locationTitle?: InputMaybe<StringFilter>;
+  locationSubtitle?: InputMaybe<StringFilter>;
+};
+
 export type ImageFilter = {
   startsWith?: InputMaybe<Scalars['String']['input']>;
   eq?: InputMaybe<Scalars['String']['input']>;
@@ -354,6 +400,7 @@ export type PageServicesServicesListFilter = {
   name?: InputMaybe<StringFilter>;
   price?: InputMaybe<StringFilter>;
   duration?: InputMaybe<StringFilter>;
+  clientNotice?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   deliverables?: InputMaybe<StringFilter>;
   examples?: InputMaybe<PageServicesServicesListExamplesFilter>;
@@ -484,6 +531,7 @@ export type PageSiteFilter = {
 
 export type PageFilter = {
   hero?: InputMaybe<PageHeroFilter>;
+  about?: InputMaybe<PageAboutFilter>;
   services?: InputMaybe<PageServicesFilter>;
   portfolio?: InputMaybe<PagePortfolioFilter>;
   faq?: InputMaybe<PageFaqFilter>;
@@ -576,6 +624,27 @@ export type PageHeroMutation = {
   availabilityNotice?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type PageAboutPillarsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PageAboutMutation = {
+  badge?: InputMaybe<Scalars['String']['input']>;
+  psychologyTodayText?: InputMaybe<Scalars['String']['input']>;
+  psychologyTodayUrl?: InputMaybe<Scalars['String']['input']>;
+  quoteHeadline?: InputMaybe<Scalars['String']['input']>;
+  bioParagraphs?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  closingAffirmationQuote?: InputMaybe<Scalars['String']['input']>;
+  pillars?: InputMaybe<Array<InputMaybe<PageAboutPillarsMutation>>>;
+  specialtiesTitle?: InputMaybe<Scalars['String']['input']>;
+  specialties?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  locationHeader?: InputMaybe<Scalars['String']['input']>;
+  locationTitle?: InputMaybe<Scalars['String']['input']>;
+  locationSubtitle?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type PageServicesServicesListExamplesMutation = {
   image?: InputMaybe<Scalars['String']['input']>;
   styleLabel?: InputMaybe<Scalars['String']['input']>;
@@ -586,6 +655,7 @@ export type PageServicesServicesListMutation = {
   name?: InputMaybe<Scalars['String']['input']>;
   price?: InputMaybe<Scalars['String']['input']>;
   duration?: InputMaybe<Scalars['String']['input']>;
+  clientNotice?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   deliverables?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   examples?: InputMaybe<Array<InputMaybe<PageServicesServicesListExamplesMutation>>>;
@@ -701,6 +771,7 @@ export type PageSiteMutation = {
 
 export type PageMutation = {
   hero?: InputMaybe<PageHeroMutation>;
+  about?: InputMaybe<PageAboutMutation>;
   services?: InputMaybe<PageServicesMutation>;
   portfolio?: InputMaybe<PagePortfolioMutation>;
   faq?: InputMaybe<PageFaqMutation>;
@@ -722,6 +793,27 @@ export type PageHeroFilter = {
   availabilityNotice?: StringFilter | null | undefined;
 };
 
+export type PageAboutPillarsFilter = {
+  title?: StringFilter | null | undefined;
+  description?: StringFilter | null | undefined;
+  icon?: StringFilter | null | undefined;
+};
+
+export type PageAboutFilter = {
+  badge?: StringFilter | null | undefined;
+  psychologyTodayText?: StringFilter | null | undefined;
+  psychologyTodayUrl?: StringFilter | null | undefined;
+  quoteHeadline?: StringFilter | null | undefined;
+  bioParagraphs?: StringFilter | null | undefined;
+  closingAffirmationQuote?: StringFilter | null | undefined;
+  pillars?: PageAboutPillarsFilter | null | undefined;
+  specialtiesTitle?: StringFilter | null | undefined;
+  specialties?: StringFilter | null | undefined;
+  locationHeader?: StringFilter | null | undefined;
+  locationTitle?: StringFilter | null | undefined;
+  locationSubtitle?: StringFilter | null | undefined;
+};
+
 export type ImageFilter = {
   startsWith?: string | null | undefined;
   eq?: string | null | undefined;
@@ -739,6 +831,7 @@ export type PageServicesServicesListFilter = {
   name?: StringFilter | null | undefined;
   price?: StringFilter | null | undefined;
   duration?: StringFilter | null | undefined;
+  clientNotice?: StringFilter | null | undefined;
   description?: StringFilter | null | undefined;
   deliverables?: StringFilter | null | undefined;
   examples?: PageServicesServicesListExamplesFilter | null | undefined;
@@ -869,6 +962,7 @@ export type PageSiteFilter = {
 
 export type PageFilter = {
   hero?: PageHeroFilter | null | undefined;
+  about?: PageAboutFilter | null | undefined;
   services?: PageServicesFilter | null | undefined;
   portfolio?: PagePortfolioFilter | null | undefined;
   faq?: PageFaqFilter | null | undefined;
@@ -876,7 +970,7 @@ export type PageFilter = {
   site?: PageSiteFilter | null | undefined;
 };
 
-export type PagePartsFragment = { __typename: 'Page', hero: { __typename: 'PageHero', badge: string | null, headline: string, subheading: string | null, availabilityNotice: string } | null, services: { __typename: 'PageServices', sectionTitle: string | null, pricingNote: string | null, servicesList: Array<{ __typename: 'PageServicesServicesList', name: string, price: string, duration: string | null, description: string | null, deliverables: Array<string | null> | null, id: string, calSlug: string | null, examples: Array<{ __typename: 'PageServicesServicesListExamples', image: string | null, styleLabel: string | null, alt: string | null } | null> | null } | null> | null } | null, portfolio: { __typename: 'PagePortfolio', heroImage: string | null, ogImage: string | null, ogImageAlt: string | null, portfolioList: Array<{ __typename: 'PagePortfolioPortfolioList', title: string | null, id: string, image: string, alt: string, tag: string | null, images: Array<string | null> | null } | null> | null } | null, faq: { __typename: 'PageFaq', sectionTitle: string | null, sectionSubtitle: string | null, faqList: Array<{ __typename: 'PageFaqFaqList', question: string, answer: string } | null> | null } | null, events: { __typename: 'PageEvents', title: string | null, description: string | null, showForm: boolean | null, formFields: Array<
+export type PagePartsFragment = { __typename: 'Page', hero: { __typename: 'PageHero', badge: string | null, headline: string, subheading: string | null, availabilityNotice: string } | null, about: { __typename: 'PageAbout', badge: string | null, psychologyTodayText: string | null, psychologyTodayUrl: string | null, quoteHeadline: string | null, bioParagraphs: Array<string | null> | null, closingAffirmationQuote: string | null, specialtiesTitle: string | null, specialties: Array<string | null> | null, locationHeader: string | null, locationTitle: string | null, locationSubtitle: string | null, pillars: Array<{ __typename: 'PageAboutPillars', title: string, description: string, icon: string | null } | null> | null } | null, services: { __typename: 'PageServices', sectionTitle: string | null, pricingNote: string | null, servicesList: Array<{ __typename: 'PageServicesServicesList', name: string, price: string, duration: string | null, clientNotice: string | null, description: string | null, deliverables: Array<string | null> | null, id: string, calSlug: string | null, examples: Array<{ __typename: 'PageServicesServicesListExamples', image: string | null, styleLabel: string | null, alt: string | null } | null> | null } | null> | null } | null, portfolio: { __typename: 'PagePortfolio', heroImage: string | null, ogImage: string | null, ogImageAlt: string | null, portfolioList: Array<{ __typename: 'PagePortfolioPortfolioList', title: string | null, id: string, image: string, alt: string, tag: string | null, images: Array<string | null> | null } | null> | null } | null, faq: { __typename: 'PageFaq', sectionTitle: string | null, sectionSubtitle: string | null, faqList: Array<{ __typename: 'PageFaqFaqList', question: string, answer: string } | null> | null } | null, events: { __typename: 'PageEvents', title: string | null, description: string | null, showForm: boolean | null, formFields: Array<
       | { __typename: 'PageEventsFormFieldsInputField', label: string, fieldType: string | null, placeholder: string | null, required: boolean | null }
       | { __typename: 'PageEventsFormFieldsSelectField', label: string, options: Array<string | null> | null, required: boolean | null }
       | { __typename: 'PageEventsFormFieldsTextareaField', label: string, placeholder: string | null, required: boolean | null }
@@ -887,7 +981,7 @@ export type PageQueryVariables = Exact<{
 }>;
 
 
-export type PageQuery = { page: { __typename: 'Page', id: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero: { __typename: 'PageHero', badge: string | null, headline: string, subheading: string | null, availabilityNotice: string } | null, services: { __typename: 'PageServices', sectionTitle: string | null, pricingNote: string | null, servicesList: Array<{ __typename: 'PageServicesServicesList', name: string, price: string, duration: string | null, description: string | null, deliverables: Array<string | null> | null, id: string, calSlug: string | null, examples: Array<{ __typename: 'PageServicesServicesListExamples', image: string | null, styleLabel: string | null, alt: string | null } | null> | null } | null> | null } | null, portfolio: { __typename: 'PagePortfolio', heroImage: string | null, ogImage: string | null, ogImageAlt: string | null, portfolioList: Array<{ __typename: 'PagePortfolioPortfolioList', title: string | null, id: string, image: string, alt: string, tag: string | null, images: Array<string | null> | null } | null> | null } | null, faq: { __typename: 'PageFaq', sectionTitle: string | null, sectionSubtitle: string | null, faqList: Array<{ __typename: 'PageFaqFaqList', question: string, answer: string } | null> | null } | null, events: { __typename: 'PageEvents', title: string | null, description: string | null, showForm: boolean | null, formFields: Array<
+export type PageQuery = { page: { __typename: 'Page', id: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero: { __typename: 'PageHero', badge: string | null, headline: string, subheading: string | null, availabilityNotice: string } | null, about: { __typename: 'PageAbout', badge: string | null, psychologyTodayText: string | null, psychologyTodayUrl: string | null, quoteHeadline: string | null, bioParagraphs: Array<string | null> | null, closingAffirmationQuote: string | null, specialtiesTitle: string | null, specialties: Array<string | null> | null, locationHeader: string | null, locationTitle: string | null, locationSubtitle: string | null, pillars: Array<{ __typename: 'PageAboutPillars', title: string, description: string, icon: string | null } | null> | null } | null, services: { __typename: 'PageServices', sectionTitle: string | null, pricingNote: string | null, servicesList: Array<{ __typename: 'PageServicesServicesList', name: string, price: string, duration: string | null, clientNotice: string | null, description: string | null, deliverables: Array<string | null> | null, id: string, calSlug: string | null, examples: Array<{ __typename: 'PageServicesServicesListExamples', image: string | null, styleLabel: string | null, alt: string | null } | null> | null } | null> | null } | null, portfolio: { __typename: 'PagePortfolio', heroImage: string | null, ogImage: string | null, ogImageAlt: string | null, portfolioList: Array<{ __typename: 'PagePortfolioPortfolioList', title: string | null, id: string, image: string, alt: string, tag: string | null, images: Array<string | null> | null } | null> | null } | null, faq: { __typename: 'PageFaq', sectionTitle: string | null, sectionSubtitle: string | null, faqList: Array<{ __typename: 'PageFaqFaqList', question: string, answer: string } | null> | null } | null, events: { __typename: 'PageEvents', title: string | null, description: string | null, showForm: boolean | null, formFields: Array<
         | { __typename: 'PageEventsFormFieldsInputField', label: string, fieldType: string | null, placeholder: string | null, required: boolean | null }
         | { __typename: 'PageEventsFormFieldsSelectField', label: string, options: Array<string | null> | null, required: boolean | null }
         | { __typename: 'PageEventsFormFieldsTextareaField', label: string, placeholder: string | null, required: boolean | null }
@@ -903,7 +997,7 @@ export type PageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PageConnectionQuery = { pageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Page', id: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero: { __typename: 'PageHero', badge: string | null, headline: string, subheading: string | null, availabilityNotice: string } | null, services: { __typename: 'PageServices', sectionTitle: string | null, pricingNote: string | null, servicesList: Array<{ __typename: 'PageServicesServicesList', name: string, price: string, duration: string | null, description: string | null, deliverables: Array<string | null> | null, id: string, calSlug: string | null, examples: Array<{ __typename: 'PageServicesServicesListExamples', image: string | null, styleLabel: string | null, alt: string | null } | null> | null } | null> | null } | null, portfolio: { __typename: 'PagePortfolio', heroImage: string | null, ogImage: string | null, ogImageAlt: string | null, portfolioList: Array<{ __typename: 'PagePortfolioPortfolioList', title: string | null, id: string, image: string, alt: string, tag: string | null, images: Array<string | null> | null } | null> | null } | null, faq: { __typename: 'PageFaq', sectionTitle: string | null, sectionSubtitle: string | null, faqList: Array<{ __typename: 'PageFaqFaqList', question: string, answer: string } | null> | null } | null, events: { __typename: 'PageEvents', title: string | null, description: string | null, showForm: boolean | null, formFields: Array<
+export type PageConnectionQuery = { pageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Page', id: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero: { __typename: 'PageHero', badge: string | null, headline: string, subheading: string | null, availabilityNotice: string } | null, about: { __typename: 'PageAbout', badge: string | null, psychologyTodayText: string | null, psychologyTodayUrl: string | null, quoteHeadline: string | null, bioParagraphs: Array<string | null> | null, closingAffirmationQuote: string | null, specialtiesTitle: string | null, specialties: Array<string | null> | null, locationHeader: string | null, locationTitle: string | null, locationSubtitle: string | null, pillars: Array<{ __typename: 'PageAboutPillars', title: string, description: string, icon: string | null } | null> | null } | null, services: { __typename: 'PageServices', sectionTitle: string | null, pricingNote: string | null, servicesList: Array<{ __typename: 'PageServicesServicesList', name: string, price: string, duration: string | null, clientNotice: string | null, description: string | null, deliverables: Array<string | null> | null, id: string, calSlug: string | null, examples: Array<{ __typename: 'PageServicesServicesListExamples', image: string | null, styleLabel: string | null, alt: string | null } | null> | null } | null> | null } | null, portfolio: { __typename: 'PagePortfolio', heroImage: string | null, ogImage: string | null, ogImageAlt: string | null, portfolioList: Array<{ __typename: 'PagePortfolioPortfolioList', title: string | null, id: string, image: string, alt: string, tag: string | null, images: Array<string | null> | null } | null> | null } | null, faq: { __typename: 'PageFaq', sectionTitle: string | null, sectionSubtitle: string | null, faqList: Array<{ __typename: 'PageFaqFaqList', question: string, answer: string } | null> | null } | null, events: { __typename: 'PageEvents', title: string | null, description: string | null, showForm: boolean | null, formFields: Array<
             | { __typename: 'PageEventsFormFieldsInputField', label: string, fieldType: string | null, placeholder: string | null, required: boolean | null }
             | { __typename: 'PageEventsFormFieldsSelectField', label: string, options: Array<string | null> | null, required: boolean | null }
             | { __typename: 'PageEventsFormFieldsTextareaField', label: string, placeholder: string | null, required: boolean | null }
@@ -919,6 +1013,26 @@ export const PagePartsFragmentDoc = gql`
     subheading
     availabilityNotice
   }
+  about {
+    __typename
+    badge
+    psychologyTodayText
+    psychologyTodayUrl
+    quoteHeadline
+    bioParagraphs
+    closingAffirmationQuote
+    pillars {
+      __typename
+      title
+      description
+      icon
+    }
+    specialtiesTitle
+    specialties
+    locationHeader
+    locationTitle
+    locationSubtitle
+  }
   services {
     __typename
     sectionTitle
@@ -928,6 +1042,7 @@ export const PagePartsFragmentDoc = gql`
       name
       price
       duration
+      clientNotice
       description
       deliverables
       examples {

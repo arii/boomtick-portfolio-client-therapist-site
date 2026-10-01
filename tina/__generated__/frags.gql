@@ -7,6 +7,26 @@ fragment PageParts on Page {
     subheading
     availabilityNotice
   }
+  about {
+    __typename
+    badge
+    psychologyTodayText
+    psychologyTodayUrl
+    quoteHeadline
+    bioParagraphs
+    closingAffirmationQuote
+    pillars {
+      __typename
+      title
+      description
+      icon
+    }
+    specialtiesTitle
+    specialties
+    locationHeader
+    locationTitle
+    locationSubtitle
+  }
   services {
     __typename
     sectionTitle
@@ -16,6 +36,7 @@ fragment PageParts on Page {
       name
       price
       duration
+      clientNotice
       description
       deliverables
       examples {

@@ -15,6 +15,26 @@ export const PagePartsFragmentDoc = gql`
     subheading
     availabilityNotice
   }
+  about {
+    __typename
+    badge
+    psychologyTodayText
+    psychologyTodayUrl
+    quoteHeadline
+    bioParagraphs
+    closingAffirmationQuote
+    pillars {
+      __typename
+      title
+      description
+      icon
+    }
+    specialtiesTitle
+    specialties
+    locationHeader
+    locationTitle
+    locationSubtitle
+  }
   services {
     __typename
     sectionTitle
@@ -24,6 +44,7 @@ export const PagePartsFragmentDoc = gql`
       name
       price
       duration
+      clientNotice
       description
       deliverables
       examples {

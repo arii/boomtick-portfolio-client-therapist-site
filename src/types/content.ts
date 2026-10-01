@@ -18,6 +18,7 @@ export interface ServiceItem {
   price: string;
   duration: string;
   description: string;
+  clientNotice?: string;
   deliverables: string[];
   calSlug?: string;
   examples?: ExampleItem[];
