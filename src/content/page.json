@@ -2,12 +2,12 @@
   "hero": {
     "badge": "Pre-Licensed Professional • Supervised by Derek Pehle, PsyD #21361",
     "headline": "Honoring what is, embracing what can be.",
-    "subheading": "Holistic, relational, and integrative therapy for individuals and couples in San Francisco and online across California.",
-    "availabilityNotice": "In-Person Sessions at Church St Integral Counseling Center (Mon–Thu) & Telehealth across California."
+    "subheading": "Holistic, relational, and integrative therapy for individuals and couples. Bringing gentle awareness to the present moment to engage the structures that keep unwanted experiences in place.",
+    "availabilityNotice": "Taking on new clients: In-Person in San Francisco (Mon–Thu at 1782 Church St) & Telehealth across California."
   },
   "services": {
     "sectionTitle": "Services & Fees",
-    "pricingNote": "In-person appointments in San Francisco (1782 Church St) & Telehealth online across California.",
+    "pricingNote": "In-person appointments in San Francisco (Noe Valley) & Telehealth online across California.",
     "servicesList": [
       {
         "id": "individual-therapy",
@@ -110,7 +110,7 @@
       },
       {
         "question": "What does 'Pre-Licensed Professional' mean?",
-        "answer": "As a Marriage and Family Therapist (MFT) Trainee and Professional Clinical Counselor (PCC) Trainee at Church Street Integral Counseling Center, I have over a decade of experience studying psychology and human behavior at NLP Marin. Under California law, I practice under the direct clinical supervision of Dr. Derek Pehle, PsyD (CA License #21361), ensuring the highest ethical and clinical standards."
+        "answer": "As a Marriage and Family Therapist (MFT) Trainee and Professional Clinical Counselor (PCC) Trainee at Church Street Integral Counseling Center in Noe Valley, I have over a decade of experience studying psychology and human behavior at NLP Marin. Under California law, I practice under the direct clinical supervision of Dr. Derek Pehle, PsyD (CA License #21361), ensuring the highest ethical and clinical standards."
       },
       {
         "question": "What are your session rates and do you accept insurance?",
@@ -118,7 +118,7 @@
       },
       {
         "question": "Where are sessions located and do you offer Telehealth?",
-        "answer": "In-person sessions take place Mondays through Thursdays at 1782 Church Street in San Francisco (Church Street Integral Counseling Center, located in the Noe Valley / Bernal area). Secure Telehealth video sessions are also available for individuals and couples residing anywhere in the state of California."
+        "answer": "In-person sessions take place Mondays through Thursdays at 1782 Church Street in San Francisco (Church Street Integral Counseling Center, located in the Noe Valley neighborhood). Secure Telehealth video sessions are also available for individuals and couples residing anywhere in the state of California."
       },
       {
         "question": "How do existing clients book recurring appointments?",
@@ -171,7 +171,7 @@
       },
       {
         "label": "What is bringing you to therapy at this moment?",
-        "placeholder": "Briefly share what you'd like support with (e.g., life transitions, anxiety, relationship communication)...",
+        "placeholder": "Briefly share what you'd like support with (e.g., life transitions, anxiety, ADHD, relationship communication)...",
         "required": false,
         "_template": "textareaField"
       },
@@ -204,13 +204,15 @@
       "relational therapy",
       "ADHD therapist SF",
       "polyamory affirming therapy",
+      "kink affirming therapy",
+      "NLP Marin therapy",
       "Church Street Integral Counseling Center",
       "Derek Pehle PsyD supervisor"
     ],
     "email": "marcella.mission.therapy@gmail.com",
     "phone": "415-373-6223",
     "instagramHandle": "",
-    "locationDisplay": "1782 Church St, San Francisco, CA 94131",
+    "locationDisplay": "1782 Church St, San Francisco, CA 94131 (Noe Valley)",
     "calUsername": "marcellamission",
     "calDefaultSlug": "consultation-15min",
     "address": {

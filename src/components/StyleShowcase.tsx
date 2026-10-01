@@ -1,7 +1,14 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { PORTFOLIO_CONTENT } from "../config/site";
 import { TOKENS } from "../styles/tokens";
-import { Sparkles, Heart, Compass, CheckCircle2 } from "lucide-react";
+import {
+  Sparkles,
+  Heart,
+  Compass,
+  CheckCircle2,
+  ExternalLink,
+  Quote,
+} from "lucide-react";
 import type { PortfolioItem } from "../types/content";
 
 interface StyleShowcaseProps {
@@ -153,26 +160,70 @@ export const StyleShowcase: React.FC<StyleShowcaseProps> = ({
       className="relative py-20 md:py-28 bg-stone-100/70 border-b border-stone-200 scroll-mt-16"
     >
       <span id="showcase" className="absolute -top-16" />
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6 space-y-16">
         {/* About Marcella Introduction Block */}
-        <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-semibold uppercase tracking-wider font-sans border border-emerald-200/80">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>About Marcella</span>
+        <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-stone-200/90 shadow-sm p-8 sm:p-10 md:p-12 space-y-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-stone-100 pb-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-xs font-semibold uppercase tracking-wider font-sans border border-emerald-200/80">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>About Marcella Mission</span>
+            </div>
+            <a
+              href="https://www.psychologytoday.com/us/therapists/marcella-shehadeh-mission-san-francisco-ca/1615567"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-stone-500 hover:text-stone-900 transition inline-flex items-center gap-1.5 font-sans"
+            >
+              <span>Verified on Psychology Today</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
           </div>
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-stone-900 tracking-tight">
-            Relational, Somatic &amp; Integrative Support
-          </h2>
-          <p className="text-stone-600 font-sans text-base md:text-lg leading-relaxed pt-2">
-            I have been studying psychology and working with clients at NLP
-            Marin for over a decade. As a Pre-Licensed Professional, I work to
-            honor what is and embrace what can be by bringing gentle awareness
-            to the present moment.
-          </p>
+
+          <div className="space-y-6 text-stone-700 font-sans text-base sm:text-lg leading-relaxed">
+            <p className="font-serif text-2xl sm:text-3xl text-stone-900 font-bold tracking-tight leading-snug">
+              “I work to honor what is and embrace what can be by bringing
+              awareness to the present moment.”
+            </p>
+
+            <p>
+              I have been studying psychology and working with clients at{" "}
+              <strong>NLP Marin</strong> for over a decade. I'm a Professional
+              Clinical Counselor and Marriage and Family Therapist Trainee at{" "}
+              <strong>Church St Integral Counseling Center</strong> in Noe
+              Valley, San Francisco, supervised by{" "}
+              <strong>Derek Pehle, PsyD (CA License #21361)</strong>.
+            </p>
+
+            <p>
+              By focusing on the here and now, we start to gently engage the
+              internal structures that keep unwanted experiences in place. I
+              work with individuals and couples seeking support around life
+              transitions, depression, anxiety, ADHD, polyamory, kink,
+              addiction, and trauma.
+            </p>
+
+            <p>
+              I am currently taking on new clients who live in California for
+              online sessions or in-person sessions Mondays through Thursdays in
+              San Francisco. Our work together will be holistic, relational,
+              integrative, and tailored for what works best for you.
+            </p>
+
+            {/* Reaching Out Affirmation Box */}
+            <div className="p-6 bg-emerald-50/60 border border-emerald-200/80 rounded-2xl flex items-start gap-4">
+              <Quote className="w-6 h-6 text-emerald-700 shrink-0 mt-1 rotate-180" />
+              <p className="text-sm sm:text-base text-emerald-950 italic leading-relaxed">
+                “Finally, I would like to acknowledge the energy it takes to
+                reach for change and support. Sorting through helpers and
+                healers is a big first reach; whether this is your first time in
+                therapy or a continuation of your journey, you are on your way.”
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Practice Pillars */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white p-6 md:p-8 rounded-2xl border border-stone-200 shadow-2xs space-y-3">
             <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center">
               <Heart className="w-5 h-5" />
@@ -211,13 +262,13 @@ export const StyleShowcase: React.FC<StyleShowcaseProps> = ({
             <p className="text-stone-600 text-xs sm:text-sm font-sans leading-relaxed">
               Actively affirming LGBTQIA+, polyamorous, ethically
               non-monogamous, kink, and neurodivergent individuals and
-              relationships in a safe, judgment-free container.
+              relationships in a safe, non-judgmental container.
             </p>
           </div>
         </div>
 
         {/* Clinical Specialties Pill Grid */}
-        <div className="bg-white rounded-2xl border border-stone-200 p-8 md:p-10 mb-16 shadow-2xs">
+        <div className="bg-white rounded-2xl border border-stone-200 p-8 md:p-10 shadow-2xs">
           <h3 className="text-xs font-bold uppercase tracking-wider text-stone-500 font-sans mb-4 text-center">
             Areas of Clinical Focus &amp; Specialty
           </h3>
@@ -235,40 +286,45 @@ export const StyleShowcase: React.FC<StyleShowcaseProps> = ({
         </div>
 
         {/* Peaceful Space & Office Gallery */}
-        <div className="text-center mb-8">
-          <span className="text-xs font-bold uppercase tracking-wider text-stone-500 font-sans">
-            Our San Francisco Setting
-          </span>
-          <h3 className="text-2xl md:text-3xl font-serif font-bold text-stone-900 mt-1">
-            Church Street Integral Counseling Center
-          </h3>
-        </div>
+        <div className="space-y-8">
+          <div className="text-center">
+            <span className="text-xs font-bold uppercase tracking-wider text-stone-500 font-sans">
+              Our San Francisco Setting
+            </span>
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-stone-900 mt-1">
+              Church Street Integral Counseling Center
+            </h3>
+            <p className="text-xs text-stone-500 font-sans mt-1">
+              1782 Church Street, San Francisco, CA 94131 (Noe Valley)
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {(() => {
-            const renderedImageUrls: string[] = [];
-            return images.map((item, index) => {
-              const currentUsed = [...renderedImageUrls];
-              const primaryImage = item.image;
-              if (primaryImage) {
-                renderedImageUrls.push(primaryImage);
-              }
-              if (item.images) {
-                item.images.forEach((img) => {
-                  if (img) renderedImageUrls.push(img);
-                });
-              }
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {(() => {
+              const renderedImageUrls: string[] = [];
+              return images.map((item, index) => {
+                const currentUsed = [...renderedImageUrls];
+                const primaryImage = item.image;
+                if (primaryImage) {
+                  renderedImageUrls.push(primaryImage);
+                }
+                if (item.images) {
+                  item.images.forEach((img) => {
+                    if (img) renderedImageUrls.push(img);
+                  });
+                }
 
-              return (
-                <PortfolioShowcaseCard
-                  key={item.id || `portfolio-${index}`}
-                  item={item}
-                  index={index}
-                  usedImageUrls={currentUsed}
-                />
-              );
-            });
-          })()}
+                return (
+                  <PortfolioShowcaseCard
+                    key={item.id || `portfolio-${index}`}
+                    item={item}
+                    index={index}
+                    usedImageUrls={currentUsed}
+                  />
+                );
+              });
+            })()}
+          </div>
         </div>
       </div>
     </section>
