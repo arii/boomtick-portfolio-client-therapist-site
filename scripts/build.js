@@ -4,13 +4,37 @@ import fs from "fs";
 
 function isPortBusy(port) {
   return new Promise((resolve) => {
-    const socket = net.createConnection({ port, host: "127.0.0.1" }, () => {
-      socket.end();
-      resolve(true);
+    let completed = false;
+    const done = (val) => {
+      if (completed) return;
+      completed = true;
+      resolve(val);
+    };
+
+    const s1 = net.createConnection({ port, host: "127.0.0.1" }, () => {
+      s1.end();
+      done(true);
     });
-    socket.on("error", () => {
-      resolve(false);
+    s1.on("error", () => {});
+
+    const s2 = net.createConnection({ port, host: "localhost" }, () => {
+      s2.end();
+      done(true);
     });
+    s2.on("error", () => {});
+
+    const s3 = net.createConnection({ port, host: "::1" }, () => {
+      s3.end();
+      done(true);
+    });
+    s3.on("error", () => {});
+
+    setTimeout(() => {
+      s1.destroy();
+      s2.destroy();
+      s3.destroy();
+      done(false);
+    }, 200);
   });
 }
 
@@ -90,9 +114,7 @@ async function run() {
   }
 
   if (runTinaBuild) {
-    const tinaArgs = hasEnv
-      ? ["build", "--skip-cloud-checks"]
-      : ["build", "--local", "--skip-cloud-checks"];
+    const tinaArgs = ["build", "--local", "--skip-cloud-checks"];
 
     console.log(`Executing: npx tinacms ${tinaArgs.join(" ")}`);
     const tinaResult = spawnSync("npx", ["tinacms", ...tinaArgs], {

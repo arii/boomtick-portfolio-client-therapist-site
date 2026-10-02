@@ -5,9 +5,9 @@ import type { FAQContent } from "../types/content";
 
 const DEFAULT_FAQS = [
   {
-    question: "How does the free 15-minute consultation call work?",
+    question: "How does the free 30-minute consultation call work?",
     answer:
-      "Our initial 15-minute consultation is a relaxed conversation by phone or video. It gives us a chance to connect, briefly discuss what you are looking for in therapy, answer your questions, and ensure my holistic, relational approach feels like a comfortable fit for your goals.",
+      "Our initial 30-minute consultation is a relaxed conversation by phone or video. It gives us a chance to connect, briefly discuss what you are looking for in therapy, answer your questions, and ensure my holistic, relational approach feels like a comfortable fit for your goals.",
   },
   {
     question: "What does 'Pre-Licensed Professional' mean?",
@@ -27,7 +27,7 @@ const DEFAULT_FAQS = [
   {
     question: "How do existing clients book recurring appointments?",
     answer:
-      "To protect client confidentiality and guarantee your weekly time slot, full paid sessions are scheduled directly with Marcella following your initial 15-minute consultation. Established clients can easily reschedule or coordinate times via direct text, phone call, or secure email.",
+      "To protect client confidentiality and guarantee your weekly time slot, full paid sessions are scheduled directly with Marcella following your initial 30-minute consultation. Established clients can easily reschedule or coordinate times via direct text, phone call, or secure email.",
   },
 ];
 

@@ -10,11 +10,11 @@ export const TOKENS = {
   // Button variants
   button: {
     primary:
-      "bg-stone-900 hover:bg-stone-800 text-white font-semibold py-3.5 px-6 min-h-[48px] rounded-xl text-xs font-sans tracking-wider uppercase transition cursor-pointer inline-flex items-center justify-center gap-2 shadow-sm disabled:opacity-50",
+      "bg-brand-dark hover:bg-brand-dark-hover text-white font-semibold py-3.5 px-6 min-h-[48px] rounded-xl text-xs font-sans tracking-wider uppercase transition cursor-pointer inline-flex items-center justify-center gap-2 shadow-sm disabled:opacity-50",
     primaryFull:
-      "w-full bg-stone-900 hover:bg-stone-800 text-white font-semibold py-3.5 px-4 min-h-[48px] rounded-xl text-xs font-sans tracking-wider uppercase transition cursor-pointer flex items-center justify-center gap-2 shadow-sm disabled:opacity-50",
+      "w-full bg-brand-dark hover:bg-brand-dark-hover text-white font-semibold py-3.5 px-4 min-h-[48px] rounded-xl text-xs font-sans tracking-wider uppercase transition cursor-pointer flex items-center justify-center gap-2 shadow-sm disabled:opacity-50",
     navAction:
-      "bg-stone-900 hover:bg-stone-800 text-white px-5 py-2.5 min-h-[40px] flex items-center justify-center rounded-xl text-xs font-semibold tracking-wider uppercase transition cursor-pointer shadow-xs",
+      "bg-brand-dark hover:bg-brand-dark-hover text-white px-5 py-2.5 min-h-[40px] flex items-center justify-center rounded-xl text-xs font-semibold tracking-wider uppercase transition cursor-pointer shadow-xs",
     icon: "w-10 h-10 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-600 hover:text-stone-950 transition flex items-center justify-center border border-stone-200/40 cursor-pointer",
     iconMobile:
       "w-11 h-11 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-600 hover:text-stone-950 transition flex items-center justify-center border border-stone-200/40 cursor-pointer",
@@ -47,13 +47,13 @@ export const TOKENS = {
   // Badges & indicators
   badge: {
     credentials:
-      "inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-200/60 border border-stone-300/80 text-stone-800 text-xs font-semibold tracking-wider font-sans",
+      "inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-canvas border border-accent text-brand-dark text-xs font-semibold tracking-wider font-sans",
   },
 
   // Accent icons & subtle highlights
   accent: {
-    icon: "text-emerald-700",
-    iconHover: "hover:text-emerald-700",
-    bgHover: "hover:bg-emerald-700",
+    icon: "text-accent",
+    iconHover: "hover:text-accent-hover",
+    bgHover: "hover:bg-accent-hover",
   },
 } as const;

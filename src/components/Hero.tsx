@@ -71,7 +71,7 @@ export const Hero: React.FC<HeroProps> = ({
                 className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-stone-900 text-white font-bold text-xs uppercase tracking-wider hover:bg-stone-800 transition shadow-sm text-center font-sans inline-flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Calendar className="w-4 h-4" />
-                <span>Schedule Free 15-Min Call</span>
+                <span>Schedule Free 30-Min Call</span>
               </button>
 
               {/* Secondary Action: Direct Call / Text */}
@@ -80,7 +80,7 @@ export const Hero: React.FC<HeroProps> = ({
                 className="w-full sm:w-auto px-7 py-3.5 rounded-full border border-stone-300 text-stone-800 font-bold text-xs uppercase tracking-wider hover:bg-stone-100 transition text-center font-sans inline-flex items-center justify-center gap-2"
               >
                 <MessageSquare className="w-4 h-4 text-stone-500" />
-                <span>Text / Call ({SITE_CONFIG.phoneDisplay})</span>
+                <span>Text / Call {SITE_CONFIG.phoneDisplay}</span>
               </a>
             </div>
           </div>

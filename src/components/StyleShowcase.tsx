@@ -249,13 +249,13 @@ export const StyleShowcase: React.FC<StyleShowcaseProps> = ({
       <span id="showcase" className="absolute -top-16" />
       <div className="max-w-6xl mx-auto px-6 space-y-16">
         {/* About Marcella Introduction Block */}
-        <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-stone-200/90 shadow-sm p-8 sm:p-10 md:p-12 space-y-8">
+        <div className="max-w-4xl mx-auto bg-canvas rounded-3xl border border-stone-200/90 shadow-sm p-8 sm:p-10 md:p-12 space-y-8">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-stone-100 pb-6">
             <div
               data-tina-field={about ? tinaField(about, "badge") : undefined}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-xs font-semibold uppercase tracking-wider font-sans border border-emerald-200/80"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-soft text-accent text-xs font-semibold uppercase tracking-wider font-sans border border-accent-border"
             >
-              <Sparkles className="w-3.5 h-3.5" />
+              <Sparkles className="w-3.5 h-3.5 text-accent" />
               <span>{badge}</span>
             </div>
             <a

@@ -90,7 +90,7 @@ export const InquiryModule: React.FC<InquiryModuleProps> = ({
   const submitButtonText =
     propsSubmitButtonText ||
     EVENTS_CONTENT.formOptions?.submitButtonText ||
-    "Request 15-Min Consultation";
+    "Request 30-Min Consultation";
 
   const [fieldValues, setFieldValues] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -213,7 +213,7 @@ export const InquiryModule: React.FC<InquiryModuleProps> = ({
               <p className="text-xs text-stone-600 font-sans max-w-md mx-auto leading-relaxed">
                 Thank you{clientName ? `, ${clientName}` : ""}. Marcella will
                 review your note and follow up shortly to confirm a convenient
-                time for our 15-minute consultation call.
+                time for our 30-minute consultation call.
               </p>
               <button
                 onClick={() => {
@@ -332,6 +332,22 @@ export const InquiryModule: React.FC<InquiryModuleProps> = ({
                 );
               })}
 
+              {/* Privacy Notice Checkbox Verification */}
+              <div className="flex items-start gap-2.5 py-1 flex-row">
+                <input
+                  id="privacy-notice-verification"
+                  type="checkbox"
+                  required
+                  className="w-4 h-4 mt-0.5 rounded border-stone-300 text-emerald-700 focus:ring-emerald-500 accent-emerald-700 cursor-pointer"
+                />
+                <label
+                  htmlFor="privacy-notice-verification"
+                  className="text-[11px] text-stone-600 font-sans leading-relaxed cursor-pointer select-none"
+                >
+                  I verify that I have read the privacy notice and consent to the confidential handling of my contact information. *
+                </label>
+              </div>
+
               <div className="pt-2">
                 <button
                   id="submit-consultation-inquiry-btn"
@@ -357,9 +373,10 @@ export const InquiryModule: React.FC<InquiryModuleProps> = ({
               <div className="pt-3 border-t border-stone-100 flex items-start gap-2 text-[11px] text-stone-500 font-sans leading-relaxed">
                 <ShieldCheck className="w-4 h-4 text-stone-400 shrink-0 mt-0.5" />
                 <span>
-                  <strong>Confidentiality Notice:</strong> Information submitted
-                  through this form is strictly confidential and used only to
-                  coordinate consultation scheduling.
+                  <strong>Confidentiality Notice:</strong> Please do not include
+                  sensitive medical or psychiatric information in this form. This
+                  form is for initial scheduling purposes only. Information submitted
+                  is kept confidential and used solely to coordinate consultation timing.
                 </span>
               </div>
             </form>

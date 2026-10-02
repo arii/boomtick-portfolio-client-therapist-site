@@ -70,7 +70,15 @@ const webhookUrl = deploymentId
 const cleanSiteUrl = resolveSiteUrl().replace(/\/+$/, "");
 const canonicalUrl = `${cleanSiteUrl}/`;
 
-const basePhone = SITE_CONTENT.phone;
+function formatPhoneNumber(phoneStr: string): string {
+  const digits = phoneStr.replace(/[^0-9]/g, "");
+  if (digits.length === 10) {
+    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+  }
+  return phoneStr;
+}
+
+const basePhone = formatPhoneNumber(SITE_CONTENT.phone);
 const cleanPhoneDigits = basePhone.replace(/[^0-9]/g, "");
 
 // ==========================================
@@ -107,7 +115,7 @@ export const SITE_CONFIG = {
 
   // Integrations & Logistics
   calUsername: SITE_CONTENT.calUsername || "marcellamission",
-  calDefaultSlug: SITE_CONTENT.calDefaultSlug || "consultation-15min",
+  calDefaultSlug: SITE_CONTENT.calDefaultSlug || "30min",
   deploymentId,
   webhookUrl,
   locationDisplay: SITE_CONTENT.locationDisplay,
@@ -252,12 +260,12 @@ export function generateSiteSchema(
       };
     });
 
-  // Free 15-Minute Consultation Offer
+  // Free 30-Minute Consultation Offer
   itemListElement.unshift({
     "@type": "Offer",
     itemOffered: {
       "@type": "Service",
-      name: "Free 15-Minute Consultation",
+      name: "Free 30-Minute Consultation",
       description:
         "Complimentary phone or video consultation to connect, discuss therapy intentions, and verify clinical fit.",
       provider: therapistPerson,
@@ -353,9 +361,9 @@ export function generateSiteSchema(
       ? faq.faqList
       : [
           {
-            question: "How does the free 15-minute consultation call work?",
+            question: "How does the free 30-minute consultation call work?",
             answer:
-              "Our initial 15-minute consultation is a relaxed conversation by phone or video to connect, briefly discuss your therapy goals, and ensure my relational approach is a great fit.",
+              "Our initial 30-minute consultation is a relaxed conversation by phone or video to connect, briefly discuss your therapy goals, and ensure my relational approach is a great fit.",
           },
           {
             question: "What does Pre-Licensed Professional mean?",

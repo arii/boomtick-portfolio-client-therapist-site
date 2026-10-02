@@ -7,9 +7,12 @@ import {
   MapPin,
 } from "lucide-react";
 import { SITE_CONFIG } from "../config/site";
+import { tinaField } from "../lib/useTina";
+import type { SiteContent } from "../types/content";
 
 interface FooterProps {
   onBookAppointment: () => void;
+  liveSite: SiteContent;
   studioName?: string;
   email?: string;
   phone?: string;
@@ -17,10 +20,14 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({
   onBookAppointment,
-  studioName = SITE_CONFIG.studioName,
-  phone = SITE_CONFIG.phone,
+  liveSite,
+  studioName = liveSite?.studioName || SITE_CONFIG.studioName,
+  phone = liveSite?.phone || SITE_CONFIG.phone,
 }) => {
   const cleanPhoneDigits = phone.replace(/[^0-9]/g, "");
+  const formattedPhone = cleanPhoneDigits.length === 10
+    ? `(${cleanPhoneDigits.slice(0, 3)}) ${cleanPhoneDigits.slice(3, 6)}-${cleanPhoneDigits.slice(6)}`
+    : phone;
 
   return (
     <footer className="bg-stone-900 text-stone-300 py-16 md:py-20 border-t border-stone-800">
@@ -33,31 +40,39 @@ export const Footer: React.FC<FooterProps> = ({
               <span className="p-1.5 rounded-lg bg-emerald-800 text-white shadow-2xs">
                 <Flower2 className={`w-4 h-4 text-emerald-100`} />
               </span>
-              <span className="font-serif text-lg font-bold tracking-tight">
+              <span
+                data-tina-field={tinaField(liveSite, "studioName")}
+                className="font-serif text-lg font-bold tracking-tight"
+              >
                 {studioName}
               </span>
             </div>
 
-            <p className="text-xs text-stone-400 font-sans leading-relaxed">
-              Holistic, relational, and integrative psychotherapy for
-              individuals and couples in San Francisco and across California via
-              Telehealth.
+            <p
+              data-tina-field={tinaField(liveSite, "description")}
+              className="text-xs text-stone-400 font-sans leading-relaxed"
+            >
+              {liveSite?.description || "Holistic, relational, and integrative psychotherapy for individuals, couples, and teens in San Francisco and across California via Telehealth."}
             </p>
 
             <div className="flex flex-col gap-2 text-[13px] text-stone-400 font-sans">
-              <div className="flex items-center gap-2">
+              <div
+                data-tina-field={tinaField(liveSite, "locationDisplay")}
+                className="flex items-center gap-2"
+              >
                 <MapPin className="w-4 h-4 text-stone-500 shrink-0" />
                 <span>
-                  1782 Church Street, San Francisco, CA 94131 (Noe Valley)
+                  {liveSite?.locationDisplay || "1782 Church Street, San Francisco, CA 94131 (Noe Valley)"}
                 </span>
               </div>
               <a
                 id="footer-phone-link"
                 href={`tel:${cleanPhoneDigits}`}
+                data-tina-field={tinaField(liveSite, "phone")}
                 className="hover:text-white transition w-fit flex items-center gap-2"
               >
                 <Phone className="w-4 h-4 text-stone-500 shrink-0" />
-                <span>Call or Text: {phone}</span>
+                <span>Call or Text: {formattedPhone}</span>
               </a>
             </div>
           </div>
@@ -72,7 +87,7 @@ export const Footer: React.FC<FooterProps> = ({
               onClick={onBookAppointment}
               className="hover:text-white transition cursor-pointer text-left bg-transparent border-0 p-0 font-sans text-[13px] text-stone-400 font-semibold"
             >
-              Free 15-Min Call
+              Free 30-Min Call
             </button>
             <a
               id="footer-about-link"

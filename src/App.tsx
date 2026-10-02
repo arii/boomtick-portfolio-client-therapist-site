@@ -8,10 +8,10 @@ import { InquiryModule } from "./components/InquiryModule";
 import { FAQ } from "./components/FAQ";
 import { Footer } from "./components/Footer";
 import { SchemaOrg } from "./components/SchemaOrg";
+import { CookieBanner } from "./components/CookieBanner";
 import { SITE_CONFIG } from "./config/site";
 import { tinaClient } from "./lib/tinaClient";
-import { TOKENS } from "./styles/tokens";
-import { Clock, ArrowRight, Check, Phone, MessageSquare } from "lucide-react";
+import { Clock, Check, Phone, MessageSquare } from "lucide-react";
 import pageData from "./content/page.json";
 import type {
   HeroContent,
@@ -161,15 +161,11 @@ const PAGE_CONTENT_QUERY = `
 interface ServiceCardProps {
   service: ServiceItem;
   index: number;
-  handleOpenBooking: (service: ServiceItem, slug: string) => void;
-  liveSite: SiteContent;
 }
 
 function ServiceCard({
   service,
   index,
-  handleOpenBooking,
-  liveSite,
 }: ServiceCardProps) {
   const sId = service.id || `service-${index}`;
   const sName = service.name || "Therapy Session";
@@ -238,23 +234,6 @@ function ServiceCard({
               ))}
             </ul>
           </div>
-        </div>
-
-        {/* Consultation Button wrapper */}
-        <div className="mt-8 pt-4 border-t border-stone-200/70">
-          <button
-            id={`book-service-btn-${sId}`}
-            onClick={() =>
-              handleOpenBooking(
-                service,
-                service.calSlug || liveSite.calDefaultSlug
-              )
-            }
-            className={TOKENS.button.primaryFull}
-          >
-            <span>Schedule Session ({sDuration})</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
         </div>
       </div>
     </div>
@@ -430,6 +409,52 @@ export default function App() {
           images={livePortfolio?.portfolioList || []}
         />
 
+        {/* Free Consultation Callout Section (Moved up to under About) */}
+        <section id="consultation-callout" className="py-12 bg-stone-50 border-b border-stone-200">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="max-w-3xl mx-auto bg-stone-900 text-stone-50 rounded-2xl p-6 sm:p-8 md:p-10 shadow-lg border border-stone-800 text-center relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-stone-100/5 rounded-full blur-3xl pointer-events-none" />
+
+              <span className="text-[11px] font-bold uppercase tracking-widest text-emerald-400 font-sans">
+                Getting Started
+              </span>
+              <h3 className="mt-2 text-2xl md:text-3xl font-serif font-bold text-white tracking-tight">
+                Free 30-Minute Consultation
+              </h3>
+              <p className="mt-3.5 max-w-2xl mx-auto text-stone-300 text-sm md:text-base font-sans leading-relaxed">
+                Finding the right therapist is an important, personal choice.
+                Marcella offers a complimentary 30-minute consultation to answer
+                your questions, discuss your intentions, and see if working
+                together is the right fit.
+              </p>
+
+              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
+                <button
+                  onClick={() => handleOpenBooking()}
+                  className="w-full sm:w-auto px-6 py-4 bg-white text-stone-950 hover:bg-stone-100 font-bold font-sans tracking-wide text-xs uppercase rounded-xl transition shadow-md inline-flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  Schedule 30-Min Call
+                </button>
+                <a
+                  href={`tel:${cleanPhoneDigits}`}
+                  className="w-full sm:w-auto px-6 py-4 bg-emerald-700 hover:bg-emerald-600 text-white font-bold font-sans tracking-wide text-xs uppercase rounded-xl transition shadow-md inline-flex items-center justify-center gap-2"
+                >
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>Call {SITE_CONFIG.phoneDisplay}</span>
+                </a>
+                <a
+                  href={`sms:${cleanPhoneDigits}`}
+                  className="w-full sm:w-auto px-6 py-4 bg-stone-800 hover:bg-stone-700 text-white font-bold font-sans tracking-wide text-xs uppercase rounded-xl transition shadow-md inline-flex items-center justify-center gap-2"
+                >
+                  <MessageSquare className="w-3.5 h-3.5" />
+                  <span>Text Marcella</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* 3. Services & Fees Menu */}
         <section
           id="services"
@@ -450,48 +475,6 @@ export default function App() {
               )}
             </div>
 
-            {/* Primary Consultation Strategy Card */}
-            <div className="mb-14 max-w-3xl mx-auto bg-stone-900 text-stone-50 rounded-2xl p-6 sm:p-8 md:p-10 shadow-lg border border-stone-800 text-center relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-stone-100/5 rounded-full blur-3xl pointer-events-none" />
-
-              <span className="text-[11px] font-bold uppercase tracking-widest text-emerald-400 font-sans">
-                Getting Started
-              </span>
-              <h3 className="mt-2 text-2xl md:text-3xl font-serif font-bold text-white tracking-tight">
-                Free 15-Minute Consultation
-              </h3>
-              <p className="mt-3.5 max-w-2xl mx-auto text-stone-300 text-sm md:text-base font-sans leading-relaxed">
-                Finding the right therapist is an important, personal choice.
-                Marcella offers a complimentary 15-minute consultation to answer
-                your questions, discuss your intentions, and see if working
-                together is the right fit.
-              </p>
-
-              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
-                <button
-                  onClick={() => handleOpenBooking()}
-                  className="w-full sm:w-auto px-6 py-4 bg-white text-stone-950 hover:bg-stone-100 font-bold font-sans tracking-wide text-xs uppercase rounded-xl transition shadow-md inline-flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  Schedule 15-Min Call
-                </button>
-                <a
-                  href={`tel:${cleanPhoneDigits}`}
-                  className="w-full sm:w-auto px-6 py-4 bg-emerald-700 hover:bg-emerald-600 text-white font-bold font-sans tracking-wide text-xs uppercase rounded-xl transition shadow-md inline-flex items-center justify-center gap-2"
-                >
-                  <Phone className="w-3.5 h-3.5" />
-                  <span>Call {SITE_CONFIG.phoneDisplay}</span>
-                </a>
-                <a
-                  href={`sms:${cleanPhoneDigits}`}
-                  className="w-full sm:w-auto px-6 py-4 bg-stone-800 hover:bg-stone-700 text-white font-bold font-sans tracking-wide text-xs uppercase rounded-xl transition shadow-md inline-flex items-center justify-center gap-2"
-                >
-                  <MessageSquare className="w-3.5 h-3.5" />
-                  <span>Text Marcella</span>
-                </a>
-              </div>
-            </div>
-
             {/* Services Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto gap-8 items-stretch">
               {(liveServices?.servicesList || []).map((service, idx) => (
@@ -499,8 +482,6 @@ export default function App() {
                   key={service.id || `service-${idx}`}
                   service={service}
                   index={idx}
-                  handleOpenBooking={handleOpenBooking}
-                  liveSite={liveSite}
                 />
               ))}
             </div>
@@ -524,10 +505,11 @@ export default function App() {
       {/* Footer Branding & Legal Disclaimers */}
       <Footer
         onBookAppointment={() => handleOpenBooking()}
-        studioName={String(liveSite.studioName || SITE_CONFIG.studioName)}
-        email={String(liveSite.email || SITE_CONFIG.email)}
-        phone={String(liveSite.phone || SITE_CONFIG.phone)}
+        liveSite={liveSite}
       />
+
+      {/* Cookie Permissions Banner */}
+      <CookieBanner />
 
       {/* Code-split Cal.com Embed Modal */}
       {isBookingOpen && (

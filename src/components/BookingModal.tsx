@@ -41,7 +41,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         <div className="flex items-start justify-between mb-4">
           <div>
             <h3 className="text-2xl font-serif font-bold text-stone-900">
-              Schedule Free 15-Minute Consultation
+              Schedule Free 30-Minute Consultation
             </h3>
             <p className="text-stone-500 text-xs sm:text-sm mt-1 font-sans">
               {logisticsNotice}
@@ -64,7 +64,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               New Client Consultation
             </span>
             <p className="text-stone-800 text-xs font-sans leading-relaxed">
-              We'll use our 15-minute call to connect, discuss what brings you
+              We'll use our 30-minute call to connect, discuss what brings you
               to therapy, and ensure my approach aligns with your needs.
             </p>
           </div>
@@ -86,7 +86,15 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           </div>
         </div>
 
-        <div className="flex-1 border border-stone-200 rounded-xl overflow-hidden bg-stone-50 relative min-h-[400px]">
+        {/* HIPAA & Confidentiality Notice */}
+        <div className="mb-4 bg-stone-50 border border-stone-200/85 rounded-xl p-3.5 flex items-start gap-2.5">
+          <span className="text-stone-500 mt-0.5 shrink-0 select-none" aria-hidden="true">⚠️</span>
+          <p className="text-stone-600 text-[11px] sm:text-xs font-sans leading-relaxed">
+            <strong className="text-stone-900 font-bold">Confidentiality &amp; HIPAA Notice:</strong> Please do not enter detailed psychiatric, clinical, or medical information in the booking form fields below. This calendaring tool is for scheduling purposes only and is not a secure, confidential, or HIPAA-compliant channel. For highly sensitive questions, please contact me directly by phone or text.
+          </p>
+        </div>
+
+        <div className="flex-1 border border-stone-200 rounded-xl overflow-hidden bg-stone-50 relative min-h-[350px] md:min-h-[400px]">
           <iframe
             src={calUrl}
             title={`Schedule a consultation with ${stylistName}`}

@@ -26,6 +26,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   ];
 
   const cleanPhoneDigits = phone.replace(/[^0-9]/g, "");
+  const formattedPhone = cleanPhoneDigits.length === 10
+    ? `(${cleanPhoneDigits.slice(0, 3)}) ${cleanPhoneDigits.slice(3, 6)}-${cleanPhoneDigits.slice(6)}`
+    : phone;
 
   return (
     <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200/80 box-border w-full">
@@ -65,14 +68,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             aria-label={`Call ${phone}`}
           >
             <Phone className="w-3.5 h-3.5 text-stone-400" />
-            <span>{phone}</span>
+            <span>{formattedPhone}</span>
           </a>
           <button
             id="nav-book-consultation-btn"
             onClick={onBookAppointment}
             className={TOKENS.button.navAction}
           >
-            Free 15-Min Consultation
+            Free 30-Min Consultation
           </button>
         </div>
 
@@ -123,7 +126,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 }}
                 className={TOKENS.button.primaryFull}
               >
-                Free 15-Min Consultation
+                Free 30-Min Consultation
               </button>
             </div>
           </div>
