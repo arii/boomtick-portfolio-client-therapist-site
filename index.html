@@ -113,6 +113,59 @@
         "@context": "https://schema.org",
         "@graph": [
           {
+            "@type": "MedicalOrganization",
+            "@id": "https://marcella-therapy.pages.dev/#clinic",
+            "name": "Church Street Integral Counseling Center",
+            "url": "https://www.churchstreetcenter.org/",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "1782 Church Street",
+              "addressLocality": "San Francisco",
+              "addressRegion": "CA",
+              "postalCode": "94131",
+              "addressCountry": "US"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://marcella-therapy.pages.dev/#supervisor",
+            "name": "Derek Pehle, PsyD",
+            "jobTitle": "Licensed Clinical Psychologist",
+            "hasCredential": "CA License #21361"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://marcella-therapy.pages.dev/#marcella-mission",
+            "name": "Marcella Mission",
+            "jobTitle": "Pre-Licensed Professional, MFT & PCC Trainee",
+            "description": "Studying psychology and working with clients at NLP Marin for over a decade. Professional Clinical Counselor and Marriage and Family Therapist Trainee at Church Street Integral Counseling Center.",
+            "telephone": "+1-650-209-7477",
+            "email": "marcella.mission.therapy@gmail.com",
+            "knowsAbout": [
+              "Life Transitions",
+              "Depression & Anxiety",
+              "ADHD & Neurodivergence",
+              "Polyamory & Ethical Non-Monogamy (ENM)",
+              "Kink & Sex-Positive Therapy",
+              "Trauma & Somatic Exploration",
+              "Addiction & Recovery",
+              "Relational Dynamics & Couples",
+              "EMDR",
+              "Relational Dynamics & Couples Therapy",
+              "NLP (Neuro-Linguistic Programming)",
+              "Psychotherapy"
+            ],
+            "worksFor": {
+              "@id": "https://marcella-therapy.pages.dev/#clinic"
+            },
+            "sponsor": {
+              "@id": "https://marcella-therapy.pages.dev/#supervisor"
+            },
+            "sameAs": [
+              "https://www.psychologytoday.com/us/therapists/marcella-shehadeh-mission-san-francisco-ca/1615567"
+            ]
+          },
+          {
             "@type": ["MedicalBusiness", "LocalBusiness"],
             "@id": "https://marcella-therapy.pages.dev/#practice",
             "name": "Marcella Mission Therapy",
@@ -171,93 +224,11 @@
               }
             ],
             "founder": {
-              "@type": "Person",
-              "@id": "https://marcella-therapy.pages.dev/#marcella-mission",
-              "name": "Marcella Mission",
-              "jobTitle": "Pre-Licensed Professional, MFT & PCC Trainee",
-              "description": "Studying psychology and working with clients at NLP Marin for over a decade. Professional Clinical Counselor and Marriage and Family Therapist Trainee at Church Street Integral Counseling Center.",
-              "telephone": "+1-650-209-7477",
-              "email": "marcella.mission.therapy@gmail.com",
-              "knowsAbout": [
-                "Life Transitions",
-                "Depression & Anxiety",
-                "ADHD & Neurodivergence",
-                "Polyamory & Ethical Non-Monogamy (ENM)",
-                "Kink & Sex-Positive Therapy",
-                "Trauma & Somatic Exploration",
-                "Addiction & Recovery",
-                "Relational Dynamics & Couples",
-                "EMDR",
-                "Relational Dynamics & Couples Therapy",
-                "NLP (Neuro-Linguistic Programming)",
-                "Psychotherapy"
-              ],
-              "worksFor": {
-                "@type": "MedicalOrganization",
-                "name": "Church Street Integral Counseling Center",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "1782 Church Street",
-                  "addressLocality": "San Francisco",
-                  "addressRegion": "CA",
-                  "postalCode": "94131",
-                  "addressCountry": "US"
-                }
-              },
-              "sponsor": {
-                "@type": "Person",
-                "name": "Derek Pehle, PsyD",
-                "jobTitle": "Licensed Clinical Psychologist",
-                "hasCredential": "CA License #21361"
-              },
-              "sameAs": [
-                "https://www.psychologytoday.com/us/therapists/marcella-shehadeh-mission-san-francisco-ca/1615567"
-              ]
+              "@id": "https://marcella-therapy.pages.dev/#marcella-mission"
             },
             "employee": [
               {
-                "@type": "Person",
-                "@id": "https://marcella-therapy.pages.dev/#marcella-mission",
-                "name": "Marcella Mission",
-                "jobTitle": "Pre-Licensed Professional, MFT & PCC Trainee",
-                "description": "Studying psychology and working with clients at NLP Marin for over a decade. Professional Clinical Counselor and Marriage and Family Therapist Trainee at Church Street Integral Counseling Center.",
-                "telephone": "+1-650-209-7477",
-                "email": "marcella.mission.therapy@gmail.com",
-                "knowsAbout": [
-                  "Life Transitions",
-                  "Depression & Anxiety",
-                  "ADHD & Neurodivergence",
-                  "Polyamory & Ethical Non-Monogamy (ENM)",
-                  "Kink & Sex-Positive Therapy",
-                  "Trauma & Somatic Exploration",
-                  "Addiction & Recovery",
-                  "Relational Dynamics & Couples",
-                  "EMDR",
-                  "Relational Dynamics & Couples Therapy",
-                  "NLP (Neuro-Linguistic Programming)",
-                  "Psychotherapy"
-                ],
-                "worksFor": {
-                  "@type": "MedicalOrganization",
-                  "name": "Church Street Integral Counseling Center",
-                  "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "1782 Church Street",
-                    "addressLocality": "San Francisco",
-                    "addressRegion": "CA",
-                    "postalCode": "94131",
-                    "addressCountry": "US"
-                  }
-                },
-                "sponsor": {
-                  "@type": "Person",
-                  "name": "Derek Pehle, PsyD",
-                  "jobTitle": "Licensed Clinical Psychologist",
-                  "hasCredential": "CA License #21361"
-                },
-                "sameAs": [
-                  "https://www.psychologytoday.com/us/therapists/marcella-shehadeh-mission-san-francisco-ca/1615567"
-                ]
+                "@id": "https://marcella-therapy.pages.dev/#marcella-mission"
               }
             ],
             "sameAs": [
@@ -274,48 +245,7 @@
                     "name": "Free 15-Minute Consultation",
                     "description": "Complimentary phone or video consultation to connect, discuss therapy intentions, and verify clinical fit.",
                     "provider": {
-                      "@type": "Person",
-                      "@id": "https://marcella-therapy.pages.dev/#marcella-mission",
-                      "name": "Marcella Mission",
-                      "jobTitle": "Pre-Licensed Professional, MFT & PCC Trainee",
-                      "description": "Studying psychology and working with clients at NLP Marin for over a decade. Professional Clinical Counselor and Marriage and Family Therapist Trainee at Church Street Integral Counseling Center.",
-                      "telephone": "+1-650-209-7477",
-                      "email": "marcella.mission.therapy@gmail.com",
-                      "knowsAbout": [
-                        "Life Transitions",
-                        "Depression & Anxiety",
-                        "ADHD & Neurodivergence",
-                        "Polyamory & Ethical Non-Monogamy (ENM)",
-                        "Kink & Sex-Positive Therapy",
-                        "Trauma & Somatic Exploration",
-                        "Addiction & Recovery",
-                        "Relational Dynamics & Couples",
-                        "EMDR",
-                        "Relational Dynamics & Couples Therapy",
-                        "NLP (Neuro-Linguistic Programming)",
-                        "Psychotherapy"
-                      ],
-                      "worksFor": {
-                        "@type": "MedicalOrganization",
-                        "name": "Church Street Integral Counseling Center",
-                        "address": {
-                          "@type": "PostalAddress",
-                          "streetAddress": "1782 Church Street",
-                          "addressLocality": "San Francisco",
-                          "addressRegion": "CA",
-                          "postalCode": "94131",
-                          "addressCountry": "US"
-                        }
-                      },
-                      "sponsor": {
-                        "@type": "Person",
-                        "name": "Derek Pehle, PsyD",
-                        "jobTitle": "Licensed Clinical Psychologist",
-                        "hasCredential": "CA License #21361"
-                      },
-                      "sameAs": [
-                        "https://www.psychologytoday.com/us/therapists/marcella-shehadeh-mission-san-francisco-ca/1615567"
-                      ]
+                      "@id": "https://marcella-therapy.pages.dev/#marcella-mission"
                     },
                     "serviceType": "Therapy Consultation"
                   },
@@ -329,48 +259,7 @@
                     "name": "Individual Therapy (Existing Patients)",
                     "description": "In-person in San Francisco or online via Telehealth. 60-minute tailored, holistic support focusing on the here and now, bringing gentle awareness to present-moment experience. Reserved for active, ongoing clients.",
                     "provider": {
-                      "@type": "Person",
-                      "@id": "https://marcella-therapy.pages.dev/#marcella-mission",
-                      "name": "Marcella Mission",
-                      "jobTitle": "Pre-Licensed Professional, MFT & PCC Trainee",
-                      "description": "Studying psychology and working with clients at NLP Marin for over a decade. Professional Clinical Counselor and Marriage and Family Therapist Trainee at Church Street Integral Counseling Center.",
-                      "telephone": "+1-650-209-7477",
-                      "email": "marcella.mission.therapy@gmail.com",
-                      "knowsAbout": [
-                        "Life Transitions",
-                        "Depression & Anxiety",
-                        "ADHD & Neurodivergence",
-                        "Polyamory & Ethical Non-Monogamy (ENM)",
-                        "Kink & Sex-Positive Therapy",
-                        "Trauma & Somatic Exploration",
-                        "Addiction & Recovery",
-                        "Relational Dynamics & Couples",
-                        "EMDR",
-                        "Relational Dynamics & Couples Therapy",
-                        "NLP (Neuro-Linguistic Programming)",
-                        "Psychotherapy"
-                      ],
-                      "worksFor": {
-                        "@type": "MedicalOrganization",
-                        "name": "Church Street Integral Counseling Center",
-                        "address": {
-                          "@type": "PostalAddress",
-                          "streetAddress": "1782 Church Street",
-                          "addressLocality": "San Francisco",
-                          "addressRegion": "CA",
-                          "postalCode": "94131",
-                          "addressCountry": "US"
-                        }
-                      },
-                      "sponsor": {
-                        "@type": "Person",
-                        "name": "Derek Pehle, PsyD",
-                        "jobTitle": "Licensed Clinical Psychologist",
-                        "hasCredential": "CA License #21361"
-                      },
-                      "sameAs": [
-                        "https://www.psychologytoday.com/us/therapists/marcella-shehadeh-mission-san-francisco-ca/1615567"
-                      ]
+                      "@id": "https://marcella-therapy.pages.dev/#marcella-mission"
                     },
                     "serviceType": "Psychotherapy"
                   },
@@ -384,48 +273,7 @@
                     "name": "Couples & Relational Therapy (Existing Patients)",
                     "description": "Relational and integrative 60-minute support for couples and partners navigating life transitions, communication patterns, intimacy, and deeper connection. Reserved for active, ongoing clients.",
                     "provider": {
-                      "@type": "Person",
-                      "@id": "https://marcella-therapy.pages.dev/#marcella-mission",
-                      "name": "Marcella Mission",
-                      "jobTitle": "Pre-Licensed Professional, MFT & PCC Trainee",
-                      "description": "Studying psychology and working with clients at NLP Marin for over a decade. Professional Clinical Counselor and Marriage and Family Therapist Trainee at Church Street Integral Counseling Center.",
-                      "telephone": "+1-650-209-7477",
-                      "email": "marcella.mission.therapy@gmail.com",
-                      "knowsAbout": [
-                        "Life Transitions",
-                        "Depression & Anxiety",
-                        "ADHD & Neurodivergence",
-                        "Polyamory & Ethical Non-Monogamy (ENM)",
-                        "Kink & Sex-Positive Therapy",
-                        "Trauma & Somatic Exploration",
-                        "Addiction & Recovery",
-                        "Relational Dynamics & Couples",
-                        "EMDR",
-                        "Relational Dynamics & Couples Therapy",
-                        "NLP (Neuro-Linguistic Programming)",
-                        "Psychotherapy"
-                      ],
-                      "worksFor": {
-                        "@type": "MedicalOrganization",
-                        "name": "Church Street Integral Counseling Center",
-                        "address": {
-                          "@type": "PostalAddress",
-                          "streetAddress": "1782 Church Street",
-                          "addressLocality": "San Francisco",
-                          "addressRegion": "CA",
-                          "postalCode": "94131",
-                          "addressCountry": "US"
-                        }
-                      },
-                      "sponsor": {
-                        "@type": "Person",
-                        "name": "Derek Pehle, PsyD",
-                        "jobTitle": "Licensed Clinical Psychologist",
-                        "hasCredential": "CA License #21361"
-                      },
-                      "sameAs": [
-                        "https://www.psychologytoday.com/us/therapists/marcella-shehadeh-mission-san-francisco-ca/1615567"
-                      ]
+                      "@id": "https://marcella-therapy.pages.dev/#marcella-mission"
                     },
                     "serviceType": "Psychotherapy"
                   },
