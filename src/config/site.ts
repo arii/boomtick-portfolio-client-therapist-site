@@ -373,7 +373,6 @@ export function generateSiteSchema(
         "@id": `${baseUrl}/#marcella-mission`,
       },
     ],
-    sameAs: [SITE_CONFIG.psychologyTodayUrl],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Psychotherapy Services & Consultation",

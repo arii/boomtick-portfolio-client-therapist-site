@@ -330,7 +330,6 @@ const schemaOrgData = {
           "@id": `${canonicalUrl}#marcella-mission`,
         },
       ],
-      sameAs: [psychologyTodayUrl],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Psychotherapy Services & Consultation",
