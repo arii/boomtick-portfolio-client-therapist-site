@@ -142,6 +142,10 @@ export const PagePartsFragmentDoc = gql`
       closes
     }
     priceRange
+    bbsNoticeTitle
+    bbsNoticeText
+    supervisionNoticeText
+    emergencyDisclaimer
   }
 }
     `;

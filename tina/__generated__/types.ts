@@ -331,6 +331,10 @@ export type PageSite = {
   openingDays?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   openingHours?: Maybe<PageSiteOpeningHours>;
   priceRange?: Maybe<Scalars['String']['output']>;
+  bbsNoticeTitle?: Maybe<Scalars['String']['output']>;
+  bbsNoticeText?: Maybe<Scalars['String']['output']>;
+  supervisionNoticeText?: Maybe<Scalars['String']['output']>;
+  emergencyDisclaimer?: Maybe<Scalars['String']['output']>;
 };
 
 export type Page = Node & Document & {
@@ -525,6 +529,10 @@ export type PageSiteFilter = {
   openingDays?: InputMaybe<StringFilter>;
   openingHours?: InputMaybe<PageSiteOpeningHoursFilter>;
   priceRange?: InputMaybe<StringFilter>;
+  bbsNoticeTitle?: InputMaybe<StringFilter>;
+  bbsNoticeText?: InputMaybe<StringFilter>;
+  supervisionNoticeText?: InputMaybe<StringFilter>;
+  emergencyDisclaimer?: InputMaybe<StringFilter>;
 };
 
 export type PageFilter = {
@@ -764,6 +772,10 @@ export type PageSiteMutation = {
   openingDays?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   openingHours?: InputMaybe<PageSiteOpeningHoursMutation>;
   priceRange?: InputMaybe<Scalars['String']['input']>;
+  bbsNoticeTitle?: InputMaybe<Scalars['String']['input']>;
+  bbsNoticeText?: InputMaybe<Scalars['String']['input']>;
+  supervisionNoticeText?: InputMaybe<Scalars['String']['input']>;
+  emergencyDisclaimer?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type PageMutation = {
@@ -954,6 +966,10 @@ export type PageSiteFilter = {
   openingDays?: StringFilter | null | undefined;
   openingHours?: PageSiteOpeningHoursFilter | null | undefined;
   priceRange?: StringFilter | null | undefined;
+  bbsNoticeTitle?: StringFilter | null | undefined;
+  bbsNoticeText?: StringFilter | null | undefined;
+  supervisionNoticeText?: StringFilter | null | undefined;
+  emergencyDisclaimer?: StringFilter | null | undefined;
 };
 
 export type PageFilter = {
@@ -970,7 +986,7 @@ export type PagePartsFragment = { __typename: 'Page', hero: { __typename: 'PageH
       | { __typename: 'PageEventsFormFieldsInputField', label: string, fieldType: string | null, placeholder: string | null, required: boolean | null }
       | { __typename: 'PageEventsFormFieldsSelectField', label: string, options: Array<string | null> | null, required: boolean | null }
       | { __typename: 'PageEventsFormFieldsTextareaField', label: string, placeholder: string | null, required: boolean | null }
-     | null> | null, formOptions: { __typename: 'PageEventsFormOptions', submitButtonText: string | null } | null } | null, site: { __typename: 'PageSite', studioName: string, stylistName: string, title: string | null, description: string | null, keywords: Array<string | null> | null, email: string | null, phone: string | null, instagramHandle: string | null, locationDisplay: string | null, calUsername: string | null, calDefaultSlug: string | null, areaServed: Array<string | null> | null, openingDays: Array<string | null> | null, priceRange: string | null, address: { __typename: 'PageSiteAddress', locality: string | null, region: string | null, country: string | null } | null, geo: { __typename: 'PageSiteGeo', latitude: number | null, longitude: number | null } | null, openingHours: { __typename: 'PageSiteOpeningHours', opens: string | null, closes: string | null } | null } | null };
+     | null> | null, formOptions: { __typename: 'PageEventsFormOptions', submitButtonText: string | null } | null } | null, site: { __typename: 'PageSite', studioName: string, stylistName: string, title: string | null, description: string | null, keywords: Array<string | null> | null, email: string | null, phone: string | null, instagramHandle: string | null, locationDisplay: string | null, calUsername: string | null, calDefaultSlug: string | null, areaServed: Array<string | null> | null, openingDays: Array<string | null> | null, priceRange: string | null, bbsNoticeTitle: string | null, bbsNoticeText: string | null, supervisionNoticeText: string | null, emergencyDisclaimer: string | null, address: { __typename: 'PageSiteAddress', locality: string | null, region: string | null, country: string | null } | null, geo: { __typename: 'PageSiteGeo', latitude: number | null, longitude: number | null } | null, openingHours: { __typename: 'PageSiteOpeningHours', opens: string | null, closes: string | null } | null } | null };
 
 export type PageQueryVariables = Exact<{
   relativePath: string;
@@ -981,7 +997,7 @@ export type PageQuery = { page: { __typename: 'Page', id: string, _sys: { filena
         | { __typename: 'PageEventsFormFieldsInputField', label: string, fieldType: string | null, placeholder: string | null, required: boolean | null }
         | { __typename: 'PageEventsFormFieldsSelectField', label: string, options: Array<string | null> | null, required: boolean | null }
         | { __typename: 'PageEventsFormFieldsTextareaField', label: string, placeholder: string | null, required: boolean | null }
-       | null> | null, formOptions: { __typename: 'PageEventsFormOptions', submitButtonText: string | null } | null } | null, site: { __typename: 'PageSite', studioName: string, stylistName: string, title: string | null, description: string | null, keywords: Array<string | null> | null, email: string | null, phone: string | null, instagramHandle: string | null, locationDisplay: string | null, calUsername: string | null, calDefaultSlug: string | null, areaServed: Array<string | null> | null, openingDays: Array<string | null> | null, priceRange: string | null, address: { __typename: 'PageSiteAddress', locality: string | null, region: string | null, country: string | null } | null, geo: { __typename: 'PageSiteGeo', latitude: number | null, longitude: number | null } | null, openingHours: { __typename: 'PageSiteOpeningHours', opens: string | null, closes: string | null } | null } | null } };
+       | null> | null, formOptions: { __typename: 'PageEventsFormOptions', submitButtonText: string | null } | null } | null, site: { __typename: 'PageSite', studioName: string, stylistName: string, title: string | null, description: string | null, keywords: Array<string | null> | null, email: string | null, phone: string | null, instagramHandle: string | null, locationDisplay: string | null, calUsername: string | null, calDefaultSlug: string | null, areaServed: Array<string | null> | null, openingDays: Array<string | null> | null, priceRange: string | null, bbsNoticeTitle: string | null, bbsNoticeText: string | null, supervisionNoticeText: string | null, emergencyDisclaimer: string | null, address: { __typename: 'PageSiteAddress', locality: string | null, region: string | null, country: string | null } | null, geo: { __typename: 'PageSiteGeo', latitude: number | null, longitude: number | null } | null, openingHours: { __typename: 'PageSiteOpeningHours', opens: string | null, closes: string | null } | null } | null } };
 
 export type PageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -997,7 +1013,7 @@ export type PageConnectionQuery = { pageConnection: { totalCount: number, pageIn
             | { __typename: 'PageEventsFormFieldsInputField', label: string, fieldType: string | null, placeholder: string | null, required: boolean | null }
             | { __typename: 'PageEventsFormFieldsSelectField', label: string, options: Array<string | null> | null, required: boolean | null }
             | { __typename: 'PageEventsFormFieldsTextareaField', label: string, placeholder: string | null, required: boolean | null }
-           | null> | null, formOptions: { __typename: 'PageEventsFormOptions', submitButtonText: string | null } | null } | null, site: { __typename: 'PageSite', studioName: string, stylistName: string, title: string | null, description: string | null, keywords: Array<string | null> | null, email: string | null, phone: string | null, instagramHandle: string | null, locationDisplay: string | null, calUsername: string | null, calDefaultSlug: string | null, areaServed: Array<string | null> | null, openingDays: Array<string | null> | null, priceRange: string | null, address: { __typename: 'PageSiteAddress', locality: string | null, region: string | null, country: string | null } | null, geo: { __typename: 'PageSiteGeo', latitude: number | null, longitude: number | null } | null, openingHours: { __typename: 'PageSiteOpeningHours', opens: string | null, closes: string | null } | null } | null } | null } | null> | null } };
+           | null> | null, formOptions: { __typename: 'PageEventsFormOptions', submitButtonText: string | null } | null } | null, site: { __typename: 'PageSite', studioName: string, stylistName: string, title: string | null, description: string | null, keywords: Array<string | null> | null, email: string | null, phone: string | null, instagramHandle: string | null, locationDisplay: string | null, calUsername: string | null, calDefaultSlug: string | null, areaServed: Array<string | null> | null, openingDays: Array<string | null> | null, priceRange: string | null, bbsNoticeTitle: string | null, bbsNoticeText: string | null, supervisionNoticeText: string | null, emergencyDisclaimer: string | null, address: { __typename: 'PageSiteAddress', locality: string | null, region: string | null, country: string | null } | null, geo: { __typename: 'PageSiteGeo', latitude: number | null, longitude: number | null } | null, openingHours: { __typename: 'PageSiteOpeningHours', opens: string | null, closes: string | null } | null } | null } | null } | null> | null } };
 
 export const PagePartsFragmentDoc = gql`
     fragment PageParts on Page {
@@ -1136,6 +1152,10 @@ export const PagePartsFragmentDoc = gql`
       closes
     }
     priceRange
+    bbsNoticeTitle
+    bbsNoticeText
+    supervisionNoticeText
+    emergencyDisclaimer
   }
 }
     `;

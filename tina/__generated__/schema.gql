@@ -235,6 +235,10 @@ type PageSite {
   openingDays: [String]
   openingHours: PageSiteOpeningHours
   priceRange: String
+  bbsNoticeTitle: String
+  bbsNoticeText: String
+  supervisionNoticeText: String
+  emergencyDisclaimer: String
 }
 
 type Page implements Node & Document {
@@ -428,6 +432,10 @@ input PageSiteFilter {
   openingDays: StringFilter
   openingHours: PageSiteOpeningHoursFilter
   priceRange: StringFilter
+  bbsNoticeTitle: StringFilter
+  bbsNoticeText: StringFilter
+  supervisionNoticeText: StringFilter
+  emergencyDisclaimer: StringFilter
 }
 
 input PageFilter {
@@ -619,6 +627,10 @@ input PageSiteMutation {
   openingDays: [String]
   openingHours: PageSiteOpeningHoursMutation
   priceRange: String
+  bbsNoticeTitle: String
+  bbsNoticeText: String
+  supervisionNoticeText: String
+  emergencyDisclaimer: String
 }
 
 input PageMutation {
