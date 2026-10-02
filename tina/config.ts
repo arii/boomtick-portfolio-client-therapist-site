@@ -781,6 +781,36 @@ export default defineConfig({
                 name: "priceRange",
                 label: "Price Range",
               },
+              {
+                type: "string",
+                name: "bbsNoticeTitle",
+                label: "BBS Credential Notice Title",
+                description:
+                  "Title for California BBS Professional Credential & Supervision Notice",
+              },
+              {
+                type: "string",
+                name: "bbsNoticeText",
+                label: "BBS Credential & Practice Notice",
+                description:
+                  "Notice regarding trainee status, credentials, and counseling center",
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "supervisionNoticeText",
+                label: "Clinical Supervision Notice",
+                description:
+                  "Supervising clinical psychologist name, degree, and CA license number",
+              },
+              {
+                type: "string",
+                name: "emergencyDisclaimer",
+                label: "Emergency & Crisis Disclaimer",
+                description:
+                  "Emergency instructions, 911 notice, and 988 Suicide & Crisis Lifeline notice",
+                ui: { component: "textarea" },
+              },
             ],
           },
         ],

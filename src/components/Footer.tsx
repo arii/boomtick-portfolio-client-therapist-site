@@ -124,30 +124,37 @@ export const Footer: React.FC<FooterProps> = ({
         <div className="p-5 rounded-xl bg-stone-950/80 border border-stone-800 text-xs text-stone-300 font-sans space-y-2">
           <div className="flex items-center gap-2 text-emerald-400 font-semibold">
             <ShieldCheck className="w-4 h-4" />
-            <span>
-              California BBS Professional Credential &amp; Supervision Notice
+            <span data-tina-field={tinaField(liveSite, "bbsNoticeTitle")}>
+              {liveSite?.bbsNoticeTitle ||
+                "California BBS Professional Credential & Supervision Notice"}
             </span>
           </div>
-          <p className="text-stone-300 leading-relaxed">
-            Marcella Mission is a Pre-Licensed Professional practicing as a
-            Marriage and Family Therapist (MFT) Trainee and Professional
-            Clinical Counselor (PCC) Trainee at Church Street Integral
-            Counseling Center.
+          <p
+            data-tina-field={tinaField(liveSite, "bbsNoticeText")}
+            className="text-stone-300 leading-relaxed"
+          >
+            {liveSite?.bbsNoticeText ||
+              "Marcella Mission is a Pre-Licensed Professional practicing as a Marriage and Family Therapist (MFT) Trainee and Professional Clinical Counselor (PCC) Trainee at Church Street Integral Counseling Center."}
           </p>
-          <p className="text-stone-100 font-medium tracking-wide">
-            Supervised by Derek Pehle, PsyD (CA Licensed Psychologist #21361).
+          <p
+            data-tina-field={tinaField(liveSite, "supervisionNoticeText")}
+            className="text-stone-100 font-medium tracking-wide"
+          >
+            {liveSite?.supervisionNoticeText ||
+              "Supervised by Derek Pehle, PsyD (CA Licensed Psychologist #21361)."}
           </p>
         </div>
 
         {/* Emergency & Crisis Disclaimer Box */}
         <div className="p-4 rounded-xl bg-amber-950/30 border border-amber-900/40 text-xs text-amber-200 font-sans flex items-start gap-3">
           <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-          <p className="leading-relaxed">
-            <strong>Emergency &amp; Crisis Disclaimer:</strong> If you are
-            experiencing a life-threatening medical or mental health emergency,
-            please call <strong>911</strong> or go to your nearest emergency
-            room immediately. You can also connect 24/7 with the Suicide &amp;
-            Crisis Lifeline by calling or texting <strong>988</strong>.
+          <p
+            data-tina-field={tinaField(liveSite, "emergencyDisclaimer")}
+            className="leading-relaxed"
+          >
+            <strong>Emergency &amp; Crisis Disclaimer:</strong>{" "}
+            {liveSite?.emergencyDisclaimer ||
+              "If you are experiencing a life-threatening medical or mental health emergency, please call 911 or go to your nearest emergency room immediately. You can also connect 24/7 with the Suicide & Crisis Lifeline by calling or texting 988."}
           </p>
         </div>
 

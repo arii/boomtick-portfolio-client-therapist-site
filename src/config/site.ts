@@ -48,7 +48,7 @@ function resolveSiteUrl(): string {
 }
 
 const DEFAULT_DEPLOYMENT_ID =
-  "AKfycbzcKzeTp7qNkMgNk_MJkj9zjPpkkU3CI8QmJsTbIM6eY-SNEcr0V4lUVEE5xwRzdBD7Ag";
+  "AKfycbyieC8-zbVxw5Yiw_35Nl8aFlP52GZtOIvqVVuNtDbXn37ydKe3CBlPCCQwgMgIkeVRzQ";
 
 const deploymentId =
   (typeof process !== "undefined" && process.env && process.env.DEPLOYMENT_ID
@@ -94,7 +94,9 @@ export const SITE_CONFIG = {
   stylistName: SITE_CONTENT.stylistName,
   therapistName: SITE_CONTENT.stylistName,
   credentials: HERO_CONTENT.badge,
-  supervisorDisclaimer: "Supervised by Derek Pehle, PsyD Lic 21361",
+  supervisorDisclaimer:
+    SITE_CONTENT.supervisionNoticeText ||
+    "Supervised by Derek Pehle, PsyD (CA Licensed Psychologist #21361)",
   practiceLocation: "1782 Church Street, San Francisco, CA 94131 (Noe Valley)",
   title: SITE_CONTENT.title,
   description: SITE_CONTENT.description,
@@ -125,7 +127,8 @@ export const SITE_CONFIG = {
 
   // Emergency Disclaimer
   emergencyDisclaimer:
-    "If this is a life-threatening emergency, please call 911 or go to your nearest emergency room. You can also reach the National Suicide Prevention Lifeline by calling or texting 988 (available 24/7).",
+    SITE_CONTENT.emergencyDisclaimer ||
+    "If you are experiencing a life-threatening medical or mental health emergency, please call 911 or go to your nearest emergency room immediately. You can also connect 24/7 with the Suicide & Crisis Lifeline by calling or texting 988.",
 
   // Address & Hours
   address: SITE_CONTENT.address,

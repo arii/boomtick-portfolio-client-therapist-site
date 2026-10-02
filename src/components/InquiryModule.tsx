@@ -198,7 +198,7 @@ export const InquiryModule: React.FC<InquiryModuleProps> = ({
               className="px-4 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold uppercase tracking-wider font-sans transition flex items-center gap-2 shadow-xs"
             >
               <MessageSquare className="w-3.5 h-3.5" />
-              <span>Text ({SITE_CONFIG.phoneDisplay})</span>
+              <span>Text {SITE_CONFIG.phoneDisplay}</span>
             </a>
           </div>
         </div>

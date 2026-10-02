@@ -92,6 +92,10 @@ export interface SiteContent {
     closes: string;
   };
   priceRange: string;
+  bbsNoticeTitle?: string;
+  bbsNoticeText?: string;
+  supervisionNoticeText?: string;
+  emergencyDisclaimer?: string;
   [key: string]: unknown;
 }
 

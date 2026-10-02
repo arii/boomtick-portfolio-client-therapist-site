@@ -153,6 +153,10 @@ const PAGE_CONTENT_QUERY = `
           closes
         }
         priceRange
+        bbsNoticeTitle
+        bbsNoticeText
+        supervisionNoticeText
+        emergencyDisclaimer
       }
     }
   }

@@ -162,15 +162,15 @@ export default defineConfig(({ command, mode }) => {
       "process.env.VITE_TINA_BRANCH": JSON.stringify(tinaBranch),
       "process.env.DEPLOYMENT_ID": JSON.stringify(
         deploymentId ||
-          "AKfycbzcKzeTp7qNkMgNk_MJkj9zjPpkkU3CI8QmJsTbIM6eY-SNEcr0V4lUVEE5xwRzdBD7Ag"
+          "AKfycbyieC8-zbVxw5Yiw_35Nl8aFlP52GZtOIvqVVuNtDbXn37ydKe3CBlPCCQwgMgIkeVRzQ"
       ),
       "import.meta.env.VITE_DEPLOYMENT_ID": JSON.stringify(
         deploymentId ||
-          "AKfycbzcKzeTp7qNkMgNk_MJkj9zjPpkkU3CI8QmJsTbIM6eY-SNEcr0V4lUVEE5xwRzdBD7Ag"
+          "AKfycbyieC8-zbVxw5Yiw_35Nl8aFlP52GZtOIvqVVuNtDbXn37ydKe3CBlPCCQwgMgIkeVRzQ"
       ),
       "import.meta.env.DEPLOYMENT_ID": JSON.stringify(
         deploymentId ||
-          "AKfycbzcKzeTp7qNkMgNk_MJkj9zjPpkkU3CI8QmJsTbIM6eY-SNEcr0V4lUVEE5xwRzdBD7Ag"
+          "AKfycbyieC8-zbVxw5Yiw_35Nl8aFlP52GZtOIvqVVuNtDbXn37ydKe3CBlPCCQwgMgIkeVRzQ"
       ),
     },
     plugins: [react(), tailwindcss(), dynamicSeoAndCdnPlugin()],
