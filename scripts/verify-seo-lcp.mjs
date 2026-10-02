@@ -50,10 +50,6 @@ check(
   /<meta\s+name="description"\s+content="[^"]+"/i.test(html)
 );
 check(
-  "Meta keywords exist",
-  /<meta\s+name="keywords"\s+content="[^"]+"/i.test(html)
-);
-check(
   "Meta author exists",
   /<meta\s+name="author"\s+content="[^"]+"/i.test(html)
 );

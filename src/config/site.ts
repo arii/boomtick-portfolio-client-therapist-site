@@ -197,6 +197,29 @@ export function generateSiteSchema(
       ? `+1-${cleanPhoneDigits.slice(0, 3)}-${cleanPhoneDigits.slice(3, 6)}-${cleanPhoneDigits.slice(6)}`
       : SITE_CONFIG.telephoneSchema;
 
+  const clinicOrganization = {
+    "@type": "MedicalOrganization",
+    "@id": `${baseUrl}/#clinic`,
+    name: "Church Street Integral Counseling Center",
+    url: "https://www.churchstreetcenter.org/",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "1782 Church Street",
+      addressLocality: "San Francisco",
+      addressRegion: "CA",
+      postalCode: "94131",
+      addressCountry: "US",
+    },
+  };
+
+  const supervisorPerson = {
+    "@type": "Person",
+    "@id": `${baseUrl}/#supervisor`,
+    name: "Derek Pehle, PsyD",
+    jobTitle: "Licensed Clinical Psychologist",
+    hasCredential: "CA License #21361",
+  };
+
   const therapistPerson = {
     "@type": "Person",
     "@id": `${baseUrl}/#marcella-mission`,
@@ -216,24 +239,13 @@ export function generateSiteSchema(
       "Addiction & Recovery",
       "Relational Dynamics & Couples Therapy",
       "NLP (Neuro-Linguistic Programming)",
+      "Psychotherapy",
     ],
     worksFor: {
-      "@type": "MedicalOrganization",
-      name: "Church Street Integral Counseling Center",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "1782 Church Street",
-        addressLocality: "San Francisco",
-        addressRegion: "CA",
-        postalCode: "94131",
-        addressCountry: "US",
-      },
+      "@id": `${baseUrl}/#clinic`,
     },
     sponsor: {
-      "@type": "Person",
-      name: "Derek Pehle, PsyD",
-      jobTitle: "Licensed Clinical Psychologist",
-      hasCredential: "CA License #21361",
+      "@id": `${baseUrl}/#supervisor`,
     },
     sameAs: [SITE_CONFIG.psychologyTodayUrl],
   };
@@ -255,7 +267,9 @@ export function generateSiteSchema(
           "@type": "Service",
           name: name,
           description: description,
-          provider: therapistPerson,
+          provider: {
+            "@id": `${baseUrl}/#marcella-mission`,
+          },
           serviceType: "Psychotherapy",
         },
         price: rawPrice || "80",
@@ -271,7 +285,9 @@ export function generateSiteSchema(
       name: "Free 30-Minute Consultation",
       description:
         "Complimentary phone or video consultation to connect, discuss therapy intentions, and verify clinical fit.",
-      provider: therapistPerson,
+      provider: {
+        "@id": `${baseUrl}/#marcella-mission`,
+      },
       serviceType: "Therapy Consultation",
     },
     price: "0",
@@ -349,8 +365,14 @@ export function generateSiteSchema(
         name: "California",
       },
     ],
-    founder: therapistPerson,
-    employee: [therapistPerson],
+    founder: {
+      "@id": `${baseUrl}/#marcella-mission`,
+    },
+    employee: [
+      {
+        "@id": `${baseUrl}/#marcella-mission`,
+      },
+    ],
     sameAs: [SITE_CONFIG.psychologyTodayUrl],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -396,6 +418,12 @@ export function generateSiteSchema(
 
   return {
     "@context": "https://schema.org",
-    "@graph": [medicalBusinessSchema, faqPageSchema],
+    "@graph": [
+      clinicOrganization,
+      supervisorPerson,
+      therapistPerson,
+      medicalBusinessSchema,
+      faqPageSchema,
+    ],
   };
 }

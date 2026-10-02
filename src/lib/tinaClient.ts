@@ -27,13 +27,15 @@ const isDev = Boolean(import.meta.env?.DEV);
 /**
  * Unified TinaCMS Content API Client
  * - In local development: uses defaultClient (http://localhost:4001/graphql)
- * - In production: uses TinaCloud endpoint if clientId and token are configured, otherwise falls back to defaultClient
+ * - In production: uses TinaCloud endpoint ONLY if clientId and token are configured.
+ * - Otherwise (production static build without TinaCloud): returns null to prevent any failed localhost XHR calls.
  */
-export const tinaClient =
-  !isDev && clientId && token
+export const tinaClient = isDev
+  ? defaultClient
+  : clientId && token
     ? createClient({
         url: `https://content.tinajs.io/content/${clientId}/github/${branch}`,
         token,
         queries,
       })
-    : defaultClient;
+    : null;

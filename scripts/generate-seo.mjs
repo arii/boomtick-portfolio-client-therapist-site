@@ -150,6 +150,29 @@ const telephoneSchema = `+1-${cleanPhoneDigits.slice(0, 3)}-${cleanPhoneDigits.s
 const psychologyTodayUrl =
   "https://www.psychologytoday.com/us/therapists/marcella-shehadeh-mission-san-francisco-ca/1615567";
 
+const clinicOrganization = {
+  "@type": "MedicalOrganization",
+  "@id": `${canonicalUrl}#clinic`,
+  name: "Church Street Integral Counseling Center",
+  url: "https://www.churchstreetcenter.org/",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "1782 Church Street",
+    addressLocality: "San Francisco",
+    addressRegion: "CA",
+    postalCode: "94131",
+    addressCountry: "US",
+  },
+};
+
+const supervisorPerson = {
+  "@type": "Person",
+  "@id": `${canonicalUrl}#supervisor`,
+  name: "Derek Pehle, PsyD",
+  jobTitle: "Licensed Clinical Psychologist",
+  hasCredential: "CA License #21361",
+};
+
 const therapistPerson = {
   "@type": "Person",
   "@id": `${canonicalUrl}#marcella-mission`,
@@ -175,22 +198,10 @@ const therapistPerson = {
     ])
   ),
   worksFor: {
-    "@type": "MedicalOrganization",
-    name: "Church Street Integral Counseling Center",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "1782 Church Street",
-      addressLocality: "San Francisco",
-      addressRegion: "CA",
-      postalCode: "94131",
-      addressCountry: "US",
-    },
+    "@id": `${canonicalUrl}#clinic`,
   },
   sponsor: {
-    "@type": "Person",
-    name: "Derek Pehle, PsyD",
-    jobTitle: "Licensed Clinical Psychologist",
-    hasCredential: "CA License #21361",
+    "@id": `${canonicalUrl}#supervisor`,
   },
   sameAs: [psychologyTodayUrl],
 };
@@ -201,7 +212,9 @@ const serviceOffers = services.map((s) => ({
     "@type": "Service",
     name: s.name,
     description: s.description,
-    provider: therapistPerson,
+    provider: {
+      "@id": `${canonicalUrl}#marcella-mission`,
+    },
     serviceType: "Psychotherapy",
   },
   price: (s.price || "").replace(/[^0-9]/g, "") || "80",
@@ -215,7 +228,9 @@ serviceOffers.unshift({
     name: "Free 15-Minute Consultation",
     description:
       "Complimentary phone or video consultation to connect, discuss therapy intentions, and verify clinical fit.",
-    provider: therapistPerson,
+    provider: {
+      "@id": `${canonicalUrl}#marcella-mission`,
+    },
     serviceType: "Therapy Consultation",
   },
   price: "0",
@@ -240,6 +255,9 @@ const ogImageAlt =
 const schemaOrgData = {
   "@context": "https://schema.org",
   "@graph": [
+    clinicOrganization,
+    supervisorPerson,
+    therapistPerson,
     {
       "@type": ["MedicalBusiness", "LocalBusiness"],
       "@id": `${canonicalUrl}#practice`,
@@ -304,8 +322,14 @@ const schemaOrgData = {
           name: "California",
         },
       ],
-      founder: therapistPerson,
-      employee: [therapistPerson],
+      founder: {
+        "@id": `${canonicalUrl}#marcella-mission`,
+      },
+      employee: [
+        {
+          "@id": `${canonicalUrl}#marcella-mission`,
+        },
+      ],
       sameAs: [psychologyTodayUrl],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
@@ -341,8 +365,8 @@ html = html.replace(
   `<meta name="description" content="${site.description}"`
 );
 html = html.replace(
-  /<meta\s+name="keywords"\s+content="[^"]*"/i,
-  `<meta name="keywords" content="${site.keywords.join(", ")}"`
+  /<meta\s+name="keywords"\s+content="[^"]*"\s*\/?>\n?/i,
+  ""
 );
 html = html.replace(
   /<meta\s+name="author"\s+content="[^"]*"/i,
