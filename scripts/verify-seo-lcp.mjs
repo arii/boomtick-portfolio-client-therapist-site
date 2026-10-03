@@ -176,6 +176,14 @@ const notFoundPath = path.join(distPath, "404.html");
 check("robots.txt present in dist", fs.existsSync(robotsPath));
 check("sitemap.xml present in dist", fs.existsSync(sitemapPath));
 check("llms.txt present in dist", fs.existsSync(llmsPath));
+check(
+  "Google Search Console verification file present in dist",
+  fs.existsSync(path.join(distPath, "googlebd35523302f8ab81.html"))
+);
+check(
+  "Google Search Console verification meta tag present",
+  html.includes("googlebd35523302f8ab81")
+);
 check("CDN _headers present in dist", fs.existsSync(headersPath));
 check("CDN _redirects present in dist", fs.existsSync(redirectsPath));
 check("CDN 404.html fallback present in dist", fs.existsSync(notFoundPath));
