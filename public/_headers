@@ -13,6 +13,8 @@
   Cache-Control: public, max-age=0, must-revalidate
 /llms.txt
   Cache-Control: public, max-age=0, must-revalidate
+/site.webmanifest
+  Cache-Control: public, max-age=0, must-revalidate
 
 # Global CDN Security Headers
 /*

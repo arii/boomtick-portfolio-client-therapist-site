@@ -197,6 +197,22 @@ export function generateSiteSchema(
       ? `+1-${cleanPhoneDigits.slice(0, 3)}-${cleanPhoneDigits.slice(3, 6)}-${cleanPhoneDigits.slice(6)}`
       : SITE_CONFIG.telephoneSchema;
 
+  const websiteSchema = {
+    "@type": "WebSite",
+    "@id": `${baseUrl}/#website`,
+    name: merged.studioName || SITE_CONFIG.studioName,
+    alternateName: [
+      "Marcella Mission",
+      "Marcella Mission Psychotherapy",
+      "Marcella Mission Therapy SF",
+    ],
+    url: baseUrl,
+    publisher: {
+      "@id": `${baseUrl}/#practice`,
+    },
+    inLanguage: "en-US",
+  };
+
   const clinicOrganization = {
     "@type": "MedicalOrganization",
     "@id": `${baseUrl}/#clinic`,
@@ -418,6 +434,7 @@ export function generateSiteSchema(
   return {
     "@context": "https://schema.org",
     "@graph": [
+      websiteSchema,
       clinicOrganization,
       supervisorPerson,
       therapistPerson,

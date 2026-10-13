@@ -1,0 +1,22 @@
+{
+  "name": "Marcella Mission Therapy",
+  "short_name": "Marcella Mission",
+  "description": "Holistic, relational, and integrative psychotherapy in San Francisco and online across California.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1c1917",
+  "theme_color": "#fafaf9",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ]
+}

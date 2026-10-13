@@ -252,9 +252,26 @@ const ogImageAlt =
   site.title ||
   "Marcella Mission Therapy - Holistic Therapy in San Francisco";
 
+const websiteSchema = {
+  "@type": "WebSite",
+  "@id": `${canonicalUrl}#website`,
+  name: site.studioName,
+  alternateName: [
+    "Marcella Mission",
+    "Marcella Mission Psychotherapy",
+    "Marcella Mission Therapy SF",
+  ],
+  url: siteUrl,
+  publisher: {
+    "@id": `${canonicalUrl}#practice`,
+  },
+  inLanguage: "en-US",
+};
+
 const schemaOrgData = {
   "@context": "https://schema.org",
   "@graph": [
+    websiteSchema,
     clinicOrganization,
     supervisorPerson,
     therapistPerson,
@@ -440,6 +457,10 @@ if (fs.existsSync(distDir)) {
   fs.writeFileSync(path.join(distDir, "sitemap.xml"), sitemapContent, "utf8");
   fs.writeFileSync(path.join(distDir, "robots.txt"), robotsContent, "utf8");
   fs.writeFileSync(path.join(distDir, "llms.txt"), llmsContent, "utf8");
+  const manifestSrc = path.join(rootDir, "public/site.webmanifest");
+  if (fs.existsSync(manifestSrc)) {
+    fs.copyFileSync(manifestSrc, path.join(distDir, "site.webmanifest"));
+  }
 }
 
 console.log(

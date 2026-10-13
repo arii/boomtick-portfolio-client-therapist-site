@@ -147,6 +147,14 @@ if (schemaMatch) {
         schemaObj.geo.longitude
       )
     );
+    const websiteObj = Array.isArray(parsed["@graph"])
+      ? parsed["@graph"].find((node) => node["@type"] === "WebSite")
+      : null;
+    check(
+      "Schema.org WebSite structured data present with site name",
+      Boolean(websiteObj && websiteObj.name === "Marcella Mission Therapy"),
+      websiteObj?.name || "missing"
+    );
   } catch (err) {
     check("Schema.org JSON-LD parsing", false, err.message);
   }
@@ -176,6 +184,19 @@ const notFoundPath = path.join(distPath, "404.html");
 check("robots.txt present in dist", fs.existsSync(robotsPath));
 check("sitemap.xml present in dist", fs.existsSync(sitemapPath));
 check("llms.txt present in dist", fs.existsSync(llmsPath));
+check(
+  "site.webmanifest present in dist",
+  fs.existsSync(path.join(distPath, "site.webmanifest"))
+);
+check(
+  "og:site_name matches Marcella Mission Therapy",
+  html.includes('property="og:site_name" content="Marcella Mission Therapy"')
+);
+check(
+  "Brand application-name & apple-touch-icon configured",
+  html.includes('name="application-name" content="Marcella Mission Therapy"') &&
+    html.includes('rel="apple-touch-icon"')
+);
 check(
   "Google Search Console verification file present in dist",
   fs.existsSync(path.join(distPath, "googlebd35523302f8ab81.html"))
