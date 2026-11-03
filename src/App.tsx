@@ -4,7 +4,6 @@ import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { StyleShowcase } from "./components/StyleShowcase";
 import { EventsCollaboration } from "./components/EventsCollaboration";
-import { InquiryModule } from "./components/InquiryModule";
 import { FAQ } from "./components/FAQ";
 import { Footer } from "./components/Footer";
 import { SchemaOrg } from "./components/SchemaOrg";
@@ -357,23 +356,6 @@ export default function App() {
     setIsBookingOpen(true);
   };
 
-  const processedFormFields = (liveEvents?.formFields || []).map((f) => {
-    if (f._template) return f;
-    let template: "inputField" | "selectField" | "textareaField" = "inputField";
-    if (
-      f.__typename === "PageEventsFormFieldsSelectField" ||
-      f.__typename === "EventsFormFieldsSelectField"
-    ) {
-      template = "selectField";
-    } else if (
-      f.__typename === "PageEventsFormFieldsTextareaField" ||
-      f.__typename === "EventsFormFieldsTextareaField"
-    ) {
-      template = "textareaField";
-    }
-    return { ...f, _template: template };
-  });
-
   const cleanPhoneDigits = (liveSite?.phone || SITE_CONFIG.phone).replace(
     /[^0-9]/g,
     ""
@@ -495,15 +477,8 @@ export default function App() {
         {/* FAQs */}
         <FAQ content={liveFaq} />
 
-        {/* 4. Consultation Inquiry Section & Form */}
+        {/* 4. Consultation Inquiry Section (form hidden while the Apps Script backend is down) */}
         <EventsCollaboration content={liveEvents} />
-        {liveEvents?.showForm !== false && (
-          <InquiryModule
-            formFields={processedFormFields}
-            submitButtonText={liveEvents?.formOptions?.submitButtonText}
-            recipientEmail={liveSite.email || SITE_CONFIG.email}
-          />
-        )}
       </main>
 
       {/* Footer Branding & Legal Disclaimers */}

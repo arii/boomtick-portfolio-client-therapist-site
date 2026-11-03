@@ -160,8 +160,8 @@
   },
   "events": {
     "title": "Let's Connect",
-    "description": "Call, text, or use the form below to schedule a free 30-minute consultation call to see if we're a good fit.",
-    "showForm": true,
+    "description": "Call or text to schedule a free 30-minute consultation call to see if we're a good fit.",
+    "showForm": false,
     "formFields": [
       {
         "label": "First Name",
